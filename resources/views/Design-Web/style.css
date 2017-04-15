@@ -24,20 +24,26 @@ body{
     width: 100%;
     margin-top: 10px;
 
-
 }
 
 #logoBDE, #logoCesi, #ajout{
-
+    display: inline-block;
+    margin-left: 10px;
 
 }
 #logoCesi img, #logoBDE img{
 
+
     height: 7rem;
 
 }
-#ajout img,.logo img{
+#ajout img{
 
+    height: 4rem;
+
+}
+
+.logo img{
 
     height: 4rem;
 }
@@ -49,11 +55,8 @@ body{
     height : 115px;
     width: 230px;
     text-align: center;
-
-
-
-
-
+    margin-left: 10px;
+    margin-right: 10px;
 
 
 }
@@ -67,3 +70,10 @@ body{
 
 }
 
+#tache{
+    display: inline-block;
+    margin-left: 15%;
+    position: static;
+
+
+}
