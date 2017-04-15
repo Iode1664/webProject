@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../public/css//style.css">
+    <link rel="stylesheet" href="../../public/css/style.css">
     @yield('custom_css')
 </head>
 <body>
