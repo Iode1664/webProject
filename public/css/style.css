@@ -6,6 +6,7 @@ body {
     font-family: arial, sans-serif;
     font-size: 1.3rem;
     font-weight: 400;
+
 }
 
 #top, #home, #activity, #shop, #cart{
@@ -78,4 +79,32 @@ body {
 #cart .titre {
     height : 3rem;
     width: 10rem;
+}
+#foot{
+    color: white;
+    background-color: #cc0000;
+    height: 15rem;
+
+}
+
+#facebook img{
+    height: 3.5rem;
+    padding-left: 11rem;
+}
+
+#facebook,#twitter{
+    margin-top: 5rem;
+}
+
+#twitter img{
+height: 3.5rem;
+
+}
+
+#mention p,#copyright p{
+    margin-top: 6rem;
+}
+
+#contact p{
+    margin-top: 3rem;
 }
