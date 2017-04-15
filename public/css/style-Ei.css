@@ -1,0 +1,110 @@
+body img {
+    height: 7rem;
+}
+
+body {
+    font-family: arial, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+
+}
+
+#top, #home, #activity, #shop, #cart{
+    background-color:  #1169B0;
+    height: 5rem;
+}
+
+#top {
+    height: 5rem;
+}
+
+#contain {
+    height: 16rem;
+    background-color: white;
+    border-bottom-style: groove;
+    border-bottom-width: thin;
+    border-bottom-color: grey;
+}
+
+#home,#activity,#shop{
+    height: 13rem;
+    /*height : 115px;
+    width: 230px;*/
+    text-align: center;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 1.5rem;
+}
+
+.logo img{
+    margin-top: 12px;
+}
+
+#logoBDE img {
+    height: 16rem;
+    margin-left: 14rem;
+}
+
+#logoCesi img{
+    height: 13rem;
+    margin-top: 10px;
+}
+
+#cart {
+    height: 11rem;
+    text-align: center;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 2.5rem;
+}
+
+#cart img {
+    height: 5rem;
+}
+
+.titre {
+    margin-top: 10px;
+    display: inline-block;
+    background-color: white;
+    color: #1169B0;
+    height : 3rem;
+    width: 25rem;
+}
+
+.titre p {
+    margin-top: 0.5rem;
+    font-size: 1.6rem;
+}
+
+#cart .titre {
+    height : 3rem;
+    width: 10rem;
+}
+#foot{
+    color: white;
+    background-color: #1169B0;
+    height: 15rem;
+
+}
+
+#facebook img{
+    height: 3.5rem;
+    padding-left: 11rem;
+}
+
+#facebook,#twitter{
+    margin-top: 5rem;
+}
+
+#twitter img{
+height: 3.5rem;
+
+}
+
+#mention p,#copyright p{
+    margin-top: 6rem;
+}
+
+#contact p{
+    margin-top: 3rem;
+}

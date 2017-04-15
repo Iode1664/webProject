@@ -1,0 +1,90 @@
+
+
+body {
+    font-family: arial, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+
+}
+
+#top{
+    background-color:  #666666;
+    height: 5rem;
+}
+
+#bottom{
+    background-color:  #666666;
+    height: 2.5rem;
+}
+
+
+#contain {
+    height: 16rem;
+    background-color: white;
+    border-bottom-style: groove;
+    border-bottom-width: thin;
+    border-bottom-color: grey;
+}
+
+#logoExia img , #logoEi img, #logoCesi img {
+    margin-top: 15px;
+    margin-left: 25%;
+}
+
+#logoExia img{
+    height: 12rem;
+
+
+}
+
+#logoEi img {
+    height: 13rem;
+
+
+}
+
+#logoCesi img{
+    height: 10rem;
+
+}
+
+#cart {
+    height: 11rem;
+    text-align: center;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 2.5rem;
+}
+
+
+
+
+
+#foot{
+    color: white;
+    background-color: #666666;
+    height: 15rem;
+
+}
+
+#facebook img{
+    height: 3.5rem;
+    padding-left: 11rem;
+}
+
+#facebook,#twitter{
+    margin-top: 5rem;
+}
+
+#twitter img{
+height: 3.5rem;
+
+}
+
+#mention p,#copyright p{
+    margin-top: 6rem;
+}
+
+#contact p{
+    margin-top: 3rem;
+}

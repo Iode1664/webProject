@@ -1,14 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../public/css/style.css">
+    <link rel="stylesheet" href="../../public/css/style-Exia.css">
     @yield('custom_css')
 </head>
 <body>
 {{--Header--}}
 <header>
-    div class="container-fluid">
+    <div class="container-fluid">
     <div class="container-fluid">
         <div id="top" class="row"></div>
         <div id="contain" class="row">
