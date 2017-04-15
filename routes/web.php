@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('photo', function () {
+    return view('Design-Web/Header-Exia');
+});
