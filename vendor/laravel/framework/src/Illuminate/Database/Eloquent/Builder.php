@@ -185,7 +185,11 @@ class Builder
      *
      * @param  string|\Closure  $column
      * @param  string  $operator
+<<<<<<< HEAD
      * @param  mixed   $value
+=======
+     * @param  mixed  $value
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
      * @param  string  $boolean
      * @return $this
      */
@@ -209,7 +213,11 @@ class Builder
      *
      * @param  string|\Closure  $column
      * @param  string  $operator
+<<<<<<< HEAD
      * @param  mixed   $value
+=======
+     * @param  mixed  $value
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
      * @return \Illuminate\Database\Eloquent\Builder|static
      */
     public function orWhere($column, $operator = null, $value = null)
@@ -225,7 +233,11 @@ class Builder
      */
     public function hydrate(array $items)
     {
+<<<<<<< HEAD
         $instance = $this->model->newInstance();
+=======
+        $instance = $this->newModelInstance();
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
 
         return $instance->newCollection(array_map(function ($item) use ($instance) {
             return $instance->newFromBuilder($item);
@@ -241,10 +253,15 @@ class Builder
      */
     public function fromQuery($query, $bindings = [])
     {
+<<<<<<< HEAD
         $instance = $this->model->newInstance();
 
         return $this->hydrate(
             $instance->getConnection()->select($query, $bindings)
+=======
+        return $this->hydrate(
+            $this->query->getConnection()->select($query, $bindings)
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
         );
     }
 
@@ -319,9 +336,13 @@ class Builder
             return $model;
         }
 
+<<<<<<< HEAD
         return $this->model->newInstance()->setConnection(
             $this->query->getConnection()->getName()
         );
+=======
+        return $this->newModelInstance();
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
     }
 
     /**
@@ -337,9 +358,13 @@ class Builder
             return $instance;
         }
 
+<<<<<<< HEAD
         return $this->model->newInstance($attributes + $values)->setConnection(
             $this->query->getConnection()->getName()
         );
+=======
+        return $this->newModelInstance($attributes + $values);
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
     }
 
     /**
@@ -355,6 +380,7 @@ class Builder
             return $instance;
         }
 
+<<<<<<< HEAD
         $instance = $this->model->newInstance($attributes + $values)->setConnection(
             $this->query->getConnection()->getName()
         );
@@ -362,6 +388,11 @@ class Builder
         $instance->save();
 
         return $instance;
+=======
+        return tap($this->newModelInstance($attributes + $values), function ($instance) {
+            $instance->save();
+        });
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
     }
 
     /**
@@ -459,8 +490,12 @@ class Builder
     public function getModels($columns = ['*'])
     {
         return $this->model->hydrate(
+<<<<<<< HEAD
             $this->query->get($columns)->all(),
             $this->model->getConnectionName()
+=======
+            $this->query->get($columns)->all()
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
         )->all();
     }
 
@@ -731,6 +766,7 @@ class Builder
      */
     public function create(array $attributes = [])
     {
+<<<<<<< HEAD
         $instance = $this->model->newInstance($attributes)->setConnection(
             $this->query->getConnection()->getName()
         );
@@ -738,6 +774,11 @@ class Builder
         $instance->save();
 
         return $instance;
+=======
+        return tap($this->newModelInstance($attributes), function ($instance) {
+            $instance->save();
+        });
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
     }
 
     /**
@@ -748,12 +789,17 @@ class Builder
      */
     public function forceCreate(array $attributes)
     {
+<<<<<<< HEAD
         $instance = $this->model->newInstance()->setConnection(
             $this->query->getConnection()->getName()
         );
 
         return $this->model->unguarded(function () use ($attributes, $instance) {
             return $instance->create($attributes);
+=======
+        return $this->model->unguarded(function () use ($attributes) {
+            return $this->newModelInstance()->create($attributes);
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
         });
     }
 
@@ -920,8 +966,13 @@ class Builder
     /**
      * Apply the given scope on the current builder instance.
      *
+<<<<<<< HEAD
      * @param  callable $scope
      * @param  array $parameters
+=======
+     * @param  callable  $scope
+     * @param  array  $parameters
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
      * @return mixed
      */
     protected function callScope(callable $scope, $parameters = [])
@@ -1039,6 +1090,22 @@ class Builder
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Create a new instance of the model being queried.
+     *
+     * @param  array  $attributes
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function newModelInstance($attributes = [])
+    {
+        return $this->model->newInstance($attributes)->setConnection(
+            $this->query->getConnection()->getName()
+        );
+    }
+
+    /**
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
      * Parse a list of relations into individuals.
      *
      * @param  array  $relations
@@ -1090,7 +1157,11 @@ class Builder
      * Parse the nested relationships in a relation.
      *
      * @param  string  $name
+<<<<<<< HEAD
      * @param  array   $results
+=======
+     * @param  array  $results
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
      * @return array
      */
     protected function addNestedWiths($name, $results)
@@ -1209,7 +1280,11 @@ class Builder
      * Dynamically handle calls into the query instance.
      *
      * @param  string  $method
+<<<<<<< HEAD
      * @param  array   $parameters
+=======
+     * @param  array  $parameters
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
      * @return mixed
      */
     public function __call($method, $parameters)
@@ -1251,7 +1326,11 @@ class Builder
      * Dynamically handle calls into the query instance.
      *
      * @param  string  $method
+<<<<<<< HEAD
      * @param  array   $parameters
+=======
+     * @param  array  $parameters
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
      * @return mixed
      *
      * @throws \BadMethodCallException

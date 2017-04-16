@@ -9,6 +9,10 @@ use Illuminate\Contracts\Queue\Job;
 use Illuminate\Queue\WorkerOptions;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Queue\Events\JobProcessed;
+<<<<<<< HEAD
+=======
+use Illuminate\Queue\Events\JobProcessing;
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
 
 class WorkCommand extends Command
 {
@@ -122,12 +126,25 @@ class WorkCommand extends Command
      */
     protected function listenForEvents()
     {
+<<<<<<< HEAD
         $this->laravel['events']->listen(JobProcessed::class, function ($event) {
             $this->writeOutput($event->job, false);
         });
 
         $this->laravel['events']->listen(JobFailed::class, function ($event) {
             $this->writeOutput($event->job, true);
+=======
+        $this->laravel['events']->listen(JobProcessing::class, function ($event) {
+            $this->writeOutput($event->job, 'starting');
+        });
+
+        $this->laravel['events']->listen(JobProcessed::class, function ($event) {
+            $this->writeOutput($event->job, 'success');
+        });
+
+        $this->laravel['events']->listen(JobFailed::class, function ($event) {
+            $this->writeOutput($event->job, 'failed');
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
 
             $this->logFailedJob($event);
         });
@@ -137,6 +154,7 @@ class WorkCommand extends Command
      * Write the status output for the queue worker.
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
+<<<<<<< HEAD
      * @param  bool  $failed
      * @return void
      */
@@ -146,10 +164,44 @@ class WorkCommand extends Command
             $this->output->writeln('<error>['.Carbon::now()->format('Y-m-d H:i:s').'] Failed:</error> '.$job->resolveName());
         } else {
             $this->output->writeln('<info>['.Carbon::now()->format('Y-m-d H:i:s').'] Processed:</info> '.$job->resolveName());
+=======
+     * @param  string $status
+     * @return void
+     */
+    protected function writeOutput(Job $job, $status)
+    {
+        switch ($status) {
+            case 'starting':
+                return $this->writeStatus($job, 'Processing', 'comment');
+            case 'success':
+                return $this->writeStatus($job, 'Processed', 'info');
+            case 'failed':
+                return $this->writeStatus($job, 'Failed', 'error');
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
         }
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Format the status output for the queue worker.
+     *
+     * @param  \Illuminate\Contracts\Queue\Job  $job
+     * @param  string  $status
+     * @param  string  $type
+     * @return void
+     */
+    protected function writeStatus(Job $job, $status, $type)
+    {
+        $this->output->writeln(sprintf(
+            "<{$type}>[%s] %s</{$type}> %s",
+            Carbon::now()->format('Y-m-d H:i:s'),
+            str_pad("{$status}:", 11), $job->resolveName()
+        ));
+    }
+
+    /**
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
      * Store a failed job event.
      *
      * @param  JobFailed  $event

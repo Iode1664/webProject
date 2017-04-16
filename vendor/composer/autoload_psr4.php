@@ -37,6 +37,10 @@ return array(
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'Cron\\' => array($vendorDir . '/mtdowling/cron-expression/src/Cron'),
+<<<<<<< HEAD
+=======
+    'Collective\\Html\\' => array($vendorDir . '/laravelcollective/html/src'),
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
     'App\\' => array($baseDir . '/app'),
 );

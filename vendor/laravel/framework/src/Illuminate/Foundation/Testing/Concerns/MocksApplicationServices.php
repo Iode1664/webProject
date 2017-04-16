@@ -3,7 +3,10 @@
 namespace Illuminate\Foundation\Testing\Concerns;
 
 use Mockery;
+<<<<<<< HEAD
 use Exception;
+=======
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
 use Illuminate\Contracts\Bus\Dispatcher as BusDispatcherContract;
 use Illuminate\Contracts\Events\Dispatcher as EventsDispatcherContract;
 use Illuminate\Contracts\Notifications\Dispatcher as NotificationDispatcher;
@@ -57,11 +60,18 @@ trait MocksApplicationServices
         $this->beforeApplicationDestroyed(function () use ($events) {
             $fired = $this->getFiredEvents($events);
 
+<<<<<<< HEAD
             if ($eventsNotFired = array_diff($events, $fired)) {
                 throw new Exception(
                     'These expected events were not fired: ['.implode(', ', $eventsNotFired).']'
                 );
             }
+=======
+            $this->assertEmpty(
+                $eventsNotFired = array_diff($events, $fired),
+                'These expected events were not fired: ['.implode(', ', $eventsNotFired).']'
+            );
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
         });
 
         return $this;
@@ -82,11 +92,18 @@ trait MocksApplicationServices
         $this->withoutEvents();
 
         $this->beforeApplicationDestroyed(function () use ($events) {
+<<<<<<< HEAD
             if ($fired = $this->getFiredEvents($events)) {
                 throw new Exception(
                     'These unexpected events were fired: ['.implode(', ', $fired).']'
                 );
             }
+=======
+            $this->assertEmpty(
+                $fired = $this->getFiredEvents($events),
+                'These unexpected events were fired: ['.implode(', ', $fired).']'
+            );
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
         });
 
         return $this;
@@ -138,11 +155,18 @@ trait MocksApplicationServices
         $this->beforeApplicationDestroyed(function () use ($jobs) {
             $dispatched = $this->getDispatchedJobs($jobs);
 
+<<<<<<< HEAD
             if ($jobsNotDispatched = array_diff($jobs, $dispatched)) {
                 throw new Exception(
                     'These expected jobs were not dispatched: ['.implode(', ', $jobsNotDispatched).']'
                 );
             }
+=======
+            $this->assertEmpty(
+                $jobsNotDispatched = array_diff($jobs, $dispatched),
+                'These expected jobs were not dispatched: ['.implode(', ', $jobsNotDispatched).']'
+            );
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
         });
 
         return $this;
@@ -163,11 +187,18 @@ trait MocksApplicationServices
         $this->withoutJobs();
 
         $this->beforeApplicationDestroyed(function () use ($jobs) {
+<<<<<<< HEAD
             if ($dispatched = $this->getDispatchedJobs($jobs)) {
                 throw new Exception(
                     'These unexpected jobs were dispatched: ['.implode(', ', $dispatched).']'
                 );
             }
+=======
+            $this->assertEmpty(
+                $dispatched = $this->getDispatchedJobs($jobs),
+                'These unexpected jobs were dispatched: ['.implode(', ', $dispatched).']'
+            );
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
         });
 
         return $this;
@@ -280,9 +311,13 @@ trait MocksApplicationServices
                 }
             }
 
+<<<<<<< HEAD
             throw new Exception(
                 'The following expected notification were not dispatched: ['.$notification.']'
             );
+=======
+            $this->fail('The following expected notification were not dispatched: ['.$notification.']');
+>>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
         });
 
         return $this;
