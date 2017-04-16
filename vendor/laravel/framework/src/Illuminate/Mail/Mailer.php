@@ -6,10 +6,7 @@ use Swift_Mailer;
 use Illuminate\Support\Arr;
 use InvalidArgumentException;
 use Illuminate\Contracts\View\Factory;
-<<<<<<< HEAD
-=======
 use Illuminate\Support\Traits\Macroable;
->>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -20,11 +17,8 @@ use Illuminate\Contracts\Mail\MailQueue as MailQueueContract;
 
 class Mailer implements MailerContract, MailQueueContract
 {
-<<<<<<< HEAD
-=======
     use Macroable;
 
->>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
     /**
      * The view factory instance.
      *

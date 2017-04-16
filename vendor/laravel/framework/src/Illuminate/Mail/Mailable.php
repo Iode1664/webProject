@@ -329,8 +329,6 @@ class Mailable implements MailableContract
     }
 
     /**
-<<<<<<< HEAD
-=======
      * Determine if the given recipient is set on the mailable.
      *
      * @param  object|array|string  $address
@@ -343,7 +341,6 @@ class Mailable implements MailableContract
     }
 
     /**
->>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
      * Set the recipients of the message.
      *
      * @param  object|array|string  $address

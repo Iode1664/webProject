@@ -15,16 +15,16 @@
             <div id="top" class="row"></div>
             <div id="contain" class="row">
                 <div id="logoCesi" class="col-md-4">
-                    <img src="../../../public/images/logoCesi.png">
+                    <img src="../../public/images/logoCesi.png">
                 </div>
 
                 <div id="logoEi" class="col-md-4">
-                    <img src="../../../public/images/logoEi.JPG">
+                    <img src="../../public/images/logoEi.JPG">
                 </div>
 
                 <div id="logoExia" class="col-md-4">
                     <div class="logo">
-                        <img src="../../../public/images/logoExia.jpg">
+                        <img src="../../public/images/logoExia.jpg">
                     </div>
                 </div>
             </div>

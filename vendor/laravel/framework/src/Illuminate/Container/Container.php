@@ -576,11 +576,6 @@ class Container implements ArrayAccess, ContainerContract
      */
     protected function resolve($abstract, $parameters = [])
     {
-<<<<<<< HEAD
-        $this->with[] = $parameters;
-
-=======
->>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
         $needsContextualBuild = ! empty($parameters) || ! is_null(
             $this->getContextualConcrete($abstract = $this->getAlias($abstract))
         );
@@ -592,11 +587,8 @@ class Container implements ArrayAccess, ContainerContract
             return $this->instances[$abstract];
         }
 
-<<<<<<< HEAD
-=======
         $this->with[] = $parameters;
 
->>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
         $concrete = $this->getConcrete($abstract);
 
         // We're ready to instantiate an instance of the concrete type registered for
