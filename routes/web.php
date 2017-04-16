@@ -15,11 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> d6599b3ffe3cc4d8cf9af287b4ec1766c6325abe
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

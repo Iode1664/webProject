@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="http://localhost/webProject/public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://localhost/webProject/public/css/style-identification.css">
+    <link rel="stylesheet" href="/../webProject/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/../webProject/public/css/style-identification.css">
     @yield('custom_css')
 </head>
 <body>
@@ -14,29 +14,22 @@
         <div class="container-fluid">
             <div id="top" class="row"></div>
             <div id="contain" class="row">
+
                 <div id="logoCesi" class="col-md-4">
-<<<<<<< HEAD
-                    <img src="../../public/images/logoCesi.png">
+
+                    <img src="/../webProject/public/images/logoCesi.png">
                 </div>
 
                 <div id="logoEi" class="col-md-4">
-                    <img src="../../public/images/logoEi.JPG">
-=======
-                    <img src="http://localhost/webProject/public/images/logoCesi.png">
-                </div>
+                    <img src="/../webProject/public/images/logoEi.JPG">
 
-                <div id="logoEi" class="col-md-4">
-                    <img src="http://localhost/webProject/public/images/logoEi.JPG">
->>>>>>> d6599b3ffe3cc4d8cf9af287b4ec1766c6325abe
                 </div>
 
                 <div id="logoExia" class="col-md-4">
                     <div class="logo">
-<<<<<<< HEAD
-                        <img src="../../public/images/logoExia.jpg">
-=======
-                        <img src="http://localhost/webProject/public/images/logoExia.jpg">
->>>>>>> d6599b3ffe3cc4d8cf9af287b4ec1766c6325abe
+
+                        <img src="/../webProject/public/images/logoExia.jpg">
+
                     </div>
                 </div>
             </div>
@@ -68,11 +61,11 @@
                 </div>
 
                 <div id="facebook" class="col-md-1">
-                    <img src="http://localhost/webProject/public/images/Facebook.png">
+                    <img src="/../webProject/public/images/Facebook.png">
                 </div>
 
                 <div id="twitter" class="col-md-1">
-                    <img src="http://localhost/webProject/public/images/Twitter.png">
+                    <img src="/../webProject/public/images/Twitter.png">
                 </div>
 
                 <div id="mention" class="col-md-2">
@@ -84,4 +77,4 @@
 </footer>
 
 </body>
-</html
+</html>
