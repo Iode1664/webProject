@@ -15,11 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
-Route::get('photo', function () {
-    return view('Design-Web/Header-Exia');
-});
-=======
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -36,4 +33,4 @@ Route::resource('vote', 'VoteController');
 Route::resource('user_activite', 'User_activiteController');
 Route::resource('horaire', 'HoraireController');
 Route::resource('jaime', 'JaimeController');
->>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
+

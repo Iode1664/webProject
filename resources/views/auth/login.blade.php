@@ -1,6 +1,10 @@
-@extends('layouts.app')
+@extends('Identification-template')
 
-@section('content')
+@section('title')
+    connection
+    @endsection
+
+@section('contenu')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

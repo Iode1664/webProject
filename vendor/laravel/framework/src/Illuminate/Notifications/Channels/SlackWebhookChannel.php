@@ -55,18 +55,11 @@ class SlackWebhookChannel
     protected function buildJsonPayload(SlackMessage $message)
     {
         $optionalFields = array_filter([
-<<<<<<< HEAD
-            'username' => data_get($message, 'username'),
-            'icon_emoji' => data_get($message, 'icon'),
-            'icon_url' => data_get($message, 'image'),
-            'channel' => data_get($message, 'channel'),
-=======
             'channel' => data_get($message, 'channel'),
             'icon_emoji' => data_get($message, 'icon'),
             'icon_url' => data_get($message, 'image'),
             'link_names' => data_get($message, 'linkNames'),
             'username' => data_get($message, 'username'),
->>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
         ]);
 
         return array_merge([

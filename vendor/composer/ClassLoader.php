@@ -374,11 +374,6 @@ class ClassLoader
 
         $first = $class[0];
         if (isset($this->prefixLengthsPsr4[$first])) {
-<<<<<<< HEAD
-            foreach ($this->prefixLengthsPsr4[$first] as $prefix => $length) {
-                if (0 === strpos($class, $prefix)) {
-                    foreach ($this->prefixDirsPsr4[$prefix] as $dir) {
-=======
             $subPath = $class;
             while (false !== $lastPos = strrpos($subPath, '\\')) {
                 $subPath = substr($subPath, 0, $lastPos);
@@ -386,7 +381,6 @@ class ClassLoader
                 if (isset($this->prefixDirsPsr4[$search])) {
                     foreach ($this->prefixDirsPsr4[$search] as $dir) {
                         $length = $this->prefixLengthsPsr4[$first][$search];
->>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
                         if (file_exists($file = $dir . DIRECTORY_SEPARATOR . substr($logicalPathPsr4, $length))) {
                             return $file;
                         }

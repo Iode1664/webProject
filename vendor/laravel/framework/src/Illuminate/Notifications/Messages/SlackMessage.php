@@ -49,8 +49,6 @@ class SlackMessage
     public $content;
 
     /**
-<<<<<<< HEAD
-=======
      * Indicates if channel names and usernames should be linked.
      *
      * @var bool
@@ -58,7 +56,6 @@ class SlackMessage
     public $linkNames = 0;
 
     /**
->>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
      * The message's attachments.
      *
      * @var array
@@ -198,8 +195,6 @@ class SlackMessage
     }
 
     /**
-<<<<<<< HEAD
-=======
      * Find and link channel names and usernames.
      *
      * @return $this
@@ -212,7 +207,6 @@ class SlackMessage
     }
 
     /**
->>>>>>> 5ad11b8218f60d2ea679b5fc3b6eacc477fca42d
      * Set additional request options for the Guzzle HTTP client.
      *
      * @param  array  $options
