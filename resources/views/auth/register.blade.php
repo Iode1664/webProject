@@ -95,8 +95,8 @@
                             <label for="avatar" class="col-md-4 control-label">Choisi ton avatar</label>
 
                             <div class="col-md-6">
-                                <input id="photo1" type="radio" class="form-checkinput" name="avatar" value="http://localhost/swro/public/avatar/alonso.jpg" required><label for="photo1"><img src="http://localhost/swro/public/avatar/alonso.jpg"></label><br />
-                                <input id="photo2" type="radio" class="form-checkinput" name="avatar" value="http://localhost/swro/public/avatar/mercos.jpg" required><label for="photo2"><img src="http://localhost/swro/public/avatar/mercos.jpg"></label><br />
+                                <input id="photo1" type="radio" class="form-checkinput" name="avatar" value="http://localhost/webProject/public/avatar/alonso.jpg" required><label for="photo1"><img src="http://localhost/webProject/public/avatar/alonso.jpg"></label><br />
+                                <input id="photo2" type="radio" class="form-checkinput" name="avatar" value="http://localhost/webProject/public/avatar/mercos.jpg" required><label for="photo2"><img src="http://localhost/webProject/public/avatar/mercos.jpg"></label><br />
 
                                 @if ($errors->has('promo'))
                                     <span class="help-block">
