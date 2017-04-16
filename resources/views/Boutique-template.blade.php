@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../public/css/style-Exia.css">
+    <link rel="stylesheet" href="/../webProject/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/../webProject/public/css/style-Exia.css">
     @yield('custom_css')
 </head>
 <body>
@@ -15,16 +15,16 @@
         <div id="top" class="row"></div>
         <div id="contain" class="row">
             <div id="logoCesi" class="col-md-1">
-                <img src="../../../public/images/logoExia.jpg">
+                <img src="/../webProject/public/images/logoExia.jpg">
             </div>
 
             <div id="logoBDE" class="col-md-3">
-                <img src="../../../public/images/logoBDE.png">
+                <img src="/../webProject/public/images/logoBDE.png">
             </div>
 
             <div id="home" class="col-md-2">
                 <div class="logo">
-                    <img src="../../../public/images/home.png">
+                    <img src="/../webProject/public/images/home.png">
                 </div>
                 <div class="titre">
                     <p>ACCUEIL</p>
@@ -32,7 +32,7 @@
             </div>
             <div id="activity" class="col-md-2">
                 <div class="logo">
-                    <img src="../../../public/images/activity.png">
+                    <img src="/../webProject/public/images/activity.png">
                 </div>
                 <div class="titre">
                     <p>ACTIVITÉS</p>
@@ -40,7 +40,7 @@
             </div>
             <div id="shop" class="col-md-2">
                 <div class="logo">
-                    <img src="../../../public/images/cadi.png">
+                    <img src="/../webProject/public/images/cadi.png">
                 </div>
                 <div class="titre">
                     <p>BOUTIQUE</p>
@@ -48,7 +48,7 @@
             </div>
             <div id="cart" class="col-md-1">
                 <div class="logo">
-                    <img src="../../../public/images/panier.png">
+                    <img src="/../webProject/public/images/panier.png">
                 </div>
                 <div class="titre">
                     <p>PANIER</p>
