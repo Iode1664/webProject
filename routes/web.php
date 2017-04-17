@@ -32,6 +32,7 @@ Route::resource('user_activite', 'User_activiteController');
 Route::resource('horaire', 'HoraireController');
 Route::resource('jaime', 'JaimeController');
 
-Route::get('/shop', function () {
-    return view('shop/boutique');
-});
+Route::get('/shop', [
+    'uses'=>'ProductController@getIndex',
+    'as'=>'product.index'
+]);

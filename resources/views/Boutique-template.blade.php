@@ -10,7 +10,7 @@
 <body>
 {{--Header--}}
 <header>
-    <div class="container-fluid">
+
     <div class="container-fluid">
         <div id="top" class="row"></div>
         <div id="contain" class="row">
@@ -56,7 +56,7 @@
             </div>
         </div>
     </div>
-    </div>
+
 </header>
 
 
@@ -68,7 +68,7 @@
 
 {{--Footer--}}
 <footer>
-    <div class="container-fluid">
+
         <div class="container-fluid">
             <div class="row" id="foot">
                 <div id="copyright" class="col-md-2">
@@ -82,11 +82,11 @@
                 </div>
 
                 <div id="facebook" class="col-md-1">
-                    <img src="../../public/images/Facebook.png">
+                    <img src="/../webProject/public/images/Facebook.png">
                 </div>
 
                 <div id="twitter" class="col-md-1">
-                    <img src="../../public/images/Twitter.png">
+                    <img src="/../webProject/public/images/Twitter.png">
                 </div>
 
                 <div id="mention" class="col-md-2">
@@ -94,8 +94,8 @@
                 </div>
             </div>
         </div>
-    </div>
+
 </footer>
 
 </body>
-</html
+</html>
