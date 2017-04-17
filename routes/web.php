@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
@@ -32,3 +32,6 @@ Route::resource('user_activite', 'User_activiteController');
 Route::resource('horaire', 'HoraireController');
 Route::resource('jaime', 'JaimeController');
 
+Route::get('/shop', function () {
+    return view('shop/boutique');
+});
