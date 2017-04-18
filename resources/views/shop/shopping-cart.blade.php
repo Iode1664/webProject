@@ -90,6 +90,20 @@
                 <h2>Le panier est vide</h2>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+
+                    <a href="{{route('product.index')}}">
+                        <button type="button" class="btn btn-default" >
+                            <span class="glyphicon glyphicon-shopping-cart"></span> Continuer vos achats
+                        </button>
+                    </a>
+            </div>
+        </div>
+        <br>
+        <br>
+
     @endif
 
 
