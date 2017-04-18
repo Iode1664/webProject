@@ -17,6 +17,12 @@ body {
 #top {
     height: 5rem;
 }
+#erreur{
+    color: red;
+    font-size: 10rem;
+    text-align: center;
+    display: block;
+}
 
 #contain {
     height: 16rem;
@@ -99,7 +105,6 @@ body {
 #twitter img{
     height: 3.5rem;
     margin-left: 3rem;
-
 }
 
 #mention p,#copyright p{

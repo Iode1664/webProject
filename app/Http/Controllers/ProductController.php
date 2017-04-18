@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
 
 use App\Product;
+use App\Cart;
+use Illuminate\Http\Request;
+use Session;
 use App\Repositories\ProductRepository;
 
 use App\Http\Requests\productRequest;
@@ -45,7 +47,7 @@ class ProductController extends Controller {
 
             $nom = str_random(10).'.'.$extension;
             if($image->move($chemin, $nom)){
-                $destination = '../../webProject/public/'.$chemin.'/'.$nom;
+                $destination = '/../webProject/public/'.$chemin.'/'.$nom;
                 $product->imagePath = $destination;
             }
         }
@@ -53,6 +55,7 @@ class ProductController extends Controller {
 
         return redirect('home');
     }
+
 
     public function show($id)
     {
@@ -68,16 +71,9 @@ class ProductController extends Controller {
 
         return back();
     }
-}
 
-?>
-=======
-use App\Cart;
-use App\Product;
-use Illuminate\Http\Request;
-use Session;
-class ProductController extends Controller
-{
+
+
     public function getIndex(){
 
         $products =Product::all();
@@ -130,4 +126,4 @@ class ProductController extends Controller
 
 
 }
->>>>>>> 53380f02e1f0b207ba271bc8c5ee7aa96a57c0e4
+

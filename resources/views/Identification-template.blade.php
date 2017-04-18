@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>@yield('title')</title>
-<<<<<<< HEAD
+
     <link rel="stylesheet" href="../../webProject/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../webProject/public/css/style-identification.css">
-=======
-    <link rel="stylesheet" href="/../webProject/public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/../webProject/public/css/style-identification.css">
-    @yield('custom_css')
->>>>>>> 53380f02e1f0b207ba271bc8c5ee7aa96a57c0e4
 </head>
 <body>
 {{--Header--}}
@@ -36,34 +31,19 @@
             <div id="contain" class="row">
 
                 <div id="logoCesi" class="col-md-4">
-<<<<<<< HEAD
                     <a href="{{ url('http://www.cesi.fr/') }}"><img src="../../webProject/public/images/logoCesi.png"></a>
                 </div>
 
                 <div id="logoEi" class="col-md-4">
                     <a href="{{ url('https://www.eicesi.fr/') }}"><img src="../../webProject/public/images/logoEi.JPG"></a>
-=======
-
-                    <img src="/../webProject/public/images/logoCesi.png">
-                </div>
-
-                <div id="logoEi" class="col-md-4">
-                    <img src="/../webProject/public/images/logoEi.JPG">
-
->>>>>>> 53380f02e1f0b207ba271bc8c5ee7aa96a57c0e4
                 </div>
 
                 <div id="logoExia" class="col-md-4">
                     <div class="logo">
-<<<<<<< HEAD
                         <a href="{{ url('https://exia.cesi.fr/') }}"><img src="../../webProject/public/images/logoExia.jpg"></a>
-=======
-
-                        <img src="/../webProject/public/images/logoExia.jpg">
-
->>>>>>> 53380f02e1f0b207ba271bc8c5ee7aa96a57c0e4
                     </div>
                 </div>
+
             </div>
             <div id="bottom" class="row"></div>
         </div>
@@ -92,20 +72,14 @@
                 </div>
 
                 <div id="facebook" class="col-md-1">
-<<<<<<< HEAD
-                    <a href="{{ url('https://www.facebook.com/bde.cesibordeaux.9?fref=ts') }}"><img src="../../webProject/public/images/Facebook.png"></a>
+                    <a href="{{ url('https://www.facebook.com/bde.cesibordeaux.9?fref=ts') }}"><img src="/../webProject/public/images/Facebook.png"></a>
                 </div>
 
                 <div id="twitter" class="col-md-1">
-                    <a href="{{ url('https://twitter.com/bdecesibordeaux') }}"><img src="../../webProject/public/images/Twitter.png"></a>
-=======
-                    <img src="/../webProject/public/images/Facebook.png">
+                    <a href="{{ url('https://twitter.com/bdecesibordeaux') }}"><img src="/../webProject/public/images/Twitter.png"></a>
                 </div>
 
-                <div id="twitter" class="col-md-1">
-                    <img src="/../webProject/public/images/Twitter.png">
->>>>>>> 53380f02e1f0b207ba271bc8c5ee7aa96a57c0e4
-                </div>
+                <
 
                 <div id="mention" class="col-md-2">
                     <p><a href="">/Mention légales</a></p>

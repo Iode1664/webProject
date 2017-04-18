@@ -41,34 +41,6 @@ Route::resource('product', 'ProductController');
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Route::get('/shop', [
     'uses'=>'ProductController@getIndex',
     'as'=>'product.index'

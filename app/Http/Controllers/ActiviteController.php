@@ -46,7 +46,7 @@ class ActiviteController extends Controller {
 
             $nom = str_random(10).'.'.$extension;
             if($image->move($chemin, $nom)){
-                $destination = '../../webProject/public/'.$chemin.'/'.$nom;
+                $destination = '/../webProject/public/'.$chemin.'/'.$nom;
                 $activite->photo = $destination;
             }
         }
@@ -71,7 +71,7 @@ class ActiviteController extends Controller {
 
             $nom = str_random(10).'.'.$extension;
             if($image->move($chemin, $nom)){
-                $destination = '../../webProject/public/'.$chemin.'/'.$nom;
+                $destination = '/../webProject/public/'.$chemin.'/'.$nom;
                 $activite->photo = $destination;
             }
         }
