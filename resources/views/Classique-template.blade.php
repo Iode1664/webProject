@@ -15,6 +15,7 @@
         @else
             <link rel="stylesheet" href="../../webProject/public/css/style-Ei.css">
         @endif
+    @yield('custom_css')
 
 </head>
 <body>

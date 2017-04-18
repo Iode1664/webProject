@@ -25,7 +25,7 @@
                                 <p>{{$product->description}}</p>
                                 <br>
                                 <div class="clearfix">
-                                    <div class="pull-left price">${{$product->price}}</div>
+                                    <div class="pull-left" id="price">${{$product->price}}</div>
                                     <a href="{{route('product.addToCart',['id'=>$product->id])}}" class="btn btn-primary pull-right" role="button">Ajouter au panier</a>
                                 </div>
                             </div>

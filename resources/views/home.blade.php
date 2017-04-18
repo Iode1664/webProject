@@ -1,17 +1,31 @@
-@extends('layouts.app')
+@extends('Classique-template')
 
-@section('content')
-<div class="container">
+@section('title')
+    Acceuil
+@endsection
+
+@section('custom_css')
+
+    <link rel="stylesheet" href="/../webProject/public/css/style-acceuil.css">
+@endsection
+
+@section('contenu')
+
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    You are logged in!
-                </div>
-            </div>
+        <div class="col-md-12 titreacc">
+            <h1>BIENVENUE SUR LE SITE DU BDE CESI BORDEAUX</h1>
         </div>
     </div>
+
+    <br>
+<div class="row">
+    <div class="col-md-12 imgacc">
+        <img src="/../webProject/public/images/acceuilvignette.png">
+    </div>
 </div>
+
+    <br>    <br>    <br>    <br>
+
+
+
 @endsection

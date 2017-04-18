@@ -5,7 +5,6 @@
 @endsection
 
 @section('custom_css')
-
     <link rel="stylesheet" href="/../webProject/public/css/style-boutique.css">
 @endsection
 

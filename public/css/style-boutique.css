@@ -3,13 +3,16 @@
     padding-top: 3rem;
 }
 
-.price{
+.thumbnail{
+    word-wrap: break-word;
+}
+
+#price{
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .line{
-    margin-left:40px;
-    margin-right:40px;
-
+    margin-left: 10px;
+    margin-right: 10px;
 }
