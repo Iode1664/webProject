@@ -12,6 +12,7 @@ return array(
     'CreateHorairesTable' => $baseDir . '/database/migrations/2017_04_15_211245_create_horaires_table.php',
     'CreateJaimesTable' => $baseDir . '/database/migrations/2017_04_15_211245_create_jaimes_table.php',
     'CreatePhotosTable' => $baseDir . '/database/migrations/2017_04_15_211245_create_photos_table.php',
+    'CreateProductsTable' => $baseDir . '/database/migrations/2017_04_17_102042_create_products_table.php',
     'CreateStatutActivitesTable' => $baseDir . '/database/migrations/2017_04_15_211245_create_statut_activites_table.php',
     'CreateStatutMembresTable' => $baseDir . '/database/migrations/2017_04_15_211245_create_statut_membres_table.php',
     'CreateUserActivitesTable' => $baseDir . '/database/migrations/2017_04_15_211245_create_user_activites_table.php',
@@ -468,6 +469,10 @@ return array(
     'PHP_Token_XOR_EQUAL' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_YIELD' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_YIELD_FROM' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
+<<<<<<< HEAD
+=======
+    'ProductTableSeeder' => $baseDir . '/database/seeds/ProductTableSeeder.php',
+>>>>>>> 53380f02e1f0b207ba271bc8c5ee7aa96a57c0e4
     'SebastianBergmann\\CodeCoverage\\CodeCoverage' => $vendorDir . '/phpunit/php-code-coverage/src/CodeCoverage.php',
     'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => $vendorDir . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
     'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => $vendorDir . '/phpunit/php-code-coverage/src/Driver/Driver.php',

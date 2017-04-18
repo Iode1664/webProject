@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit60cbc09dfb7ccbfedbf204b4f5dcfb8f
+class ComposerStaticInit1148f08fb3abdf4ba55706976bad1246
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -284,6 +284,7 @@ class ComposerStaticInit60cbc09dfb7ccbfedbf204b4f5dcfb8f
         'CreateHorairesTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_15_211245_create_horaires_table.php',
         'CreateJaimesTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_15_211245_create_jaimes_table.php',
         'CreatePhotosTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_15_211245_create_photos_table.php',
+        'CreateProductsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_102042_create_products_table.php',
         'CreateStatutActivitesTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_15_211245_create_statut_activites_table.php',
         'CreateStatutMembresTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_15_211245_create_statut_membres_table.php',
         'CreateUserActivitesTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_15_211245_create_user_activites_table.php',
@@ -740,6 +741,10 @@ class ComposerStaticInit60cbc09dfb7ccbfedbf204b4f5dcfb8f
         'PHP_Token_XOR_EQUAL' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+<<<<<<< HEAD
+=======
+        'ProductTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ProductTableSeeder.php',
+>>>>>>> 53380f02e1f0b207ba271bc8c5ee7aa96a57c0e4
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
         'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Driver/Driver.php',
@@ -825,10 +830,10 @@ class ComposerStaticInit60cbc09dfb7ccbfedbf204b4f5dcfb8f
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit60cbc09dfb7ccbfedbf204b4f5dcfb8f::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit60cbc09dfb7ccbfedbf204b4f5dcfb8f::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit60cbc09dfb7ccbfedbf204b4f5dcfb8f::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit60cbc09dfb7ccbfedbf204b4f5dcfb8f::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1148f08fb3abdf4ba55706976bad1246::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1148f08fb3abdf4ba55706976bad1246::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit1148f08fb3abdf4ba55706976bad1246::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit1148f08fb3abdf4ba55706976bad1246::$classMap;
 
         }, null, ClassLoader::class);
     }

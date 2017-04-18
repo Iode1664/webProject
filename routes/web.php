@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -71,3 +69,26 @@ Route::resource('product', 'ProductController');
 
 
 
+Route::get('/shop', [
+    'uses'=>'ProductController@getIndex',
+    'as'=>'product.index'
+]);
+
+Route::get('/add-to-cart/{id}', [
+    'uses'=>'ProductController@getAddToCart',
+    'as'=>'product.addToCart'
+]);
+
+Route::get('/reduce/{id}', [
+    'uses' => 'ProductController@getReduceByOne',
+    'as' => 'product.reduceByOne'
+]);
+Route::get('/remove/{id}', [
+    'uses' => 'ProductController@getRemoveItem',
+    'as' => 'product.remove'
+]);
+
+Route::get('/shoppingCart}', [
+    'uses'=>'ProductController@getCart',
+    'as'=>'product.shoppingCart'
+]);

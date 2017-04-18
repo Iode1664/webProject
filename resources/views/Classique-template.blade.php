@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>@yield('title')</title>
+<<<<<<< HEAD
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js">    </script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -15,6 +16,11 @@
             <link rel="stylesheet" href="../../webProject/public/css/style-Ei.css">
         @endif
 
+=======
+    <link rel="stylesheet" href="/../webProject/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/../webProject/public/css/style-Exia.css">
+    @yield('custom_css')
+>>>>>>> 53380f02e1f0b207ba271bc8c5ee7aa96a57c0e4
 </head>
 <body>
 
@@ -49,6 +55,7 @@
 
             <div id="contain" class="row">
                 <div id="logoCesi" class="col-md-1">
+<<<<<<< HEAD
                         @if(auth::User()->promo === 'Exia')
                             <img src="../../webProject/public/images/logoExia.jpg">
                         @else
@@ -57,12 +64,22 @@
                 </div>
                 <div id="logoBDE" class="col-md-3">
                     <img src="../../webProject/public/images/logoBDE.png">
+=======
+                    <img src="/../webProject/public/images/logoExia.jpg">
+                </div>
+                <div id="logoBDE" class="col-md-3">
+                    <img src="/../webProject/public/images/logoBDE.png">
+>>>>>>> 53380f02e1f0b207ba271bc8c5ee7aa96a57c0e4
                 </div>
 
                 <a href="{{ url('/home') }}">
                 <div id="home" class="col-md-2">
                     <div class="logo">
+<<<<<<< HEAD
                         <img src="../../webProject/public/images/home.png">
+=======
+                        <img src="/../webProject/public/images/home.png">
+>>>>>>> 53380f02e1f0b207ba271bc8c5ee7aa96a57c0e4
                     </div>
                     <div class="titre">
                         <p>ACCEUIL</p>
@@ -72,7 +89,11 @@
                 <a href="{{ url('/activites') }}">
                 <div id="activity" class="col-md-2">
                     <div class="logo">
+<<<<<<< HEAD
                         <img src="../../webProject/public/images/activity.png">
+=======
+                        <img src="/../webProject/public/images/activity.png">
+>>>>>>> 53380f02e1f0b207ba271bc8c5ee7aa96a57c0e4
                     </div>
                     <div class="titre">
                         <p>ACTIVITÉS</p>
@@ -82,7 +103,11 @@
                 <a href="{{ url('/boutique') }}">
                 <div id="shop" class="col-md-2">
                     <div class="logo">
+<<<<<<< HEAD
                         <img src="../../webProject/public/images/cadi.png">
+=======
+                        <img src="/../webProject/public/images/cadi.png">
+>>>>>>> 53380f02e1f0b207ba271bc8c5ee7aa96a57c0e4
                     </div>
                     <div class="titre">
                         <p>BOUTIQUE</p>
@@ -115,11 +140,19 @@
                 </div>
 
                 <div id="facebook" class="col-md-1">
+<<<<<<< HEAD
                     <a href="{{ url('https://www.facebook.com/bde.cesibordeaux.9?fref=ts') }}"><img src="../../webProject/public/images/Facebook.png"></a>
                 </div>
 
                 <div id="twitter" class="col-md-1">
                     <a href="{{ url('https://twitter.com/bdecesibordeaux') }}"><img src="../../webProject/public/images/Twitter.png"></a>
+=======
+                    <img src="/../webProject/public/images/Facebook.png">
+                </div>
+
+                <div id="twitter" class="col-md-1">
+                    <img src="/../webProject/public/images/Twitter.png">
+>>>>>>> 53380f02e1f0b207ba271bc8c5ee7aa96a57c0e4
                 </div>
 
                 <div id="mention" class="col-md-2">
