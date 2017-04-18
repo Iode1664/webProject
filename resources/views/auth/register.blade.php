@@ -1,6 +1,8 @@
-@extends('layouts.app')
-
-@section('content')
+@extends('Identification-template')
+@section('title')
+    Enregistrement
+    @endsection
+@section('contenu')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -95,8 +97,8 @@
                             <label for="avatar" class="col-md-4 control-label">Choisi ton avatar</label>
 
                             <div class="col-md-6">
-                                <input id="photo1" type="radio" class="form-checkinput" name="avatar" value="http://localhost/webProject/public/avatar/alonso.jpg" required><label for="photo1"><img src="http://localhost/webProject/public/avatar/alonso.jpg"></label><br />
-                                <input id="photo2" type="radio" class="form-checkinput" name="avatar" value="http://localhost/webProject/public/avatar/mercos.jpg" required><label for="photo2"><img src="http://localhost/webProject/public/avatar/mercos.jpg"></label><br />
+                                <input id="photo1" type="radio" class="form-checkinput" name="avatar" value="../../webProject/public/avatar/alonso.jpg" required><label for="photo1"><img src="../../webProject/public/avatar/alonso.jpg"></label><br />
+                                <input id="photo2" type="radio" class="form-checkinput" name="avatar" value="../../webProject/public/avatar/mercos.jpg" required><label for="photo2"><img src="../../webProject/public/avatar/mercos.jpg"></label><br />
 
                                 @if ($errors->has('promo'))
                                     <span class="help-block">

@@ -1,62 +1,111 @@
-@extends('layouts.app')
+@extends('Classique-template')
 
-@section('content')
+@section('title')
+    bde cesi
+    @endsection
+
+
+@section('contenu')
     <div class="container">
         <div class="row">
             <div class="col-md-5 ">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Se connecter</div>
+                    <div class="panel-heading">AJOUT ACTIVITÉ</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('activites.store') }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label for="email" class="col-md-4 control-label">Addresse E-Mail</label>
+                            <div class="form-group{{ $errors->has('activite') ? ' has-error' : '' }}">
+                                <label for="activite" class="col-md-4 control-label">Activité</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                    <input id="activite" type="text" class="form-control" name="activite" value="{{ old('activite') }}" required autofocus>
 
-                                    @if ($errors->has('email'))
+                                    @if ($errors->has('activite'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('activite') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-4 control-label">Mot de passe</label>
+                            <div class="form-group{{ $errors->has('date_debut') ? ' has-error' : '' }}">
+                                <label for="date_debut" class="col-md-4 control-label">Date de début</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password" required>
+                                    <input id="date_debut" type="datetime-local" class="form-control" name="date_debut" required>
 
-                                    @if ($errors->has('password'))
+                                    @if ($errors->has('date_debut'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                        <strong>{{ $errors->first('date_debut') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Se souvenir de moi
-                                        </label>
-                                    </div>
+                            <div class="form-group{{ $errors->has('date_fin') ? ' has-error' : '' }}">
+                                <label for="date_fin" class="col-md-4 control-label">Date de fin</label>
+
+                                <div class="col-md-6">
+                                    <input id="date_fin" type="datetime-local" class="form-control" name="date_fin" required>
+
+                                    @if ($errors->has('date_fin'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('date_fin') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+
+                            <div class="form-group{{ $errors->has('lieu') ? ' has-error' : '' }}">
+                                <label for="lieu" class="col-md-4 control-label">Lieu</label>
+
+                                <div class="col-md-6">
+                                    <input id="lieu" type="text" class="form-control" name="lieu" value="{{ old('lieu') }}" required autofocus>
+
+                                    @if ($errors->has('lieu'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('lieu') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('photo') ? ' has-error' : '' }}">
+                                <label for="photo" class="col-md-4 control-label">Image</label>
+
+                                <div class="col-md-6">
+                                    <input type="hidden" name="MAX_FILE_SIZE" value="12345" />
+                                    <input id="photo" type="file" class="form-control" name="photo" value="{{ old('photo') }}" required autofocus>
+
+                                    @if ($errors->has('photo'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('photo') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+                                <label for="lieu" class="col-md-4 control-label">Description</label>
+
+                                <div class="col-md-6">
+                                    <textarea name="description" class="form-control" id="description" rows="10" cols="50"></textarea>
+
+                                    @if ($errors->has('description'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Se connecter
+                                        Envoyer
                                     </button>
-
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        Oublie de mot de passe?
-                                    </a>
                                 </div>
                             </div>
                         </form>
@@ -64,22 +113,101 @@
                 </div>
             </div>
 
+            @if(auth::User()->id_statut == 1)
+
             <div class="col-md-5 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Enregistrement</div>
+                    <div class="panel-heading">AJOUT ARTICLE</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('product.store') }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                <label for="name" class="col-md-4 control-label">Nom</label>
+                            <div class="form-group{{ $errors->has('nom') ? ' has-error' : '' }}">
+                                <label for="nom" class="col-md-4 control-label">Article</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                    <input id="nom" type="text" class="form-control" name="nom" value="{{ old('nom') }}" required autofocus>
 
-                                    @if ($errors->has('name'))
+                                    @if ($errors->has('nom'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('nom') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('prix') ? ' has-error' : '' }}">
+                                <label for="prix" class="col-md-4 control-label">Prix</label>
+
+                                <div class="col-md-6">
+                                    <input id="prix" type="text" class="form-control" name="prix" value="{{ old('prix') }}" required autofocus>
+
+                                    @if ($errors->has('prix'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('prix') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+                                <label for="lieu" class="col-md-4 control-label">Description</label>
+
+                                <div class="col-md-6">
+                                    <textarea name="description" class="form-control" id="description" rows="10" cols="50"></textarea>
+
+                                    @if ($errors->has('description'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('photo') ? ' has-error' : '' }}">
+                                <label for="photo" class="col-md-4 control-label">Image</label>
+
+                                <div class="col-md-6">
+                                    <input type="hidden" name="MAX_FILE_SIZE" value="12345" />
+                                    <input id="photo" type="file" class="form-control" name="photo" value="{{ old('photo') }}" required autofocus>
+
+                                    @if ($errors->has('photo'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('photo') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-8 col-md-offset-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        Envoyer
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-5 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">AJOUT MEMBRE BDE</div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('ajout-membre') }}">
+                            {{ csrf_field() }}
+
+                            <div class="form-group{{ $errors->has('nom') ? ' has-error' : '' }}">
+                                <label for="nom" class="col-md-4 control-label">Nom</label>
+
+                                <div class="col-md-6">
+                                    <input id="nom" type="text" class="form-control" name="nom" value="{{ old('nom') }}" required autofocus>
+
+                                    @if ($errors->has('nom'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('nom') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -156,8 +284,8 @@
                                 <label for="avatar" class="col-md-4 control-label">Choisi ton avatar</label>
 
                                 <div class="col-md-6">
-                                    <input id="photo1" type="radio" class="form-checkinput" name="avatar" value="http://localhost/foot/public/avatar/alonso.jpg" required><label for="photo1"><img src="http://localhost/foot/public/avatar/alonso.jpg"></label><br />
-                                    <input id="photo2" type="radio" class="form-checkinput" name="avatar" value="http://localhost/foot/public/avatar/mercos.jpg" required><label for="photo2"><img src="http://localhost/foot/public/avatar/mercos.jpg"></label><br />
+                                    <input id="photo1" type="radio" class="form-checkinput" name="avatar" value="../../webProject/public/avatar/alonso.jpg" required><label for="photo1"><img src="../../webProject/public/avatar/alonso.jpg"></label><br />
+                                    <input id="photo2" type="radio" class="form-checkinput" name="avatar" value="../../webProject/public/avatar/mercos.jpg" required><label for="photo2"><img src="../../webProject/public/avatar/mercos.jpg"></label><br />
 
                                     @if ($errors->has('promo'))
                                         <span class="help-block">
@@ -167,9 +295,6 @@
                                 </div>
                             </div>
 
-
-
-
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
@@ -177,10 +302,12 @@
                                     </button>
                                 </div>
                             </div>
+
                         </form>
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 @endsection

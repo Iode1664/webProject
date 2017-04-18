@@ -11,11 +11,12 @@ class CreateActivitesTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 			$table->string('nom');
-			$table->string('description');
+			$table->text('description');
 			$table->datetime('date_debut');
 			$table->string('date_fin');
 			$table->integer('id_statut')->unsigned();
 			$table->string('lieu');
+			$table->string('photo');
 		});
 	}
 

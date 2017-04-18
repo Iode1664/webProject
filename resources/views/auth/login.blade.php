@@ -59,7 +59,7 @@
                                 </button>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Oublie de mot de passe?
+                                    Mot de passe oublié ?
                                 </a>
                             </div>
                         </div>

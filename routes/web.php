@@ -21,10 +21,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/ajout', 'AjoutController@index');
+
+Route::get('/ajout', 'MembreController@index');
+Route::post('/ajout/membre', ['as' => 'ajout-membre', 'uses' => 'MembreController@create']);
+Route::post('/activites/suggestion', ['as' => 'activites.stores', 'uses' => 'ActiviteController@stores']);
+
+
 
 Route::resource('user', 'UserController');
-Route::resource('activite', 'ActiviteController');
+Route::resource('activites', 'ActiviteController');
 Route::resource('statut_membre', 'Statut_membreController');
 Route::resource('statut_activite', 'Statut_activiteController');
 Route::resource('photo', 'PhotoController');
@@ -33,4 +38,36 @@ Route::resource('vote', 'VoteController');
 Route::resource('user_activite', 'User_activiteController');
 Route::resource('horaire', 'HoraireController');
 Route::resource('jaime', 'JaimeController');
+Route::resource('product', 'ProductController');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

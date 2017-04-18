@@ -3,59 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../public/css/style-Exia.css">
-    @yield('custom_css')
+    <link rel="stylesheet" href="../../webProject/public/css/bootstrap.min.css">
+    @if(auth::User()->promo === 'Exia')
+        <link rel="stylesheet" href="../../webProject/public/css/style-Exia.css">
+    @else
+        <link rel="stylesheet" href="../../webProject/public/css/style-Ei.css">
+    @endif
 </head>
 <body>
 {{--Header--}}
 <header>
     <div class="container-fluid">
-    <div class="container-fluid">
-        <div id="top" class="row"></div>
+        <div id="top" class="row">
+            <div class="col-md-offset-10">
+
+                <li class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <img src="{{ Auth::user()->avatar }}" height="50">
+                        {{ Auth::user()->nom }} <span class="caret"></span>
+                    </button>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                Se deconnecter
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+        </div>
         <div id="contain" class="row">
             <div id="logoCesi" class="col-md-1">
-                <img src="../../../public/images/logoExia.jpg">
+                @if(auth::User()->promo === 'Exia')
+                    <img src="../../webProject/public/images/logoExia.jpg">
+                @else
+                    <img src="../../webProject/public/images/logoEi.jpg">
+                @endif
             </div>
 
             <div id="logoBDE" class="col-md-3">
-                <img src="../../../public/images/logoBDE.png">
+                <img src="../../webProject/public/images/logoBDE.png">
             </div>
 
+            <a href="{{ url('/home') }}">
             <div id="home" class="col-md-2">
                 <div class="logo">
-                    <img src="../../../public/images/home.png">
+                    <img src="../../webProject/public/images/home.png">
                 </div>
                 <div class="titre">
-                    <p>ACCUEIL</p>
+                   <p>ACCEUIL</p>
                 </div>
-            </div>
+            </div></a>
+
+            <a href="{{ url('/activites') }}">
             <div id="activity" class="col-md-2">
                 <div class="logo">
-                    <img src="../../../public/images/activity.png">
+                    <img src="../../webProject/public/images/activity.png">
                 </div>
                 <div class="titre">
-                    <p>ACTIVITÉS</p>
+                 <p>ACTIVITÉS</p>
                 </div>
-            </div>
+            </div></a>
+
+            <a href="{{ url('/boutique') }}">
             <div id="shop" class="col-md-2">
                 <div class="logo">
-                    <img src="../../../public/images/cadi.png">
+                    <img src="../../webProject/public/images/cadi.png">
                 </div>
                 <div class="titre">
-                    <p>BOUTIQUE</p>
+                   <p>BOUTIQUE</p>
                 </div>
-            </div>
+            </div></a>
+
             <div id="cart" class="col-md-1">
                 <div class="logo">
-                    <img src="../../../public/images/panier.png">
+                    <img src="../../webProject/public/images/panier.png">
                 </div>
                 <div class="titre">
                     <p>PANIER</p>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </header>
 
@@ -82,11 +117,11 @@
                 </div>
 
                 <div id="facebook" class="col-md-1">
-                    <img src="../../public/images/Facebook.png">
+                    <a href="{{ url('https://www.facebook.com/bde.cesibordeaux.9?fref=ts') }}"><img src="../../webProject/public/images/Facebook.png"></a>
                 </div>
 
                 <div id="twitter" class="col-md-1">
-                    <img src="../../public/images/Twitter.png">
+                    <a href="{{ url('https://twitter.com/bdecesibordeaux') }}"><img src="../../webProject/public/images/Twitter.png"></a>
                 </div>
 
                 <div id="mention" class="col-md-2">
