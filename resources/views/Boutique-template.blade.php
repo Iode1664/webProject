@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="/../webProject/public/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js">    </script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js">    </script>
+
     <link rel="stylesheet" href="/../webProject/public/css/style-Exia.css">
     @yield('custom_css')
 </head>
@@ -39,23 +42,28 @@
                 </div>
             </div>
             <div id="shop" class="col-md-2">
-                <div class="logo">
-                    <img src="/../webProject/public/images/cadi.png">
-                </div>
-                <div class="titre">
-                    <p>BOUTIQUE</p>
-                </div>
+                <a href="{{route('product.index')}}">
+                    <div class="logo">
+                        <img src="/../webProject/public/images/cadi.png">
+                    </div>
+                    <div class="titre">
+                        <p>BOUTIQUE</p>
+                    </div>
+                </a>
             </div>
             <div id="cart" class="col-md-1">
-                <div class="logo">
-                    <img src="/../webProject/public/images/panier.png">
-                </div>
-                <div class="titre">
-                    <p>PANIER</p>
-                </div>
+                <a href="{{route('product.shoppingCart')}}">
+                    <div class="logo">
+                        <img src="/../webProject/public/images/panier.png">
+                    </div>
+                    <div class="titre">
+                        <p>PANIER   <span class="badge">{{Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span></p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
+
 
 </header>
 
