@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use App\Repositories\ActiviteRepository;
 use App\Activite;
 use App\Horaire;
-<<<<<<< HEAD
+
 use App\User_activite;
-=======
+
 use App\Photo;
->>>>>>> Gallery
+
 use App\Http\Requests\activiteRequest;
 use Illuminate\Support\Facades\Auth;
 
