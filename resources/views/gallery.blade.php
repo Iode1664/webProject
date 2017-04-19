@@ -22,7 +22,7 @@
                 @foreach($photoChunck as $photo)
 
                     <div class="col-sm-6 col-md-4 photo">
-                        <a href="">
+                        <a href="{{route('commentaire.index',['idp'=>$photo->id])}}">
                         <img src="{{$photo->pathPhoto}}">
                         </a>
                     </div>
@@ -30,7 +30,6 @@
                 @endforeach
             </div>
         </div>
-
     @endforeach
     <br><br>
 @endsection

@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/ajout', 'MembreController@index');
 Route::post('/ajout/membre', ['as' => 'ajout-membre', 'uses' => 'MembreController@create']);
+
+Route::post('/ajout/vote', ['as' => 'activites.vote', 'uses' => 'ActiviteController@voteStore']);
 Route::post('/activites/suggestion', ['as' => 'activites.stores', 'uses' => 'ActiviteController@stores']);
 
 
@@ -53,16 +55,25 @@ Route::get('/gallery/{id}', [
     'as'=>'activity.gallery'
 ]);
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 5cb6eb8f61182846a4a0bc875dafa718f7cff431
+
+Route::get('/commentaire/{idp}', ['uses' => 'CommentaireController@index', 'as' => 'commentaire.index']);
+Route::post('/commentaire/{idp}', [ 'uses' => 'CommentaireController@store', 'as' => 'commentaire.store']);
+
+
+
+
 
 
 Route::resource('user', 'UserController');
-
 Route::resource('activites', 'ActiviteController');
 Route::resource('activite', 'ActivitesController');
 Route::resource('statut_membre', 'Statut_membreController');
 Route::resource('statut_activite', 'Statut_activiteController');
 Route::resource('photo', 'PhotoController');
-Route::resource('commentaire', 'CommentaireController');
 Route::resource('vote', 'VoteController');
 Route::resource('user_activite', 'User_activiteController');
 Route::resource('horaire', 'HoraireController');
