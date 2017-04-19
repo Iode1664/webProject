@@ -11,9 +11,9 @@
 
 
         @if(auth::User()->promo === 'Exia')
-            <link rel="stylesheet" href="../../webProject/public/css/style-Exia.css">
+            <link rel="stylesheet" href="/../webProject/public/css/style-Exia.css">
         @else
-            <link rel="stylesheet" href="../../webProject/public/css/style-Ei.css">
+            <link rel="stylesheet" href="/../webProject/public/css/style-Ei.css">
         @endif
     @yield('custom_css')
 
@@ -81,7 +81,7 @@
                         <img src="/../webProject/public/images/home.png">
                     </div>
                     <div class="titre">
-                        <p>ACCEUIL</p>
+                        <p>ACCUEIL</p>
                     </div>
                 </div></a>
 

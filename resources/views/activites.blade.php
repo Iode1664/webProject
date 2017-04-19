@@ -4,43 +4,7 @@
 	bde cesi
 @endsection
 
-@section('custom_css')
-	@if(auth::User()->promo === 'Exia')
-		<link rel="stylesheet" href="../../webProject/public/css/style-Exia.css">
-	@else
-		<link rel="stylesheet" href="../../webProject/public/css/style-Ei.css">
-	@endif
-@endsection
-
-@section('logo')
-	@if(auth::User()->promo === 'Exia')
-		<img src="../../webProject/public/images/logoExia.jpg">
-	@else
-		<img src="../../webProject/public/images/logoEi.jpg">
-	@endif
-@endsection
-
 @section('contenu')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	<div class="container">

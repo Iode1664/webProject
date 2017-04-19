@@ -4,10 +4,6 @@
     Boutique
 @endsection
 
-@section('custom_css')
-    <link rel="stylesheet" href="/../webProject/public/css/style-boutique.css">
-@endsection
-
 @section('contenu')
     @if(Session::has('cart'))
     <div class="container">
@@ -104,9 +100,6 @@
         <br>
 
     @endif
-
-
-
 
 
 @endsection

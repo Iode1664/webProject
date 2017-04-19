@@ -9,17 +9,16 @@
         <link rel="stylesheet" href="/../webProject/public/css/style-Exia.css">
     @else
         <link rel="stylesheet" href="/../webProject/public/css/style-Ei.css">
-@endif
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<<<<<<< HEAD
+    @endif
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="/../webProject/public/css/style-boutique.css">
 
-=======
+
     @yield('custom_css')
->>>>>>> e0e4fad023c09c8309bc348a6a848b91ca547d13
+
 
 </head>
 <body>
@@ -31,12 +30,14 @@
 
                 <li class="dropdown">
                     @if(auth::User()->promo === 'Exia')
-                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             <img src="{{ Auth::user()->avatar }}" height="50">
                             {{ Auth::user()->prenom }} <span class="caret"></span>
                         </button>
                     @else
-                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             <img src="{{ Auth::user()->avatar }}" height="50">
                             {{ Auth::user()->prenom }} <span class="caret"></span>
                         </button>
@@ -69,11 +70,16 @@
                 @endif
             </div>
 
-            <div id="logoBDE" class="col-md-3">
+            <div id="logoBDE" class="col-md-2">
                 <img src="/../webProject/public/images/logoBDE.png">
             </div>
 
-
+            @if(auth::User()->id_statut === 2 || 3)
+                <a href="{{ url('/ajout') }}">
+                    <div id="plus" class="col-md-1 ">
+                        <img src="/../webProject/public/images/plus.png">
+                    </div></a>
+            @endif
 
             <a href="{{ url('/home') }}">
                 <div id="home" class="col-md-2">
@@ -81,9 +87,10 @@
                         <img src="/../webProject/public/images/home.png">
                     </div>
                     <div class="titre">
-                        <p>ACCEUIL</p>
+                        <p>ACCUEIL</p>
                     </div>
-                </div></a>
+                </div>
+            </a>
 
             <a href="{{ url('/activites') }}">
                 <div id="activity" class="col-md-2">
@@ -93,7 +100,8 @@
                     <div class="titre">
                         <p>ACTIVITÉS</p>
                     </div>
-                </div></a>
+                </div>
+            </a>
 
             <a href="{{route('product.index')}}">
                 <div id="shop" class="col-md-2">
@@ -103,7 +111,8 @@
                     <div class="titre">
                         <p>BOUTIQUE</p>
                     </div>
-                </div></a>
+                </div>
+            </a>
 
             <div id="cart" class="col-md-1">
                 <a href="{{route('product.shoppingCart')}}">

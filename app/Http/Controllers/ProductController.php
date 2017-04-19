@@ -65,6 +65,7 @@ class ProductController extends Controller {
     }
 
 
+
     public function destroy($id)
     {
         $this->productRepository->destroy($id);
