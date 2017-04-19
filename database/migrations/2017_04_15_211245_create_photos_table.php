@@ -11,6 +11,7 @@ class CreatePhotosTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 			$table->integer('id_activite')->unsigned();
+            $table->string('imagePath');
 		});
 	}
 

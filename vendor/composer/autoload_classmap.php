@@ -12,12 +12,8 @@ return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Horaire' => $baseDir . '/app/Horaire.php',
-<<<<<<< HEAD
     'App\\Http\\Controllers\\ActiviteController' => $baseDir . '/app/Http/Controllers/ActiviteController.php',
-=======
     'App\\Http\\Controllers\\ActivitesController' => $baseDir . '/app/Http/Controllers/ActivitesController.php',
-    'App\\Http\\Controllers\\AjoutController' => $baseDir . '/app/Http/Controllers/AjoutController.php',
->>>>>>> ShowActivity
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -27,6 +23,7 @@ return array(
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\HoraireController' => $baseDir . '/app/Http/Controllers/HoraireController.php',
     'App\\Http\\Controllers\\JaimeController' => $baseDir . '/app/Http/Controllers/JaimeController.php',
+    'App\\Http\\Controllers\\MapsController' => $baseDir . '/app/Http/Controllers/MapsController.php',
     'App\\Http\\Controllers\\MembreController' => $baseDir . '/app/Http/Controllers/MembreController.php',
     'App\\Http\\Controllers\\PhotoController' => $baseDir . '/app/Http/Controllers/PhotoController.php',
     'App\\Http\\Controllers\\ProductController' => $baseDir . '/app/Http/Controllers/ProductController.php',
