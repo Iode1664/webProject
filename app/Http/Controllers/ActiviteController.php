@@ -139,12 +139,12 @@ class ActiviteController extends Controller
 
 
     public function destroy($id)
+
     {
         $this->activiteRepository->destroy($id);
 
         return back();
     }
-
     public function participer($id)
     {
         $participation = new User_activite();
