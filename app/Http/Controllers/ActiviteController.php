@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use App\Repositories\ActiviteRepository;
 use App\Activite;
 use App\Horaire;
+use App\User_activite;
 use App\Http\Requests\activiteRequest;
-
+use Illuminate\Support\Facades\Auth;
 
 
 class ActiviteController extends Controller
@@ -93,5 +94,21 @@ class ActiviteController extends Controller
         $this->activiteRepository->destroy($id);
 
         return back();
+    }
+
+    public function participer($id)
+    {
+        $participation = new User_activite();
+        $participation->id_user = auth::user()->id;
+        $participation->id_activite = $id;
+        $participation->save();
+
+        return redirect()->route('activity.show', ['id'=>$id]);
+    }
+
+    public function unparticiper($id)
+    {
+        User_activite::where('id_activite', '=', $id)->where('id_user', '=', auth::user()->id)->delete();
+        return redirect()->route('activity.show', ['id'=>$id]);
     }
 }
