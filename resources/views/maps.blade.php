@@ -1,25 +1,14 @@
 <?php
+        
 
-
-try
-{
-    $bdd = new PDO('mysql:host=localhost;dbname=bdde;charset=utf8', 'root', '');
-}
-catch(Exception $e)
-{
-    die('Erreur : '.$e->getMessage());
-}
-$resultat = $bdd->query('SELECT lieu FROM activites WHERE id = 1');
-
-$resultats = $resultat->fetch();
-$place = $resultats['lieu'];
+$place = $activity->id;
 
 if($place != null){
 $lati=null;
 $longi=null;
 $address = $place;
 $address = urlencode($address);//properly encode the url
-$resultat->closeCursor();
+
 // google map geocode api url
 $url = "http://maps.google.com/maps/api/geocode/json?address={$address}";//we are getting the response in json
 
@@ -44,7 +33,7 @@ $long = $resp['results'][0]['geometry']['location']['lng'];
 <script>
     function drawMap() {
         var pos = {lat:<?php echo $lat ?> , lng:<?php echo $long ?>};
-        var map = new google.maps.Map(document.getElementById('map'), {
+        var map  = new google.maps.Map(document.getElementById('map'), {
             zoom: 13,
             center: pos
         });

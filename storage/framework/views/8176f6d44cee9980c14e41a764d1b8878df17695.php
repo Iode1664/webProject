@@ -15,6 +15,7 @@
         <?php else: ?>
             <link rel="stylesheet" href="../../webProject/public/css/style-Ei.css">
         <?php endif; ?>
+    <?php echo $__env->yieldContent('custom_css'); ?>
 
 </head>
 <body>

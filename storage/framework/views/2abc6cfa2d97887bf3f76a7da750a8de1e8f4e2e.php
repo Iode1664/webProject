@@ -79,8 +79,6 @@
                     <a href="<?php echo e(url('https://twitter.com/bdecesibordeaux')); ?>"><img src="/../webProject/public/images/Twitter.png"></a>
                 </div>
 
-                <
-
                 <div id="mention" class="col-md-2">
                     <p><a href="">/Mention légales</a></p>
                 </div>
