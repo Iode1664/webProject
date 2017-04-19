@@ -48,6 +48,45 @@
     </div>
     <div class="container">
         <div class="row">
+            <div class="nav_btns">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-5" id="activity_title">
+                <h2>ACTIVITÉS</h2>
+            </div>
+        </div>
+        <?php $__currentLoopData = $activitys->chunk(2); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $activitysChunk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <br><br>
+            <div class="row">
+                <div class="line">
+                    
+                    <?php $__currentLoopData = $activitysChunk; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $activity): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="thumbnail">
+                                <div class="wrapper">
+                                    <img class="slide" src="<?php echo e($activity->photo); ?>">
+                                    <div class="caption">
+
+                                        <h3>&nbsp; <?php echo e($activity->nom); ?></h3>
+                                        <br>
+                                        <p class="desc"><?php echo e($activity->description); ?></p>
+                                        <br>
+                                    </div>
+                                    <a href="<?php echo e(route('activity.show',['id'=>$activity->id])); ?>"
+                                       class="btn btn-primary pull-right" role="button">Voir plus</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </div>
+            </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </div>
+    <div class="container">
+        <div class="row">
             <div class="col-md-5 ">
                 <div class="panel panel-default">
                     <div class="panel-heading">SUGGESTION ACTIVITÉ</div>

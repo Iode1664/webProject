@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use App\Repositories\ActiviteRepository;
 use App\Activite;
 use App\Horaire;
-use App\Http\Requests\activiteRequest;
+use App\User_activite;
 
+use App\Photo;
+
+use App\Http\Requests\activiteRequest;
+use Illuminate\Support\Facades\Auth;
 
 
 class ActiviteController extends Controller
@@ -114,8 +118,24 @@ class ActiviteController extends Controller
     {
         $activity = Activite::find($id);
         $horaires = Horaire::where('id_activite', '=', $id)->first();
-        return view('activite', ['activity' => $activity], ['horaires' => $horaires]);
+        $photos = Photo::where('id_activite', '=', $id)->get();
+        $Firstphoto = Photo::where('id_activite', '=', $id)->first();
+
+        return view('activite', ['activity' => $activity], ['horaires' => $horaires])->with('photos' , $photos) -> with('Firstphoto' , $Firstphoto);
+
+
     }
+
+
+    public function getGallery($id)
+    {
+        $activity = Activite::find($id);
+        $photos = Photo::where('id_activite', '=', $id)->get();
+
+        return view('gallery',['activity' => $activity]) ->with('photos' , $photos);
+    }
+
+
 
 
     public function destroy($id)
@@ -123,5 +143,21 @@ class ActiviteController extends Controller
         $this->activiteRepository->destroy($id);
 
         return back();
+    }
+
+    public function participer($id)
+    {
+        $participation = new User_activite();
+        $participation->id_user = auth::user()->id;
+        $participation->id_activite = $id;
+        $participation->save();
+
+        return redirect()->route('activity.show', ['id'=>$id]);
+    }
+
+    public function unparticiper($id)
+    {
+        User_activite::where('id_activite', '=', $id)->where('id_user', '=', auth::user()->id)->delete();
+        return redirect()->route('activity.show', ['id'=>$id]);
     }
 }

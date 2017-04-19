@@ -39,6 +39,22 @@ Route::post('/activite/{id}', [
     'as' => 'activity.store'
 ]);
 
+Route::get('/participer/{id}', [
+    'uses'=>'ActiviteController@participer',
+    'as'=>'activity.participer'
+]);
+
+Route::get('/unparticiper/{id}', [
+    'uses'=>'ActiviteController@unparticiper',
+    'as'=>'activity.unparticiper'
+]);
+
+
+Route::get('/gallery/{id}', [
+    'uses'=>'ActiviteController@getGallery',
+    'as'=>'activity.gallery'
+]);
+
 
 Route::get('/commentaire/{idp}', ['uses' => 'CommentaireController@index', 'as' => 'commentaire.index']);
 Route::post('/commentaire/{idp}', [ 'uses' => 'CommentaireController@store', 'as' => 'commentaire.store']);

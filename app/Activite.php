@@ -30,4 +30,7 @@ class Activite extends Model {
 		return $this->hasMany('App\Horaire');
 	}
 
+
+
+
 }
