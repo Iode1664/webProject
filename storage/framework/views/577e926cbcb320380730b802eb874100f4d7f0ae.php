@@ -103,7 +103,7 @@
                             </div>
 
                             <div class="form-group<?php echo e($errors->has('lieu') ? ' has-error' : ''); ?>">
-                                <label for="lieu" class="col-md-4 control-label">Lieu</label>
+                                <label for="lieu" class="col-md-4 control-label">Adresse</label>
 
                                 <div class="col-md-6">
                                     <input id="lieu" type="text" class="form-control" name="lieu"
@@ -121,7 +121,7 @@
                                 <label for="photo" class="col-md-4 control-label">Image</label>
 
                                 <div class="col-md-6">
-                                    <input type="hidden" name="MAX_FILE_SIZE" value="12345"/>
+                                    <input type="hidden" name="MAX_FILE_SIZE" value="100000000"/>
                                     <input id="photo" type="file" class="form-control" name="photo"
                                            value="<?php echo e(old('photo')); ?>" required autofocus>
 

@@ -7,14 +7,10 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6 col-md-6">
-            <div class="thumbnail">
-                <img src="{{$photo->imagePath ()}}">
-            </div>
+                <img src="{{$photo->imagePath}}">
         </div>
     </div>
 </div>
-
-
 
 
 
@@ -27,7 +23,7 @@
                     <div class="panel-heading">ECRIRE UN COMMENTAIRE</div>
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST"
-                              action="{{ route('commentaire.store', ['idp'=> ]) }}" enctype="multipart/form-data">
+                              action="{{ route('commentaire.store', ['idp'=>$photo->id]) }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">

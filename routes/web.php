@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/ajout', 'MembreController@index');
 Route::post('/ajout/membre', ['as' => 'ajout-membre', 'uses' => 'MembreController@create']);
+
+Route::post('/ajout/vote', ['as' => 'activites.vote', 'uses' => 'ActiviteController@voteStore']);
 Route::post('/activites/suggestion', ['as' => 'activites.stores', 'uses' => 'ActiviteController@stores']);
 
 

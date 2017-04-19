@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Commentaire;
+use App\Photo;
 
 class CommentaireController extends Controller {
 
@@ -13,18 +14,19 @@ class CommentaireController extends Controller {
         $this->middleware('auth');
     }
 
-  public function index()
+  public function index($id)
   {
-      return view('commentaires');
+
+      $photo = Photo::find($id);
+      return view('commentaires', ['photo' => $photo]);
   }
 
 
 
   public function store(Commentaire $commentaire, commentaireRequest $request, $idp)
   {
-
         $commentaire->texte = $request['description'];
-        $commentaire->id_user = auth::User()->id;
+        $commentaire->id_user = Auth::User()->id;
         $commentaire->id_photo = $idp;
         $commentaire->save();
   }
