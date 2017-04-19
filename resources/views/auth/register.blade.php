@@ -97,9 +97,9 @@
                             <label for="avatar" class="col-md-4 control-label">Choisi ton avatar</label>
 
                             <div class="col-md-6">
-                                <input id="photo1" type="radio" class="form-checkinput" name="avatar" value="../../webProject/public/avatar/alonso.jpg" required><label for="photo1"><img src="../../webProject/public/avatar/alonso.jpg"></label><br />
-                                <input id="photo2" type="radio" class="form-checkinput" name="avatar" value="../../webProject/public/avatar/batman.png" required><label for="photo2"><img src="../../webProject/public/avatar/batman.png"></label><br />
-                                <input id="photo3" type="radio" class="form-checkinput" name="avatar" value="../../webProject/public/avatar/deadpool.png" required><label for="photo3"><img src="../../webProject/public/avatar/deadpool.png"></label><br />
+                                <input id="photo1" type="radio" class="form-checkinput" name="avatar" value="/../webProject/public/avatar/alonso.jpg" required><label for="photo1"><img src="../../webProject/public/avatar/alonso.jpg"></label><br />
+                                <input id="photo2" type="radio" class="form-checkinput" name="avatar" value="/../webProject/public/avatar/batman.png" required><label for="photo2"><img src="../../webProject/public/avatar/batman.png"></label><br />
+                                <input id="photo3" type="radio" class="form-checkinput" name="avatar" value="/../webProject/public/avatar/deadpool.png" required><label for="photo3"><img src="../../webProject/public/avatar/deadpool.png"></label><br />
 
                                 @if ($errors->has('promo'))
                                     <span class="help-block">

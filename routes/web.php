@@ -27,25 +27,23 @@ Route::post('/activites/suggestion', ['as' => 'activites.stores', 'uses' => 'Act
 
 
 
-Route::get('/activites', 'ActivitesController@index');
+Route::get('/activites', 'ActiviteController@index');
 
 Route::get('/activite/{id}', [
-    'uses' => 'ActivitesController@getActivity',
+    'uses' => 'ActiviteController@getActivity',
     'as' => 'activity.show'
 ]);
 
 Route::post('/activite/{id}', [
-    'uses' => 'ActivitesController@store',
+    'uses' => 'ActiviteController@store',
     'as' => 'activity.store'
 ]);
 
 
 Route::resource('user', 'UserController');
-<<<<<<< HEAD
+
 Route::resource('activites', 'ActiviteController');
-=======
 Route::resource('activite', 'ActivitesController');
->>>>>>> ShowActivity
 Route::resource('statut_membre', 'Statut_membreController');
 Route::resource('statut_activite', 'Statut_activiteController');
 Route::resource('photo', 'PhotoController');

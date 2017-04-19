@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\ActiviteRepository;
+use App\Activite;
+use App\Horaire;
+use App\Http\Requests\activiteRequest;
+
+
 
 class ActiviteController extends Controller
 {
@@ -18,7 +24,8 @@ class ActiviteController extends Controller
 
     public function index()
     {
-        return view('activites', compact('activites', 'links'));
+        $activitys = Activite::all();
+        return view('activites', ['activitys' => $activitys]);
     }
 
 
@@ -73,11 +80,11 @@ class ActiviteController extends Controller
     }
 
 
-    public function show($id)
+    public function getActivity($id)
     {
-        $activite = $this->activiteRepository->getById($id);
-
-        return view('show',  compact('user'));
+        $activity = Activite::find($id);
+        $horaires = Horaire::where('id_activite', '=', $id)->first();
+        return view('activite', ['activity' => $activity], ['horaires' => $horaires]);
     }
 
 
