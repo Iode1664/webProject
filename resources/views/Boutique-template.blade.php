@@ -41,6 +41,7 @@
                             <img src="{{ Auth::user()->avatar }}" height="50">
                             {{ Auth::user()->prenom }} <span class="caret"></span>
                         </button>
+                        
                     @endif
 
                     <ul class="dropdown-menu" role="menu">
