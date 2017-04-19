@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Requests\photoRequest;
 use App\Photo;
 
@@ -17,13 +18,13 @@ class PhotoController extends Controller {
 
   public function index()
   {
-
+    
   }
 
 
   public function create()
   {
-
+    
   }
 
 
@@ -48,13 +49,13 @@ class PhotoController extends Controller {
 
   public function show($id)
   {
-
+    
   }
 
 
   public function edit($id)
   {
-
+    
   }
 
 
@@ -62,18 +63,3 @@ class PhotoController extends Controller {
   {
     
   }
-
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function destroy($id)
-  {
-    
-  }
-  
-}
-
-?>

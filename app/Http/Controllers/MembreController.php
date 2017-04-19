@@ -25,7 +25,6 @@ class MembreController extends Controller
      */
     public function index()
 
-
     {
             return view('ajout');
     }

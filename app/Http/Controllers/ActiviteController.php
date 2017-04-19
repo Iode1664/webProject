@@ -5,11 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\ActiviteRepository;
 use App\Activite;
-use App\User_activite;
+
 use auth;
 use App\Vote;
 use App\Horaire;
-use App\Photo;
 use App\Http\Requests\activiteRequest;
 
 
@@ -84,16 +83,59 @@ class ActiviteController extends Controller
     }
 
 
+    public function voteStore( Activite $activite, activiteRequest $request)
+    {
+        $activite->nom = $request['activite'];
+        $activite->description = $request['description'];
+        $activite->lieu = $request['lieu'];
+        $activite->id_statut = 3;
+
+        $activite->date_debut = $request['date_debut'];
+        $activite->date_fin = $request['date_fin'];
+        $activite->date_debut = $request['date_debut2'];
+        $activite->date_fin = $request['date_fin2'];
+        $activite->date_debut = $request['date_debut3'];
+        $activite->date_fin = $request['date_fin3'];
+
+        $image = $request->file('photo');
+        if($image->isValid()){
+            $chemin =config('images.path');
+            $extension = $image->getClientOriginalExtension();
+
+            $nom = str_random(10).'.'.$extension;
+            if($image->move($chemin, $nom)){
+                $destination = '/../webProject/public/'.$chemin.'/'.$nom;
+                $activite->photo = $destination;
+            }
+        }
+        $activite->save();
+
+        return redirect('home');
+    }
+
+
     public function getActivity($id)
     {
         $activity = Activite::find($id);
         $horaires = Horaire::where('id_activite', '=', $id)->first();
-        $photos = Photo::where('id_activite', '=', $id);
+        $photos = Photo::where('id_activite', '=', $id)->get();
+        $Firstphoto = Photo::where('id_activite', '=', $id)->first();
 
-        return view('activite', ['activity' => $activity], ['horaires' => $horaires])->with('photos' , $photos);
+        return view('activite', ['activity' => $activity], ['horaires' => $horaires])->with('photos' , $photos) -> with('Firstphoto' , $Firstphoto);
 
 
     }
+
+
+    public function getGallery($id)
+    {
+        $activity = Activite::find($id);
+        $photos = Photo::where('id_activite', '=', $id)->get();
+
+        return view('gallery',['activity' => $activity]) ->with('photos' , $photos);
+    }
+
+
 
 
     public function destroy($id)
@@ -106,7 +148,7 @@ class ActiviteController extends Controller
     public function participer($id)
     {
         $participation = new User_activite();
-        $participation->id_user = auth::User()->id;
+        $participation->id_user = auth::user()->id;
         $participation->id_activite = $id;
         $participation->save();
 
@@ -115,7 +157,7 @@ class ActiviteController extends Controller
 
     public function unparticiper($id)
     {
-        User_activite::where('id_activite', '=', $id)->where('id_user', '=', auth::User()->id)->delete();
+        User_activite::where('id_activite', '=', $id)->where('id_user', '=', auth::user()->id)->delete();
         return redirect()->route('activity.show', ['id'=>$id]);
     }
 
