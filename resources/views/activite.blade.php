@@ -99,7 +99,49 @@
 
                 </div>
                 <div class="col-md-5">
-                    <p>INSERER CARROUSEL</p>
+                    <div id="ourCarousel" class="carousel slide" data-ride="carousel">
+
+                        <!--Carousel indicators-->
+                        <ol class="carousel-indicators">
+                            {{$i = 0}}
+
+                            @foreach($photos as $photo)
+                                @if($i == 0)
+                                    <li data-target="#ourCarousel" data-slide-to="{{$i}}" class="active"></li>
+                                @endif
+                            <li data-target="#ourCarousel" data-slide-to="{{$i}}"></li>
+                            {{$i++}}
+                            @endforeach
+                        </ol>
+                        <!--Carousel items-->
+                        <div class="carousel-inner">
+
+                            {{$y = 0}}
+
+                            @foreach($photos as $photo)
+                                @if($y == 0)
+                                    <div class="item active">
+                                        <img src="{{$photo->pathPhoto}}" width="100%"/>
+                                    </div>
+                                @endif
+                                    <div class="item">
+                                        <img src="{{$photo->pathPhoto}}" width="100%"/>
+                                    </div>
+                                {{$y++}}
+                            @endforeach
+
+                        </div>
+
+                        <!--Carousel navigation-->
+                        <a class="carousel-control left" href="#ourCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+
+                        <a class="carousel-control right" href="#ourCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+
+                    </div>
                 </div>
             </div>
         </div>

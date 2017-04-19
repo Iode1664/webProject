@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Repositories\ActiviteRepository;
 use App\Activite;
 use App\Horaire;
+use App\Photo;
 use App\Http\Requests\activiteRequest;
 
 
@@ -84,7 +85,12 @@ class ActiviteController extends Controller
     {
         $activity = Activite::find($id);
         $horaires = Horaire::where('id_activite', '=', $id)->first();
-        return view('activite', ['activity' => $activity], ['horaires' => $horaires]);
+        $photos =Photo::where('id_activite', '=', $id);
+
+
+            return view('activite', ['activity' => $activity], ['horaires' => $horaires],['photos'=>$photos]);
+
+
     }
 
 
@@ -94,4 +100,7 @@ class ActiviteController extends Controller
 
         return back();
     }
+
+
+
 }
