@@ -18,7 +18,7 @@ body {
     height: 5rem;
 }
 #erreur{
-    color: red;
+    color: #cc0000;
     font-size: 10rem;
     text-align: center;
     display: block;
@@ -32,7 +32,7 @@ body {
     border-bottom-color: grey;
 }
 
-#home,#activity,#shop{
+#activity,#shop{
     height: 13rem;
     /*height : 115px;
     width: 230px;*/
@@ -42,14 +42,33 @@ body {
     margin-top: 1.5rem;
 }
 
+#home{
+    height: 13rem;
+    /*height : 115px;
+    width: 230px;*/
+    text-align: center;
+    margin-right: 14px;
+    margin-top: 1.5rem;
+}
+
+
+
 .logo img{
     margin-top: 12px;
 }
 
 #logoBDE img {
     height: 16rem;
-    margin-left: 14rem;
+    margin-left: 10rem;
+    padding-left: 3rem;
+
 }
+
+#plus{
+    margin-top: 5rem;
+    padding-left: 5rem;
+}
+
 
 #logoCesi img{
     height: 13rem;
@@ -57,15 +76,22 @@ body {
 }
 
 #cart {
-    height: 11rem;
+    height: 9rem;
     text-align: center;
     margin-left: 14px;
     margin-right: 14px;
-    margin-top: 2.5rem;
+    margin-top: 6rem;
+}
+
+#caret{
+    display: block;
+    margin-top: 1rem;
+    padding-left: 8rem;
+    font-size: 1px;
 }
 
 #cart img {
-    height: 5rem;
+    height: 4rem;
 }
 
 .titre {
@@ -108,7 +134,9 @@ body {
 }
 
 #mention p,#copyright p{
+    display: block;
     margin-top: 6rem;
+    height: 10rem;
 }
 
 #contact p{

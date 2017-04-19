@@ -13,8 +13,7 @@
             <a id="erreur" href="{{url('/home')}}"><strong>ERREUR</strong></a>
         </div>
         <br> <br> <br> <br><br> <br> <br> <br><br> <br> <br> <br>
-    @endif
-
+    @else
 
 
         <div class="container">
@@ -76,7 +75,7 @@
 
 
                                 <div class="form-group{{ $errors->has('lieu') ? ' has-error' : '' }}">
-                                    <label for="lieu" class="col-md-4 control-label">Lieu</label>
+                                    <label for="lieu" class="col-md-4 control-label">Adresse</label>
 
                                     <div class="col-md-6">
                                         <input id="lieu" type="text" class="form-control" name="lieu"
@@ -352,4 +351,5 @@
                 @endif
             </div>
         </div>
+    @endif
 @endsection

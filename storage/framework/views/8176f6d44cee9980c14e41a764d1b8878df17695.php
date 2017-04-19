@@ -23,19 +23,24 @@
 <header>
         <div class="container-fluid">
             <div id="top" class="row">
-                <div class="col-md-offset-10">
-
+                <div id="caret" class="col-md-offset-10">
                     <li class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <?php if(auth::User()->promo === 'Exia'): ?>
+                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             <img src="<?php echo e(Auth::user()->avatar); ?>" height="50">
                             <?php echo e(Auth::user()->prenom); ?> <span class="caret"></span>
                         </button>
-
+                        <?php else: ?>
+                            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <img src="<?php echo e(Auth::user()->avatar); ?>" height="50">
+                                <?php echo e(Auth::user()->prenom); ?> <span class="caret"></span>
+                            </button>
+                        <?php endif; ?>
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href="<?php echo e(route('logout')); ?>"
                                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                   document.getElementById('logout-form').submit();">
                                     Se deconnecter
                                 </a>
 
@@ -59,9 +64,16 @@
                         <?php endif; ?>
                 </div>
 
-                <div id="logoBDE" class="col-md-3">
+                <div id="logoBDE" class="col-md-2">
                     <img src="/../webProject/public/images/logoBDE.png">
                 </div>
+
+                <?php if(auth::User()->id_statut == 2 || 3): ?>
+                <a href="<?php echo e(url('/ajout')); ?>">
+                <div id="plus" class="col-md-1 ">
+                    <img src="/../webProject/public/images/plus.png">
+                </div></a>
+                <?php endif; ?>
 
                 <a href="<?php echo e(url('/home')); ?>">
                 <div id="home" class="col-md-2">

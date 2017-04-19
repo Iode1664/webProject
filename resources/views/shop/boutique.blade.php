@@ -4,11 +4,6 @@
     Boutique
 @endsection
 
-@section('custom_css')
-
-    <link rel="stylesheet" href="/../webProject/public/css/style-boutique.css">
-@endsection
-
 @section('contenu')
 
     @foreach($products->chunk(3) as $productChunck)

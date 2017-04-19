@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/maps', 'MapsController@index');
 
 Route::get('/ajout', 'MembreController@index');
 Route::post('/ajout/membre', ['as' => 'ajout-membre', 'uses' => 'MembreController@create']);

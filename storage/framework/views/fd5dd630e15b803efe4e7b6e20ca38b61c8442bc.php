@@ -11,8 +11,7 @@
             <a id="erreur" href="<?php echo e(url('/home')); ?>"><strong>ERREUR</strong></a>
         </div>
         <br> <br> <br> <br><br> <br> <br> <br><br> <br> <br> <br>
-    <?php endif; ?>
-
+    <?php else: ?>
 
 
         <div class="container">
@@ -75,7 +74,7 @@
 
 
                                 <div class="form-group<?php echo e($errors->has('lieu') ? ' has-error' : ''); ?>">
-                                    <label for="lieu" class="col-md-4 control-label">Lieu</label>
+                                    <label for="lieu" class="col-md-4 control-label">Adresse</label>
 
                                     <div class="col-md-6">
                                         <input id="lieu" type="text" class="form-control" name="lieu"
@@ -353,6 +352,7 @@
                 <?php endif; ?>
             </div>
         </div>
+    <?php endif; ?>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('Classique-template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
