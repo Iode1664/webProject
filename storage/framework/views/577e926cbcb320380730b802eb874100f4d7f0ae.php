@@ -2,39 +2,9 @@
 	bde cesi
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('custom_css'); ?>
-	<?php if(auth::User()->promo === 'Exia'): ?>
-		<link rel="stylesheet" href="../../webProject/public/css/style-Exia.css">
-	<?php else: ?>
-		<link rel="stylesheet" href="../../webProject/public/css/style-Ei.css">
-	<?php endif; ?>
-<?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('logo'); ?>
-	<?php if(auth::User()->promo === 'Exia'): ?>
-		<img src="../../webProject/public/images/logoExia.jpg">
-	<?php else: ?>
-		<img src="../../webProject/public/images/logoEi.jpg">
-	<?php endif; ?>
-<?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contenu'); ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

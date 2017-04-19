@@ -1,5 +1,5 @@
 <?php
-        
+
 
 $place = $activity->id;
 

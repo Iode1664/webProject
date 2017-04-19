@@ -17,7 +17,7 @@
                     <div class="col-md-1 col-md-offset-10">
                         <a href="{{ url('login') }}">
                         <button type="submit" class="btn btn-success ">
-                            Connection
+                            Connexion
                         </button></a>
                     </div>
                     <div class="col-md-1 ">
