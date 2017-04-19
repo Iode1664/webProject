@@ -80,20 +80,25 @@
 
                                     @if(App\Vote::whereIn('id_horaire', App\Horaire::select('id')->where('id_activite', "=", $vote->id)->get())->where('id_user', '=', auth::user()->id)->exists())
                                         <a href="{{route('activites.unvote', ['id'=>$vote->id])}}"
-                                           class="btn btn-primary pull-right" role="button">ANNULER VOTE</a>
+                                           class="btn btn-primary pull-left" role="button">ANNULER VOTE</a>
                                     @else
+
                                         <form action="{{route('activites.vote')}}" method="POST">
-                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <select name="plage_horaire">
-                                                @foreach(App\Horaire::where('id_activite', "=", $vote->id)->get() as $hor)
-                                                    <option value="{{$hor->id}}">{{date("d/m/y H:i", strtotime($hor->Debut))}}
-                                                        &nbsp; - &nbsp; {{date("d/m/y H:i", strtotime($hor->Fin))}}</option>
-                                                @endforeach
-                                            </select>
-                                            <input type="submit" value="VOTER" id="vote"/>
+                                            <div class="form-group">
+                                                <label for="sel1">Selectionnez une plage horaire :</label>
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <select name="plage_horaire" class="form-control" id="sel1">
+                                                    @foreach(App\Horaire::where('id_activite', "=", $vote->id)->get() as $hor)
+                                                        <option value="{{$hor->id}}">{{date("d/m/y H:i", strtotime($hor->Debut))}}
+                                                            &nbsp; -
+                                                            &nbsp; {{date("d/m/y H:i", strtotime($hor->Fin))}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <input type="submit" class="btn btn-primary" value="VOTER" id="vote"/>
                                         </form>
-                                    @endif
-                                    </form>
+                                        @endif
+                                        </form>
                                 </div>
                             </div>
                         </div>

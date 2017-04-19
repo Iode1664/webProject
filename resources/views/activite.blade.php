@@ -40,18 +40,19 @@
         <div class="row">
             <div id="lieu_date" class="line">
                 <div class="col-md-offset-1 col-md-4">
-                    <p>LIEU</p>
+                    <h3>LIEU</h3>
+                    <h4>{{$activity->lieu}}</h4>
                 </div>
-                <div class="col-md-5">
-                    <p>HORAIRES</p>
-                    <p>{{date("d/m/y H:i", strtotime($horaires->Debut))}} &nbsp; -
-                        &nbsp; {{date("d/m/y H:i", strtotime($horaires->Fin))}}</p>
+                <div id="horaire" class="col-md-5">
+                    <h3>HORAIRES</h3>
+                    <h4>{{date("d/m/y H:i", strtotime($horaires->Debut))}} &nbsp; -
+                        &nbsp; {{date("d/m/y H:i", strtotime($horaires->Fin))}}</h4>
                 </div>
             </div>
         </div>
         <div class="row">
             <div id="map_photo" class="line">
-                <div class="col-md-offset-1 col-md-4">
+                <div id="map" class="col-md-offset-1 col-md-4">
 
                     {{$place = $activity->lieu}};
                     <?php
@@ -102,7 +103,7 @@
 
                 </div>
 
-                <div class="col-md-5 ">
+                <div class="col-md-5">
 
                     <a href="{{route('activity.gallery',['id'=>$activity->id])}}">
                         <div id="ourCarousel" class="carousel slide" data-ride="carousel">
@@ -156,8 +157,8 @@
         </div>
         <br><br><br>
         <div class="row">
-            <div id="map_photo" class="line">
-                <div id="inscription" class="col-md-offset-5 col-md-4">
+            <div class="line">
+                <div id="inscription" class="col-md-offset-2 col-md-4">
 
                     @if(App\User_activite::where('id_activite', '=', $activity->id)->where('id_user', '=', auth::user()->id)->exists())
                         <a href="{{route('activity.unparticiper',['id'=>$activity->id])}}" class="btn btn-primary pull-right" role="button">SE DÉSINSCRIRE</a>
