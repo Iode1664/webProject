@@ -15,11 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Auth::routes();
+Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
 Route::get('/ajout', 'AjoutController@index');
+
+Route::get('/gallery', 'GalleryController@index');
+
 
 Route::resource('user', 'UserController');
 Route::resource('activite', 'ActiviteController');
