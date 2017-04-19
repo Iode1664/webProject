@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 @endsection
 
 @section('contenu')
@@ -121,18 +121,18 @@
                                 @endforeach
                             </ol>
                             <!--Carousel items-->
-                            <div class="carousel-inner">
+                            <div class="carousel-inner" style=" width:100%; height: 40rem;">
 
                                 <?php $y = 0 ?>
                                 <div class="item active">
-                                    <img src="{{$Firstphoto->pathPhoto}}" width="100%"/>
+                                    <img src="{{$Firstphoto->pathPhoto}}" width="100%">
                                 </div>
                                 @foreach($photos as $photo)
                                     @if($y == 0)
 
                                     @else
                                         <div class="item">
-                                            <img src="{{$photo->pathPhoto}}" width="100%"/>
+                                            <img src="{{$photo->pathPhoto}}" width="100%">
                                         </div>
                                     @endif
                                     <?php $y++ ?>
@@ -158,23 +158,13 @@
         <div class="row">
             <div id="map_photo" class="line">
                 <div id="inscription" class="col-md-offset-5 col-md-4">
-<<<<<<< HEAD
 
-=======
->>>>>>> 5cb6eb8f61182846a4a0bc875dafa718f7cff431
                     @if(App\User_activite::where('id_activite', '=', $activity->id)->where('id_user', '=', auth::user()->id)->exists())
                         <a href="{{route('activity.unparticiper',['id'=>$activity->id])}}" class="btn btn-primary pull-right" role="button">SE DÉSINSCRIRE</a>
                     @else
                         <a href="{{route('activity.participer',['id'=>$activity->id])}}" class="btn btn-primary pull-right" role="button">S'INSCRIRE</a>
                     @endif
 
-                    <button type="button" class="btn btn-primary" onclick="inscriptionActivite({{$activity->id}})">
-                        S'INSCRIRE
-                    </button>
-<<<<<<< HEAD
-
-=======
->>>>>>> 5cb6eb8f61182846a4a0bc875dafa718f7cff431
                 </div>
             </div>
         </div>

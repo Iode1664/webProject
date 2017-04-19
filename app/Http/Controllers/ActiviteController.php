@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\ActiviteRepository;
 use App\Activite;
+use App\Photo;
 
 use auth;
 use App\Vote;
