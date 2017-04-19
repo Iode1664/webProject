@@ -284,7 +284,12 @@ class ComposerStaticInit4f7c1d9bec2f55afd54bf83984aca1c9
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Horaire' => __DIR__ . '/../..' . '/app/Horaire.php',
+<<<<<<< HEAD
         'App\\Http\\Controllers\\ActiviteController' => __DIR__ . '/../..' . '/app/Http/Controllers/ActiviteController.php',
+=======
+        'App\\Http\\Controllers\\ActivitesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ActivitesController.php',
+        'App\\Http\\Controllers\\AjoutController' => __DIR__ . '/../..' . '/app/Http/Controllers/AjoutController.php',
+>>>>>>> ShowActivity
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',

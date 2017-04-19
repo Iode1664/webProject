@@ -1,0 +1,20 @@
+#photo_desc {
+    height: 40rem;
+    text-align: justify;
+}
+
+#photo_desc img{
+    height: 33rem;
+}
+
+#map_photo {
+    height: 40rem;
+}
+
+#map_photo p{
+    margin-top: 10rem
+}
+
+#inscription {
+    padding-left: 12rem;
+}
