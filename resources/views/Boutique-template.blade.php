@@ -13,9 +13,13 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
 
     <link rel="stylesheet" href="/../webProject/public/css/style-boutique.css">
 
+=======
+    @yield('custom_css')
+>>>>>>> e0e4fad023c09c8309bc348a6a848b91ca547d13
 
 </head>
 <body>
