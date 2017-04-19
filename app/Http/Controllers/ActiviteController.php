@@ -85,12 +85,24 @@ class ActiviteController extends Controller
     {
         $activity = Activite::find($id);
         $horaires = Horaire::where('id_activite', '=', $id)->first();
-        $photos = Photo::where('id_activite', '=', $id);
+        $photos = Photo::where('id_activite', '=', $id)->get();
+        $Firstphoto = Photo::where('id_activite', '=', $id)->first();
 
-        return view('activite', ['activity' => $activity], ['horaires' => $horaires])->with('photos' , $photos);
+        return view('activite', ['activity' => $activity], ['horaires' => $horaires])->with('photos' , $photos) -> with('Firstphoto' , $Firstphoto);
 
 
     }
+
+
+    public function getGallery($id)
+    {
+        $activity = Activite::find($id);
+        $photos = Photo::where('id_activite', '=', $id)->get();
+
+        return view('gallery',['activity' => $activity]) ->with('photos' , $photos);
+    }
+
+
 
 
     public function destroy($id)

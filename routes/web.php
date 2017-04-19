@@ -46,6 +46,11 @@ Route::get('/unparticiper/{id}', [
     'as'=>'activity.unparticiper'
 ]);
 
+Route::get('/gallery/{id}', [
+    'uses'=>'ActiviteController@getGallery',
+    'as'=>'activity.gallery'
+]);
+
 
 Route::resource('user', 'UserController');
 

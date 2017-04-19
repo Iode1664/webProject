@@ -6,6 +6,10 @@
 
 @section('custom_css')
     <link rel="stylesheet" href="/../webProject/public/css/style-activity.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script
 @endsection
 
 @section('contenu')
@@ -52,8 +56,8 @@
                     {{$place = $activity->lieu}};
                     <?php
                     if($place != null){
-                    $lati=null;
-                    $longi=null;
+                    $lati = null;
+                    $longi = null;
                     $address = $place;
                     $address = urlencode($address);
 
@@ -64,7 +68,7 @@
                     $resp = json_decode($resp_json, true);
 
 
-                    if($resp['status']=='OK'){
+                    if($resp['status'] == 'OK'){
 
                     $lat = $resp['results'][0]['geometry']['location']['lat'];
                     $long = $resp['results'][0]['geometry']['location']['lng'];
@@ -73,12 +77,12 @@
                     <div id=map style="width:100%;height:400px">
 
                     </div>
-                    <script  async defer
-                             src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBFH_b97Fol2fdBVWAWmSFbevmm5CMu1tg&callback=drawMap"></script>
+                    <script async defer
+                            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBFH_b97Fol2fdBVWAWmSFbevmm5CMu1tg&callback=drawMap"></script>
                     <script>
                         function drawMap() {
                             var pos = {lat:<?php echo $lat ?> , lng:<?php echo $long ?>};
-                            var map  = new google.maps.Map(document.getElementById('map'), {
+                            var map = new google.maps.Map(document.getElementById('map'), {
                                 zoom: 13,
                                 center: pos
                             });
@@ -91,57 +95,62 @@
                     <?php
                     }
                     }
-                    else{
+                    else {
                         echo "DID NOT RECEIVE LATITUDE AND LONGITUDE DATA";
                     }
                     ?>
 
-
                 </div>
-                <div class="col-md-5">
-                    <div id="ourCarousel" class="carousel slide" data-ride="carousel">
 
-                        <!--Carousel indicators-->
-                        <ol class="carousel-indicators">
-                            {{$i = 0}}
+                <div class="col-md-5 ">
 
-                            @foreach($photos as $photo)
-                                @if($i == 0)
-                                    <li data-target="#ourCarousel" data-slide-to="{{$i}}" class="active"></li>
-                                @endif
-                            <li data-target="#ourCarousel" data-slide-to="{{$i}}"></li>
-                            {{$i++}}
-                            @endforeach
-                        </ol>
-                        <!--Carousel items-->
-                        <div class="carousel-inner">
+                    <a href="{{route('activity.gallery',['id'=>$activity->id])}}">
+                        <div id="ourCarousel" class="carousel slide" data-ride="carousel">
 
-                            {{$y = 0}}
+                            <!--Carousel indicators-->
+                            <ol class="carousel-indicators">
+                                <?php  $i = 0 ?>
 
-                            @foreach($photos as $photo)
-                                @if($y == 0)
-                                    <div class="item active">
-                                        <img src="{{$photo->pathPhoto}}" width="100%"/>
-                                    </div>
-                                @endif
-                                    <div class="item">
-                                        <img src="{{$photo->pathPhoto}}" width="100%"/>
-                                    </div>
-                                {{$y++}}
-                            @endforeach
+                                @foreach($photos as $photo)
+                                    @if($i == 0)
+                                        <li data-target="#ourCarousel" data-slide-to="{{$i}}" class="active"></li>
+                                    @else
+                                        <li data-target="#ourCarousel" data-slide-to="{{$i}}"></li>
+                                    @endif
+                                    <?php $i++ ?>
+                                @endforeach
+                            </ol>
+                            <!--Carousel items-->
+                            <div class="carousel-inner">
+
+                                <?php $y = 0 ?>
+                                <div class="item active">
+                                    <img src="{{$Firstphoto->pathPhoto}}" width="100%"/>
+                                </div>
+                                @foreach($photos as $photo)
+                                    @if($y == 0)
+
+                                    @else
+                                        <div class="item">
+                                            <img src="{{$photo->pathPhoto}}" width="100%"/>
+                                        </div>
+                                    @endif
+                                    <?php $y++ ?>
+                                @endforeach
+
+                            </div>
+
+                            <!--Carousel navigation-->
+                            <a class="carousel-control left" href="#ourCarousel" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+
+                            <a class="carousel-control right" href="#ourCarousel" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
 
                         </div>
-
-                        <!--Carousel navigation-->
-                        <a class="carousel-control left" href="#ourCarousel" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                        </a>
-
-                        <a class="carousel-control right" href="#ourCarousel" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                        </a>
-
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -149,7 +158,9 @@
         <div class="row">
             <div id="map_photo" class="line">
                 <div id="inscription" class="col-md-offset-5 col-md-4">
-                    <button type="button" class="btn btn-primary" onclick="inscriptionActivite({{$activity->id}})">S'INSCRIRE</button>
+                    <button type="button" class="btn btn-primary" onclick="inscriptionActivite({{$activity->id}})">
+                        S'INSCRIRE
+                    </button>
                 </div>
             </div>
         </div>
