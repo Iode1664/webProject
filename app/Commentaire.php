@@ -8,7 +8,7 @@ class Commentaire extends Model {
 
 	protected $table = 'commentaires';
 	public $timestamps = false;
-	protected $fillable = array('texte');
+	protected $fillable = array('texte', 'id_user', 'id_photo');
 
 	public function Commenter()
 	{

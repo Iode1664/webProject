@@ -18,7 +18,6 @@
 
         <div class="container">
             <div class="row">
-
                 @if(auth::User()->id_statut == 2 || 3)
                 <div class="col-md-5 ">
                     <div class="panel panel-default">
@@ -106,7 +105,7 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                                    <label for="lieu" class="col-md-4 control-label">Description</label>
+                                    <label for="description" class="col-md-4 control-label">Description</label>
 
                                     <div class="col-md-6">
                                         <textarea name="description" class="form-control" id="description" rows="10"

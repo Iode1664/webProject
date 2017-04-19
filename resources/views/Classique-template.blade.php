@@ -84,7 +84,7 @@
                         <img src="/../webProject/public/images/home.png">
                     </div>
                     <div class="titre">
-                        <p>ACCEUIL</p>
+                        <p>ACCUEIL</p>
                     </div>
                 </div>
             </a>

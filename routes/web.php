@@ -38,14 +38,20 @@ Route::post('/activite/{id}', [
 ]);
 
 
-Route::resource('user', 'UserController');
+Route::get('/commentaire/{idp}', ['uses' => 'CommentaireController@index', 'as' => 'commentaire.index']);
+Route::post('/commentaire/{idp}', [ 'uses' => 'CommentaireController@store', 'as' => 'commentaire.store']);
 
+
+
+
+
+
+Route::resource('user', 'UserController');
 Route::resource('activites', 'ActiviteController');
 Route::resource('activite', 'ActivitesController');
 Route::resource('statut_membre', 'Statut_membreController');
 Route::resource('statut_activite', 'Statut_activiteController');
 Route::resource('photo', 'PhotoController');
-Route::resource('commentaire', 'CommentaireController');
 Route::resource('vote', 'VoteController');
 Route::resource('user_activite', 'User_activiteController');
 Route::resource('horaire', 'HoraireController');

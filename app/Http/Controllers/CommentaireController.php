@@ -2,44 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Commentaire;
+
 class CommentaireController extends Controller {
 
-  /**
-   * Display a listing of the resource.
-   *
-   * @return Response
-   */
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
   public function index()
   {
-    
+      return view('commentaires');
   }
 
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return Response
-   */
-  public function create()
+
+
+  public function store(Commentaire $commentaire, commentaireRequest $request, $idp)
   {
-    
+
+        $commentaire->texte = $request['description'];
+        $commentaire->id_user = auth::User()->id;
+        $commentaire->id_photo = $idp;
+        $commentaire->save();
   }
 
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @return Response
-   */
-  public function store()
-  {
-    
-  }
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
+
   public function show($id)
   {
     
