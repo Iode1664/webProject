@@ -21,8 +21,21 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/ajout', 'AjoutController@index');
 
+Route::get('/activites', 'ActivitesController@index');
+
+Route::get('/activite/{id}', [
+    'uses' => 'ActivitesController@getActivity',
+    'as' => 'activity.show'
+]);
+
+Route::post('/activite/{id}', [
+    'uses' => 'ActivitesController@store',
+    'as' => 'activity.store'
+]);
+
+
 Route::resource('user', 'UserController');
-Route::resource('activite', 'ActiviteController');
+Route::resource('activite', 'ActivitesController');
 Route::resource('statut_membre', 'Statut_membreController');
 Route::resource('statut_activite', 'Statut_activiteController');
 Route::resource('photo', 'PhotoController');

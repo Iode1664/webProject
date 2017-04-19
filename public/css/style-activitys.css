@@ -1,0 +1,40 @@
+
+.thumbnail img, .thumbnail, .wrapper, .slide {
+    height: 40rem;
+}
+
+.thumbnail {
+    word-wrap: break-word;
+    text-align: justify;
+    background-color: lightgrey;
+}
+
+.desc {
+    white-space: normal;
+}
+
+#activity_title {
+    margin-left: 49rem;
+}
+
+.nav_btns {
+    height: 15rem;
+}
+
+.wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.slide {
+    position: absolute;
+    left: 0rem;
+    width: 100%;
+    transition: 1s;
+}
+
+.wrapper:hover .slide {
+    transition: 1s;
+    left: -100%;
+}

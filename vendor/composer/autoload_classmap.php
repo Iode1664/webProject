@@ -11,7 +11,7 @@ return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Horaire' => $baseDir . '/app/Horaire.php',
-    'App\\Http\\Controllers\\ActiviteController' => $baseDir . '/app/Http/Controllers/ActiviteController.php',
+    'App\\Http\\Controllers\\ActivitesController' => $baseDir . '/app/Http/Controllers/ActivitesController.php',
     'App\\Http\\Controllers\\AjoutController' => $baseDir . '/app/Http/Controllers/AjoutController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
