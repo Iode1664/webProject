@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User_activite;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 class User_activiteController extends Controller {
 
   /**
@@ -29,10 +33,8 @@ class User_activiteController extends Controller {
    *
    * @return Response
    */
-  public function store()
-  {
-    
-  }
+
+
 
   /**
    * Display the specified resource.
