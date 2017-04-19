@@ -85,10 +85,9 @@ class ActiviteController extends Controller
     {
         $activity = Activite::find($id);
         $horaires = Horaire::where('id_activite', '=', $id)->first();
-        $photos =Photo::where('id_activite', '=', $id);
+        $photos = Photo::where('id_activite', '=', $id);
 
-
-            return view('activite', ['activity' => $activity], ['horaires' => $horaires],['photos'=>$photos]);
+        return view('activite', ['activity' => $activity], ['horaires' => $horaires])->with('photos' , $photos);
 
 
     }
@@ -101,6 +100,19 @@ class ActiviteController extends Controller
         return back();
     }
 
+    public function participer($id)
+    {
+        $participation = new User_activite();
+        $participation->id_user = auth::user()->id;
+        $participation->id_activite = $id;
+        $participation->save();
 
+        return redirect()->route('activity.show', ['id'=>$id]);
+    }
 
+    public function unparticiper($id)
+    {
+        User_activite::where('id_activite', '=', $id)->where('id_user', '=', auth::user()->id)->delete();
+        return redirect()->route('activity.show', ['id'=>$id]);
+    }
 }

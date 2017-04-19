@@ -145,6 +145,7 @@
                 </div>
             </div>
         </div>
+        <br><br><br>
         <div class="row">
             <div id="map_photo" class="line">
                 <div id="inscription" class="col-md-offset-5 col-md-4">

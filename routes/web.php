@@ -37,6 +37,15 @@ Route::post('/activite/{id}', [
     'as' => 'activity.store'
 ]);
 
+Route::get('/participer/{id}', [
+    'uses'=>'ActiviteController@participer',
+    'as'=>'activity.participer'
+]);
+Route::get('/unparticiper/{id}', [
+    'uses'=>'ActiviteController@unparticiper',
+    'as'=>'activity.unparticiper'
+]);
+
 
 Route::resource('user', 'UserController');
 
