@@ -25,7 +25,10 @@ Route::post('/activites/suggestion', ['as' => 'activites.stores', 'uses' => 'Act
 
 
 
-Route::get('/activites', 'ActiviteController@index');
+Route::get('/activites', [
+    'as' => 'activites.show',
+    'uses' => 'ActiviteController@index'
+]);
 
 Route::get('/activite/{id}', [
     'uses' => 'ActiviteController@getActivity',
@@ -44,6 +47,15 @@ Route::get('/participer/{id}', [
 Route::get('/unparticiper/{id}', [
     'uses'=>'ActiviteController@unparticiper',
     'as'=>'activity.unparticiper'
+]);
+$router->group(['middleware' => 'csrf'], function($router)
+{
+    Route::post('/activites/vote', ['as' => 'activites.vote', 'uses' => 'ActiviteController@vote']);
+});
+
+Route::get('/unvote/{id}', [
+    'uses'=>'ActiviteController@unvote',
+    'as'=>'activites.unvote'
 ]);
 
 

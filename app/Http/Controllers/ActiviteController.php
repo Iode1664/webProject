@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\ActiviteRepository;
 use App\Activite;
+use App\User_activite;
+use auth;
+use App\Vote;
 use App\Horaire;
 use App\Photo;
 use App\Http\Requests\activiteRequest;
-
 
 
 class ActiviteController extends Controller
@@ -25,8 +27,9 @@ class ActiviteController extends Controller
 
     public function index()
     {
-        $activitys = Activite::all();
-        return view('activites', ['activitys' => $activitys]);
+        $activitys = Activite::where('id_statut', '!=', 3)->get();
+        $votes = Activite::where('id_statut', '=', 3)->get();
+        return view('activites', ['activitys' => $activitys], ['votes' => $votes]);
     }
 
 
@@ -103,7 +106,7 @@ class ActiviteController extends Controller
     public function participer($id)
     {
         $participation = new User_activite();
-        $participation->id_user = auth::user()->id;
+        $participation->id_user = auth::User()->id;
         $participation->id_activite = $id;
         $participation->save();
 
@@ -112,7 +115,26 @@ class ActiviteController extends Controller
 
     public function unparticiper($id)
     {
-        User_activite::where('id_activite', '=', $id)->where('id_user', '=', auth::user()->id)->delete();
+        User_activite::where('id_activite', '=', $id)->where('id_user', '=', auth::User()->id)->delete();
         return redirect()->route('activity.show', ['id'=>$id]);
+    }
+
+    public function vote(Request $request)
+    {
+        $participation = new Vote();
+        $participation->id_user = auth::user()->id;
+        $participation->id_horaire = $request['plage_horaire'];
+
+        $participation->save();
+
+        return $this->index();
+    }
+
+    public function unvote($id)
+    {
+//        Vote::select('id')->where('id_activite', "=", $id)->get())->where('id_user', '=', auth::user()->id)
+        Vote::whereIn('id_horaire', Horaire::select('id')->where('id_activite', "=", $id)->get())->where('id_user', '=', auth::user()->id)->delete();
+//        Vote::where('id_activite', '=', $id)->where('id_user', '=', auth::user()->id)->delete();
+        return $this->index();
     }
 }

@@ -8,7 +8,7 @@ class Activite extends Model {
 
 	protected $table = 'activites';
 	public $timestamps = true;
-	protected $fillable = array('nom', 'description', 'date_debut', 'lieu', 'photo');
+	protected $fillable = array('nom', 'description', 'lieu', 'photo');
 
 	public function Accueillir()
 	{

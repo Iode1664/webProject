@@ -149,7 +149,11 @@
         <div class="row">
             <div id="map_photo" class="line">
                 <div id="inscription" class="col-md-offset-5 col-md-4">
-                    <button type="button" class="btn btn-primary" onclick="inscriptionActivite({{$activity->id}})">S'INSCRIRE</button>
+                    @if(App\User_activite::where('id_activite', '=', $activity->id)->where('id_user', '=', auth::user()->id)->exists())
+                        <a href="{{route('activity.unparticiper',['id'=>$activity->id])}}" class="btn btn-primary pull-right" role="button">SE DÉSINSCRIRE</a>
+                    @else
+                        <a href="{{route('activity.participer',['id'=>$activity->id])}}" class="btn btn-primary pull-right" role="button">S'INSCRIRE</a>
+                    @endif
                 </div>
             </div>
         </div>
