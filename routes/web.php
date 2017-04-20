@@ -66,7 +66,6 @@ $router->group(['middleware' => 'csrf'], function($router)
 {
     Route::post('/activites/vote', ['as' => 'activites.vote', 'uses' => 'ActiviteController@vote']);
 
-    Route::post('/gallery/dl', ['as' => 'activites.dl', 'uses' => 'ActiviteController@dl']);
 });
 
 Route::get('/unvote/{id}', [
