@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
     <title><?php echo $__env->yieldContent('title'); ?></title>
 
 

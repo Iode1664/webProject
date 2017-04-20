@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>@yield('title')</title>
 
-    <link rel="stylesheet" href="../../webProject/public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../webProject/public/css/style-identification.css">
+    <link rel="stylesheet" href="/../webProject/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/../webProject/public/css/style-identification.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/../webProject/public/images/logo-cesi-onglet.ico" />
+
 </head>
 <body>
 {{--Header--}}
@@ -31,16 +33,16 @@
             <div id="contain" class="row">
 
                 <div id="logoCesi" class="col-md-4">
-                    <a href="{{ url('http://www.cesi.fr/') }}"><img src="../../webProject/public/images/logoCesi.png"></a>
+                    <a href="{{ url('http://www.cesi.fr/') }}"><img src="/../webProject/public/images/logoCesi.png"></a>
                 </div>
 
                 <div id="logoEi" class="col-md-4">
-                    <a href="{{ url('https://www.eicesi.fr/') }}"><img src="../../webProject/public/images/logoEi.JPG"></a>
+                    <a href="{{ url('https://www.eicesi.fr/') }}"><img src="/../webProject/public/images/logoEi.JPG"></a>
                 </div>
 
                 <div id="logoExia" class="col-md-4">
                     <div class="logo">
-                        <a href="{{ url('https://exia.cesi.fr/') }}"><img src="../../webProject/public/images/logoExia.jpg"></a>
+                        <a href="{{ url('https://exia.cesi.fr/') }}"><img src="/../webProject/public/images/logoExia.jpg"></a>
                     </div>
                 </div>
 

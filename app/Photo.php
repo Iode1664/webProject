@@ -8,7 +8,7 @@ class Photo extends Model {
 
 	protected $table = 'photos';
 	public $timestamps = true;
-    protected $fillable = array('imagePath', 'id_activite');
+    protected $fillable = array('pathPhoto', 'id_activite');
 
 	public function Appartenir()
 	{
