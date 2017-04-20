@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>"/>
     <title><?php echo $__env->yieldContent('title'); ?></title>
 
 
@@ -13,8 +13,11 @@
 
     <?php if(auth::User()->promo === 'Exia'): ?>
         <link rel="stylesheet" href="/../webProject/public/css/style-Exia.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/../webProject/public/images/logo-exia-onglet.ico"/>
     <?php else: ?>
         <link rel="stylesheet" href="/../webProject/public/css/style-Ei.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/../webProject/public/images/logo-ei-onglet.ico"/>
+
     <?php endif; ?>
     <?php echo $__env->yieldContent('custom_css'); ?>
 
@@ -27,19 +30,12 @@
         <div id="top" class="row">
             <div id="caret" class="col-md-offset-10">
                 <li class="dropdown">
-                    <?php if(auth::User()->promo === 'Exia'): ?>
-                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <img src="<?php echo e(Auth::user()->avatar); ?>" height="50">
-                            <?php echo e(Auth::user()->prenom); ?> <span class="caret"></span>
-                        </button>
-                    <?php else: ?>
-                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <img src="<?php echo e(Auth::user()->avatar); ?>" height="50">
-                            <?php echo e(Auth::user()->prenom); ?> <span class="caret"></span>
-                        </button>
-                    <?php endif; ?>
+                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <img src="<?php echo e(Auth::user()->avatar); ?>" height="50">
+                        <?php echo e(Auth::user()->prenom); ?> <span class="caret"></span>
+                    </button>
+
                     <ul class="dropdown-menu" role="menu">
                         <li>
                             <a href="<?php echo e(route('logout')); ?>"
@@ -72,7 +68,10 @@
                 <img src="/../webProject/public/images/logoBDE.png">
             </div>
 
-            <?php if(auth::User()->id_statut == 2 || 3): ?>
+            <?php if(auth::User()->id_statut == 1 ): ?>
+                <div class="col-md-1 ">
+                </div>
+            <?php else: ?>
                 <a href="<?php echo e(url('/ajout')); ?>">
                     <div id="plus" class="col-md-1 ">
                         <img src="/../webProject/public/images/plus.png">
@@ -119,6 +118,8 @@
 
 <div id="contenu">
     <?php echo $__env->yieldContent('contenu'); ?>
+
+    <?php echo $__env->yieldContent('javascript'); ?>
 </div>
 
 <footer>
@@ -151,8 +152,5 @@
     </div>
 
 </footer>
-
-<?php echo $__env->yieldContent('javascript'); ?>
-
 </body>
 </html>

@@ -8,6 +8,7 @@ class Jaime extends Model {
 
 	protected $table = 'jaimes';
 	public $timestamps = true;
+    protected $fillable = array('id_user', 'id_photo');
 
 	public function Appartenir()
 	{

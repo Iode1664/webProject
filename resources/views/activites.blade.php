@@ -98,7 +98,7 @@
                                             <input type="submit" class="btn btn-primary pull-right" value="VOTER" id="vote"/>
                                         </form>
                                         @endif
-                                        </form>
+
                                 </div>
                             </div>
                         </div>
