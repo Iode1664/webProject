@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <title>@yield('title')</title>
 
 
@@ -13,10 +13,10 @@
 
     @if(auth::User()->promo === 'Exia')
         <link rel="stylesheet" href="/../webProject/public/css/style-Exia.css">
-        <link rel="shortcut icon" type="image/x-icon" href="/../webProject/public/images/logo-exia-onglet.ico" />
+        <link rel="shortcut icon" type="image/x-icon" href="/../webProject/public/images/logo-exia-onglet.ico"/>
     @else
         <link rel="stylesheet" href="/../webProject/public/css/style-Ei.css">
-        <link rel="shortcut icon" type="image/x-icon" href="/../webProject/public/images/logo-ei-onglet.ico" />
+        <link rel="shortcut icon" type="image/x-icon" href="/../webProject/public/images/logo-ei-onglet.ico"/>
 
     @endif
     @yield('custom_css')
@@ -30,11 +30,11 @@
         <div id="top" class="row">
             <div id="caret" class="col-md-offset-10">
                 <li class="dropdown">
-                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <img src="{{ Auth::user()->avatar }}" height="50">
-                            {{ Auth::user()->prenom }} <span class="caret"></span>
-                        </button>
+                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <img src="{{ Auth::user()->avatar }}" height="50">
+                        {{ Auth::user()->prenom }} <span class="caret"></span>
+                    </button>
 
                     <ul class="dropdown-menu" role="menu">
                         <li>
@@ -67,7 +67,10 @@
                 <img src="/../webProject/public/images/logoBDE.png">
             </div>
 
-            @if(auth::User()->id_statut == 2 || 3)
+            @if(auth::User()->id_statut == 1 )
+                <div class="col-md-1 ">
+                </div>
+            @else
                 <a href="{{ url('/ajout') }}">
                     <div id="plus" class="col-md-1 ">
                         <img src="/../webProject/public/images/plus.png">
