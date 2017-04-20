@@ -22,6 +22,10 @@
                                 <div class="clearfix">
                                     <div class="pull-left" id="price">{{$product->price}} €</div>
                                     <a href="{{route('product.addToCart',['id'=>$product->id])}}" class="btn btn-primary pull-right" role="button">Ajouter au panier</a>
+                                    @if(Auth::User()->id_statut == 3)
+
+                                        <a href="{{route('activity.supprimerArticle',['id'=>$product->id])}}" class="btn btn-danger pull-right supp" role="button">Supprimer Produit</a>
+                                    @endif
                                 </div>
                             </div>
 

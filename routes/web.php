@@ -62,6 +62,11 @@ Route::get('/unparticiper/{id}', [
     'as'=>'activity.unparticiper'
 ]);
 
+Route::get('/supprimmerArticle/{id}', [
+    'uses'=>'ProductController@supprimerArticle',
+    'as'=>'activity.supprimerArticle'
+]);
+
 $router->group(['middleware' => 'csrf'], function($router)
 {
     Route::post('/activites/vote', ['as' => 'activites.vote', 'uses' => 'ActiviteController@vote']);

@@ -83,7 +83,7 @@
                                            class="btn btn-primary pull-right" role="button">ANNULER VOTE</a>
                                     @else
 
-                                        <form action="{{route('activites.dl')}}" method="POST">
+                                        <form action="{{route('activites.vote')}}" method="POST">
                                             <div class="form-group">
                                                 <label for="sel1">Selectionnez une plage horaire :</label>
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

@@ -81,6 +81,12 @@ class ProductController extends Controller {
         return view('shop.boutique',['products'=>$products]);
     }
 
+    public function supprimerArticle($id)
+    {
+        Product::where('id', '=', $id)->delete();
+        return redirect()->route('product.index');
+    }
+
     public function getAddToCart(Request $request, $id){
         $product = Product::find($id);
         $oldCart = Session::has('cart') ? Session::get('cart'): null;
