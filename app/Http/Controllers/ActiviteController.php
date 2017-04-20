@@ -10,7 +10,9 @@ use App\User_activite;
 use App\Photo;
 
 use App\Http\Requests\activiteRequest;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 
 class ActiviteController extends Controller
@@ -32,12 +34,11 @@ class ActiviteController extends Controller
     }
 
 
-    public function store( Activite $activite, activiteRequest $request)
+    public function store( Activite $activite, Horaire $horaire, activiteRequest $request)
     {
         $activite->nom = $request['activite'];
         $activite->description = $request['description'];
-        $activite->date_debut = $request['date_debut'];
-        $activite->date_fin = $request['date_fin'];
+
         $activite->lieu = $request['lieu'];
         $activite->id_statut = 1;
 
@@ -54,17 +55,24 @@ class ActiviteController extends Controller
         }
         $activite->save();
 
+
+        $id_activite0 = Activite::orderBy('id','desc')->select('id')->first()->id;
+
+        $horaire-> id_activite= $id_activite0;
+        $horaire-> Debut= $request['date_debut'];
+        $horaire->Fin = $request['date_fin'];
+        $horaire->save();
+
         return redirect('home');
     }
 
-    public function stores( Activite $activite, activiteRequest $request)
+    public function stores( Activite $activite, Horaire $horaire, activiteRequest $request)
     {
         $activite->nom = $request['activite'];
         $activite->description = $request['description'];
-        $activite->date_debut = $request['date_debut'];
-        $activite->date_fin = $request['date_fin'];
         $activite->lieu = $request['lieu'];
         $activite->id_statut = 2;
+
 
         $image = $request->file('photo');
         if($image->isValid()){
@@ -79,23 +87,29 @@ class ActiviteController extends Controller
         }
         $activite->save();
 
+        $id_activite0 = Activite::orderBy('id','desc')->select('id')->first()->id;
+
+        $horaire-> id_activite= $id_activite0;
+        $horaire-> Debut= $request['date_debut'];
+        $horaire->Fin = $request['date_fin'];
+        $horaire->save();
+
+
         return redirect('home');
     }
 
 
-    public function voteStore( Activite $activite, activiteRequest $request)
+    public function voteStore( Activite $activite,   activiteRequest $request)
     {
+        $horaire1 = new Horaire();
+        $horaire2 = new Horaire();
+        $horaire3 = new Horaire();
+
         $activite->nom = $request['activite'];
         $activite->description = $request['description'];
         $activite->lieu = $request['lieu'];
         $activite->id_statut = 3;
 
-        $activite->date_debut = $request['date_debut'];
-        $activite->date_fin = $request['date_fin'];
-        $activite->date_debut = $request['date_debut2'];
-        $activite->date_fin = $request['date_fin2'];
-        $activite->date_debut = $request['date_debut3'];
-        $activite->date_fin = $request['date_fin3'];
 
         $image = $request->file('photo');
         if($image->isValid()){
@@ -109,6 +123,23 @@ class ActiviteController extends Controller
             }
         }
         $activite->save();
+
+        $id_activite0 = Activite::orderBy('id','desc')->select('id')->first()->id;
+
+        $horaire1-> id_activite= $id_activite0;
+        $horaire2-> id_activite= $id_activite0;
+        $horaire3-> id_activite= $id_activite0;
+
+        $horaire1->Debut = $request['date_debut'];
+        $horaire1->Fin = $request['date_fin'];
+        $horaire2->Debut = $request['date_debut2'];
+        $horaire2->Fin = $request['date_fin2'];
+        $horaire3->Debut = $request['date_debut3'];
+        $horaire3->Fin = $request['date_fin3'];
+
+        $horaire1->save();
+        $horaire2->save();
+        $horaire3->save();
 
         return redirect('home');
     }

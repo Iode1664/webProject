@@ -56,11 +56,12 @@ Route::get('/gallery/{id}', [
 ]);
 
 
-Route::get('/commentaire/{idp}', ['uses' => 'CommentaireController@index', 'as' => 'commentaire.index']);
-Route::post('/commentaire/{idp}', [ 'uses' => 'CommentaireController@store', 'as' => 'commentaire.store']);
+Route::get('/commentaire/{id}', ['uses' => 'CommentaireController@index', 'as' => 'commentaire.index']);
+
+Route::post('/commentaire/{id}', [ 'uses' => 'CommentaireController@store', 'as' => 'commentaire.store']);
 
 
-
+Route::post('/gallery/{id}', ['uses' => 'PhotoController@store', 'as' =>'photo.store']);
 
 
 
@@ -69,7 +70,7 @@ Route::resource('activites', 'ActiviteController');
 Route::resource('activite', 'ActivitesController');
 Route::resource('statut_membre', 'Statut_membreController');
 Route::resource('statut_activite', 'Statut_activiteController');
-Route::resource('photo', 'PhotoController');
+
 Route::resource('vote', 'VoteController');
 Route::resource('user_activite', 'User_activiteController');
 Route::resource('horaire', 'HoraireController');

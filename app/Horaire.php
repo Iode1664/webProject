@@ -8,7 +8,7 @@ class Horaire extends Model {
 
 	protected $table = 'horaires';
 	public $timestamps = true;
-	protected $fillable = array('Debut', 'Fin');
+	protected $fillable = array('Debut', 'Fin', 'id_activite');
 
 	public function Appartenir()
 	{

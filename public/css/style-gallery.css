@@ -7,3 +7,65 @@
    text-align: center;
 
 }
+
+.imgcomment img{
+    height: 50rem;
+}
+
+.imgcomment{
+    text-align: center;
+}
+.comfoto{
+    text-align: center;
+    border-style: solid;
+    border-width: 5px;
+}
+
+.user{
+    text-align: left;
+}
+
+.txt{
+    text-align: left;
+    border-style: solid;
+    border-width: 2px;
+    padding: 10px;
+}
+
+.commentaire{
+    padding: 10px;
+}
+
+.thumbnail {
+    padding:0px;
+}
+.panel {
+    position:relative;
+}
+.panel>.panel-heading:after,.panel>.panel-heading:before{
+    position:absolute;
+    top:11px;left:-16px;
+    right:100%;
+    width:0;
+    height:0;
+    display:block;
+    content:" ";
+    border-color:transparent;
+    border-style:solid solid outset;
+    pointer-events:none;
+}
+.panel>.panel-heading:after{
+    border-width:7px;
+    border-right-color:#f7f7f7;
+    margin-top:1px;
+    margin-left:2px;
+}
+.panel>.panel-heading:before{
+    border-right-color:#ddd;
+    border-width:8px;
+}
+
+.justif{
+
+    text-align: justify;
+}

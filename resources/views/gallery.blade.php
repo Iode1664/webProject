@@ -6,30 +6,65 @@
 
 @section('custom_css')
     <link rel="stylesheet" href="/../webProject/public/css/style-gallery.css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 @endsection
 
 
 @section('contenu')
+    <div class="row">
+        @foreach($photos->chunk(3) as $photoChunck)
+            <br><br>
+            <div class="row">
+                <div class="line">
+                    @foreach($photoChunck as $photo)
 
-    @foreach($photos->chunk(3) as $photoChunck)
+                        <div class="col-sm-6 col-md-4 photo">
+                            <a href="{{route('commentaire.index',['id'=>$photo->id])}}">
+                                <img src="{{$photo->pathPhoto}}">
+                            </a>
+                        </div>
+
+                    @endforeach
+                </div>
+            </div>
+        @endforeach
         <br><br>
-        <div class="row">
-            <div class="line">
-                @foreach($photoChunck as $photo)
 
-                    <div class="col-sm-6 col-md-4 photo">
-                        <a href="{{route('commentaire.index',['idp'=>$photo->id])}}">
-                        <img src="{{$photo->pathPhoto}}">
-                        </a>
-                    </div>
+        <div class="col-md-4 col-md-offset-4 ">
+            <div class="panel panel-default">
+                <div class="panel-heading">AJOUTER UNE PHOTO</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" method="POST"
+                          action="{{ route('photo.store', ['id'=>$activity->id]) }}" enctype="multipart/form-data">
+                        {{ csrf_field() }}
 
-                @endforeach
+
+                        <div class="form-group{{ $errors->has('photo') ? ' has-error' : '' }}">
+                            <label for="photo" class="col-md-2 control-label">Image</label>
+
+                            <div class="col-md-7">
+                                <input type="hidden" name="MAX_FILE_SIZE" value="1000000000"/>
+                                <input id="photo" type="file" class="form-control" name="photo"
+                                       value="{{ old('photo') }}" required autofocus>
+
+                                @if ($errors->has('photo'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('photo') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-7">
+                                <button type="submit" class="btn btn-primary">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    @endforeach
-    <br><br>
+    </div>
 @endsection

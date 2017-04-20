@@ -163,10 +163,6 @@
                     @else
                         <a href="{{route('activity.participer',['id'=>$activity->id])}}" class="btn btn-primary pull-right" role="button">S'INSCRIRE</a>
                     @endif
-
-                    <button type="button" class="btn btn-primary" onclick="inscriptionActivite({{$activity->id}})">
-                        S'INSCRIRE
-                    </button>
                 </div>
             </div>
         </div>
