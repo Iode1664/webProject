@@ -135,7 +135,7 @@
 
                                     <div class="col-md-6">
                                         <input id="activite" type="text" class="form-control" name="activite"
-                                               value="{{ old('activite') }}" required autofocus>
+                                               value="{{ old('activite') }}" required>
 
                                         @if ($errors->has('activite'))
                                             <span class="help-block">
@@ -181,7 +181,7 @@
 
                                     <div class="col-md-6">
                                         <input id="lieu" type="text" class="form-control" name="lieu"
-                                               value="{{ old('lieu') }}" required autofocus>
+                                               value="{{ old('lieu') }}" required>
 
                                         @if ($errors->has('lieu'))
                                             <span class="help-block">
@@ -197,7 +197,7 @@
                                     <div class="col-md-6">
                                         <input type="hidden" name="MAX_FILE_SIZE" value="100000000"/>
                                         <input id="photo" type="file" class="form-control" name="photo"
-                                               value="{{ old('photo') }}" required autofocus>
+                                               value="{{ old('photo') }}" required>
 
                                         @if ($errors->has('photo'))
                                             <span class="help-block">

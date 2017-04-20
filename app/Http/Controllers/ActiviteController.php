@@ -212,6 +212,12 @@ class ActiviteController extends Controller
         return redirect()->route('activity.show', ['id'=>$id]);
     }
 
+    public function delete($id)
+    {
+        Activite::where('id_activite', '=', $id)->delete();
+        return redirect()->route('activites.show', ['id'=>$id]);
+    }
+
     public function vote(Request $request)
     {
         $participation = new Vote();

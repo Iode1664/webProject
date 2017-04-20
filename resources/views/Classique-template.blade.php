@@ -23,7 +23,7 @@
 
 </head>
 <body>
-
+<wrapper>
 {{--Header-classique--}}
 <header>
     <div class="container-fluid">
@@ -146,7 +146,11 @@
             </div>
         </div>
     </div>
-
 </footer>
+<<<<<<< Updated upstream
+=======
+@yield('javascript')
+</wrapper>
+>>>>>>> Stashed changes
 </body>
 </html>
