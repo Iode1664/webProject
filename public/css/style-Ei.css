@@ -10,12 +10,25 @@ body {
 }
 
 #top, #home, #activity, #shop, #cart{
-    background-color:  #1169B0;
+    background-color:
+            #1169B0;
     height: 5rem;
 }
 
 #top {
     height: 5rem;
+}
+.nn{
+    display: block;
+    text-align: center;
+}
+
+#erreur{
+    color:
+            #1169B0;
+    font-size: 10rem;
+    text-align: center;
+    display: block;
 }
 
 #contain {
@@ -63,16 +76,18 @@ body {
     padding-left: 5rem;
 }
 
-#erreur{
-    color: #1169B0;
-    font-size: 10rem;
-    text-align: center;
-    display: block;
-}
 
 #logoCesi img{
     height: 13rem;
     margin-top: 10px;
+}
+
+#cart {
+    height: 9rem;
+    text-align: center;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 6rem;
 }
 
 #caret{
@@ -82,25 +97,17 @@ body {
     font-size: 1px;
 }
 
-#cart {
-    height: 11rem;
-    text-align: center;
-    margin-left: 14px;
-    margin-right: 14px;
-    margin-top: 2.5rem;
-}
-
 #cart img {
-    height: 5rem;
+    height: 4rem;
 }
 
 .titre {
     margin-top: 10px;
-    display: inline-block;
+
     background-color: white;
-    color: #1169B0;
-    height : 3rem;
-    width: 25rem;
+    color:
+            #1169B0;
+
 }
 
 .titre p {
@@ -108,7 +115,7 @@ body {
     font-size: 1.6rem;
 }
 
-#cart .titre {
+#cart titre {
     height : 3rem;
     width: 10rem;
 }
@@ -131,11 +138,12 @@ body {
 #twitter img{
     height: 3.5rem;
     margin-left: 3rem;
-
 }
 
 #mention p,#copyright p{
+    display: block;
     margin-top: 6rem;
+    height: 10rem;
 }
 
 #contact p{

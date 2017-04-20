@@ -169,7 +169,6 @@ class ActiviteController extends Controller
 
     public function getSuggestions(){
 
-
         $suggs = DB::table('activites')
             ->join('horaires', 'activites.id', '=','horaires.id_activite')
             ->select('activites.nom','activites.description', 'activites.lieu', 'activites.photo','horaires.Debut','horaires.Fin', 'activites.id_statut')->where('id_statut', '=',2 )->get();
@@ -228,6 +227,9 @@ class ActiviteController extends Controller
 
         return $this->index();
     }
+
+
+
 
     public function unvote($id)
     {

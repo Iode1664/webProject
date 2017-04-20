@@ -78,11 +78,15 @@
                 <img src="/../webProject/public/images/logoBDE.png">
             </div>
 
-            @if(auth::User()->id_statut === 2 || 3)
+            @if(auth::User()->id_statut == 1 )
+                <div class="col-md-1 ">
+                </div>
+            @else
                 <a href="{{ url('/ajout') }}">
                     <div id="plus" class="col-md-1 ">
                         <img src="/../webProject/public/images/plus.png">
-                    </div></a>
+                    </div>
+                </a>
             @endif
 
             <a href="{{ url('/home') }}">

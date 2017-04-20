@@ -10,7 +10,8 @@
 
 
 @section('contenu')
-    <div class="row">
+    <div class="container-fluid">
+
         @foreach($photos->chunk(3) as $photoChunck)
             <br><br>
             <div class="row">
@@ -21,12 +22,17 @@
                             <a href="{{route('commentaire.index',['id'=>$photo->id])}}">
                                 <img src="{{$photo->pathPhoto}}">
                             </a>
-                        </div>
+                            <div>
+                                <a href="{{$photo->pathPhoto}}" download="{{$photo->pathPhoto}}" style="margin-top: 1rem;"><input type="button" value="Télécharger"></a>
 
+                            </div>
+                        </div>
                     @endforeach
                 </div>
             </div>
         @endforeach
+
+
         <br><br>
 
         <div class="col-md-4 col-md-offset-4 ">

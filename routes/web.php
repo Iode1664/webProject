@@ -66,6 +66,12 @@ Route::get('/unparticiper/{id}', [
     'uses'=>'ActiviteController@unparticiper',
     'as'=>'activity.unparticiper'
 ]);
+
+Route::get('/supprimmerArticle/{id}', [
+    'uses'=>'ProductController@supprimerArticle',
+    'as'=>'activity.supprimerArticle'
+]);
+
 $router->group(['middleware' => 'csrf'], function($router)
 {
     Route::post('/activites/vote', ['as' => 'activites.vote', 'uses' => 'ActiviteController@vote']);
@@ -87,10 +93,14 @@ Route::get('/gallery/{id}', [
 
 
 
+
 Route::get('/commentaire/{id}', ['uses' => 'CommentaireController@index', 'as' => 'commentaire.index']);
 Route::post('/commentaire/{id}', [ 'uses' => 'CommentaireController@store', 'as' => 'commentaire.store']);
 
 Route::post('/gallery/{id}', ['uses' => 'PhotoController@store', 'as' =>'photo.store']);
+
+
+
 
 
 Route::resource('user', 'UserController');

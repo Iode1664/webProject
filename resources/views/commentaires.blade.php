@@ -30,7 +30,7 @@
         </div>
         <br>
 
-        
+
     @foreach($comments as $comment)
 
             <div class="row">
