@@ -78,7 +78,7 @@
 
                                     <?php if(App\Vote::whereIn('id_horaire', App\Horaire::select('id')->where('id_activite', "=", $vote->id)->get())->where('id_user', '=', auth::user()->id)->exists()): ?>
                                         <a href="<?php echo e(route('activites.unvote', ['id'=>$vote->id])); ?>"
-                                           class="btn btn-primary pull-left" role="button">ANNULER VOTE</a>
+                                           class="btn btn-primary pull-right" role="button">ANNULER VOTE</a>
                                     <?php else: ?>
 
                                         <form action="<?php echo e(route('activites.vote')); ?>" method="POST">
@@ -94,7 +94,7 @@
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                 </select>
                                             </div>
-                                            <input type="submit" class="btn btn-primary" value="VOTER" id="vote"/>
+                                            <input type="submit" class="btn btn-primary pull-right" value="VOTER" id="vote"/>
                                         </form>
                                         <?php endif; ?>
                                         </form>

@@ -80,7 +80,7 @@
 
                                     @if(App\Vote::whereIn('id_horaire', App\Horaire::select('id')->where('id_activite', "=", $vote->id)->get())->where('id_user', '=', auth::user()->id)->exists())
                                         <a href="{{route('activites.unvote', ['id'=>$vote->id])}}"
-                                           class="btn btn-primary pull-left" role="button">ANNULER VOTE</a>
+                                           class="btn btn-primary pull-right" role="button">ANNULER VOTE</a>
                                     @else
 
                                         <form action="{{route('activites.vote')}}" method="POST">
@@ -95,7 +95,7 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <input type="submit" class="btn btn-primary" value="VOTER" id="vote"/>
+                                            <input type="submit" class="btn btn-primary pull-right" value="VOTER" id="vote"/>
                                         </form>
                                         @endif
                                         </form>
