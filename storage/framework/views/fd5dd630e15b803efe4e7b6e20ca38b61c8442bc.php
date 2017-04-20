@@ -15,9 +15,10 @@
 
 
         <div class="container">
-            <div class="row">
-                <?php if(auth::User()->id_statut == 2 || 3): ?>
-                    <div class="col-md-5 ">
+            <?php if(auth::User()->id_statut == 2 || 3): ?>
+                <div class="row">
+                    <div class="col-md-5">
+                        <br><br>
                         <div class="panel panel-default">
                             <div class="panel-heading">AJOUT ACTIVITÉ</div>
                             <div class="panel-body">
@@ -130,11 +131,196 @@
                             </div>
                         </div>
                     </div>
-                <?php endif; ?>
+                    <br><br>
+                    <div class="col-md-5 col-md-offset-1">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">ACTIVITÉ À VOTER</div>
+                            <div class="panel-body">
+                                <form class="form-horizontal" role="form" method="POST"
+                                      action="<?php echo e(route('activites.vote')); ?>" enctype="multipart/form-data">
+                                    <?php echo e(csrf_field()); ?>
 
 
-                <?php if(auth::User()->id_statut == 3): ?>
-                    <div class="col-md-5 col-md-offset-2">
+                                    <div class="form-group<?php echo e($errors->has('activite') ? ' has-error' : ''); ?>">
+                                        <label for="activite" class="col-md-4 control-label">Activité</label>
+
+                                        <div class="col-md-6">
+                                            <input id="activite" type="text" class="form-control" name="activite"
+                                                   value="<?php echo e(old('activite')); ?>" required autofocus>
+
+                                            <?php if($errors->has('activite')): ?>
+                                                <span class="help-block">
+                                                        <strong><?php echo e($errors->first('activite')); ?></strong>
+                                                    </span>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group<?php echo e($errors->has('lieu') ? ' has-error' : ''); ?>">
+                                        <label for="lieu" class="col-md-4 control-label">Adresse</label>
+
+                                        <div class="col-md-6">
+                                            <input id="lieu" type="text" class="form-control" name="lieu"
+                                                   value="<?php echo e(old('lieu')); ?>" required autofocus>
+
+                                            <?php if($errors->has('lieu')): ?>
+                                                <span class="help-block">
+                                        <strong><?php echo e($errors->first('lieu')); ?></strong>
+                                    </span>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group<?php echo e($errors->has('photo') ? ' has-error' : ''); ?>">
+                                        <label for="photo" class="col-md-4 control-label">Image</label>
+
+                                        <div class="col-md-6">
+                                            <input type="hidden" name="MAX_FILE_SIZE" value="100000000"/>
+                                            <input id="photo" type="file" class="form-control" name="photo"
+                                                   value="<?php echo e(old('photo')); ?>" required autofocus>
+
+                                            <?php if($errors->has('photo')): ?>
+                                                <span class="help-block">
+                                        <strong><?php echo e($errors->first('photo')); ?></strong>
+                                    </span>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group<?php echo e($errors->has('description') ? ' has-error' : ''); ?>">
+                                        <label for="description" class="col-md-4 control-label">Description</label>
+
+                                        <div class="col-md-6">
+                                        <textarea name="description" class="form-control" id="description" rows="10"
+                                                  cols="50"></textarea>
+
+                                            <?php if($errors->has('description')): ?>
+                                                <span class="help-block">
+                                        <strong><?php echo e($errors->first('description')); ?></strong>
+                                    </span>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <label>Première Proposition :</label>
+                                    <div class="form-group<?php echo e($errors->has('date_debut') ? ' has-error' : ''); ?>">
+                                        <label for="date_debut" class="col-md-4 control-label">Date de début</label>
+
+                                        <div class="col-md-6">
+                                            <input id="date_debut" type="datetime-local" class="form-control"
+                                                   name="date_debut" required>
+
+                                            <?php if($errors->has('date_debut')): ?>
+                                                <span class="help-block">
+                                                        <strong><?php echo e($errors->first('date_debut')); ?></strong>
+                                                     </span>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group<?php echo e($errors->has('date_fin') ? ' has-error' : ''); ?>">
+                                        <label for="date_fin" class="col-md-4 control-label">Date de fin</label>
+
+                                        <div class="col-md-6">
+                                            <input id="date_fin" type="datetime-local" class="form-control"
+                                                   name="date_fin"
+                                                   required>
+
+                                            <?php if($errors->has('date_fin')): ?>
+                                                <span class="help-block">
+                                                        <strong><?php echo e($errors->first('date_fin')); ?></strong>
+                                                    </span>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <label>Deuxième Proposition :</label>
+                                    <div class="form-group<?php echo e($errors->has('date_debut2') ? ' has-error' : ''); ?>">
+                                        <label for="date_debut2" class="col-md-4 control-label">Date de début</label>
+
+                                        <div class="col-md-6">
+                                            <input id="date_debut2" type="datetime-local" class="form-control"
+                                                   name="date_debut2" required>
+
+                                            <?php if($errors->has('date_debut2')): ?>
+                                                <span class="help-block">
+                                                        <strong><?php echo e($errors->first('date_debut2')); ?></strong>
+                                                     </span>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group<?php echo e($errors->has('date_fin2') ? ' has-error' : ''); ?>">
+                                        <label for="date_fin2" class="col-md-4 control-label">Date de fin</label>
+
+                                        <div class="col-md-6">
+                                            <input id="date_fin2" type="datetime-local" class="form-control"
+                                                   name="date_fin2"
+                                                   required>
+
+                                            <?php if($errors->has('date_fin2')): ?>
+                                                <span class="help-block">
+                                                        <strong><?php echo e($errors->first('date_fin2')); ?></strong>
+                                                    </span>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <label>Troisième Proposition :</label>
+                                    <div class="form-group<?php echo e($errors->has('date_debut3') ? ' has-error' : ''); ?>">
+                                        <label for="date_debut3" class="col-md-4 control-label">Date de début</label>
+
+                                        <div class="col-md-6">
+                                            <input id="date_debut3" type="datetime-local" class="form-control"
+                                                   name="date_debut3" required>
+
+                                            <?php if($errors->has('date_debut3')): ?>
+                                                <span class="help-block">
+                                                        <strong><?php echo e($errors->first('date_debut3')); ?></strong>
+                                                     </span>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group<?php echo e($errors->has('date_fin3') ? ' has-error' : ''); ?>">
+                                        <label for="date_fin3" class="col-md-4 control-label">Date de fin</label>
+
+                                        <div class="col-md-6">
+                                            <input id="date_fin3" type="datetime-local" class="form-control"
+                                                   name="date_fin3"
+                                                   required>
+
+                                            <?php if($errors->has('date_fin3')): ?>
+                                                <span class="help-block">
+                                                        <strong><?php echo e($errors->first('date_fin3')); ?></strong>
+                                                    </span>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-8 col-md-offset-4">
+                                            <button type="submit" class="btn btn-primary">
+                                                Envoyer
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+
+<br><br><br>
+        <div class="container">
+            <?php if(auth::User()->id_statut == 3): ?>
+                <div class="row">
+                    <div class="col-md-5 ">
                         <div class="panel panel-default">
                             <div class="panel-heading">AJOUT ARTICLE</div>
                             <div class="panel-body">
@@ -217,7 +403,7 @@
                     </div>
 
 
-                    <div class="col-md-5 col-md-offset-2">
+                    <div class="col-md-5 col-md-offset-1">
                         <div class="panel panel-default">
                             <div class="panel-heading">AJOUT MEMBRE BDE</div>
                             <div class="panel-body">
@@ -344,199 +530,15 @@
                                             </button>
                                         </div>
                                     </div>
-
                                 </form>
                             </div>
                         </div>
                     </div>
-                <?php endif; ?>
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-5 ">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">ACTIVITÉ À VOTER</div>
-                                <div class="panel-body">
-                                    <form class="form-horizontal" role="form" method="POST"
-                                          action="<?php echo e(route('activites.vote')); ?>" enctype="multipart/form-data">
-                                        <?php echo e(csrf_field()); ?>
-
-
-                                        <div class="form-group<?php echo e($errors->has('activite') ? ' has-error' : ''); ?>">
-                                            <label for="activite" class="col-md-4 control-label">Activité</label>
-
-                                            <div class="col-md-6">
-                                                <input id="activite" type="text" class="form-control" name="activite"
-                                                       value="<?php echo e(old('activite')); ?>" required autofocus>
-
-                                                <?php if($errors->has('activite')): ?>
-                                                    <span class="help-block">
-                                                        <strong><?php echo e($errors->first('activite')); ?></strong>
-                                                    </span>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group<?php echo e($errors->has('lieu') ? ' has-error' : ''); ?>">
-                                            <label for="lieu" class="col-md-4 control-label">Adresse</label>
-
-                                            <div class="col-md-6">
-                                                <input id="lieu" type="text" class="form-control" name="lieu"
-                                                       value="<?php echo e(old('lieu')); ?>" required autofocus>
-
-                                                <?php if($errors->has('lieu')): ?>
-                                                    <span class="help-block">
-                                        <strong><?php echo e($errors->first('lieu')); ?></strong>
-                                    </span>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group<?php echo e($errors->has('photo') ? ' has-error' : ''); ?>">
-                                            <label for="photo" class="col-md-4 control-label">Image</label>
-
-                                            <div class="col-md-6">
-                                                <input type="hidden" name="MAX_FILE_SIZE" value="100000000"/>
-                                                <input id="photo" type="file" class="form-control" name="photo"
-                                                       value="<?php echo e(old('photo')); ?>" required autofocus>
-
-                                                <?php if($errors->has('photo')): ?>
-                                                    <span class="help-block">
-                                        <strong><?php echo e($errors->first('photo')); ?></strong>
-                                    </span>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group<?php echo e($errors->has('description') ? ' has-error' : ''); ?>">
-                                            <label for="description" class="col-md-4 control-label">Description</label>
-
-                                            <div class="col-md-6">
-                                        <textarea name="description" class="form-control" id="description" rows="10"
-                                                  cols="50"></textarea>
-
-                                                <?php if($errors->has('description')): ?>
-                                                    <span class="help-block">
-                                        <strong><?php echo e($errors->first('description')); ?></strong>
-                                    </span>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-                                        <br>
-
-                                        <label>Première Proposition :</label>
-                                        <div class="form-group<?php echo e($errors->has('date_debut') ? ' has-error' : ''); ?>">
-                                            <label for="date_debut" class="col-md-4 control-label">Date de début</label>
-
-                                            <div class="col-md-6">
-                                                <input id="date_debut" type="datetime-local" class="form-control"
-                                                       name="date_debut" required>
-
-                                                <?php if($errors->has('date_debut')): ?>
-                                                    <span class="help-block">
-                                                        <strong><?php echo e($errors->first('date_debut')); ?></strong>
-                                                     </span>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group<?php echo e($errors->has('date_fin') ? ' has-error' : ''); ?>">
-                                            <label for="date_fin" class="col-md-4 control-label">Date de fin</label>
-
-                                            <div class="col-md-6">
-                                                <input id="date_fin" type="datetime-local" class="form-control"
-                                                       name="date_fin"
-                                                       required>
-
-                                                <?php if($errors->has('date_fin')): ?>
-                                                    <span class="help-block">
-                                                        <strong><?php echo e($errors->first('date_fin')); ?></strong>
-                                                    </span>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-                                        <br>
-
-                                        <label>Deuxième Proposition :</label>
-                                        <div class="form-group<?php echo e($errors->has('date_debut2') ? ' has-error' : ''); ?>">
-                                            <label for="date_debut2" class="col-md-4 control-label">Date de début</label>
-
-                                            <div class="col-md-6">
-                                                <input id="date_debut2" type="datetime-local" class="form-control"
-                                                       name="date_debut2" required>
-
-                                                <?php if($errors->has('date_debut2')): ?>
-                                                    <span class="help-block">
-                                                        <strong><?php echo e($errors->first('date_debut2')); ?></strong>
-                                                     </span>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group<?php echo e($errors->has('date_fin2') ? ' has-error' : ''); ?>">
-                                            <label for="date_fin2" class="col-md-4 control-label">Date de fin</label>
-
-                                            <div class="col-md-6">
-                                                <input id="date_fin2" type="datetime-local" class="form-control"
-                                                       name="date_fin2"
-                                                       required>
-
-                                                <?php if($errors->has('date_fin2')): ?>
-                                                    <span class="help-block">
-                                                        <strong><?php echo e($errors->first('date_fin2')); ?></strong>
-                                                    </span>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-                                        <br>
-
-                                        <label>Troisième Proposition :</label>
-                                        <div class="form-group<?php echo e($errors->has('date_debut3') ? ' has-error' : ''); ?>">
-                                            <label for="date_debut3" class="col-md-4 control-label">Date de début</label>
-
-                                            <div class="col-md-6">
-                                                <input id="date_debut3" type="datetime-local" class="form-control"
-                                                       name="date_debut3" required>
-
-                                                <?php if($errors->has('date_debut3')): ?>
-                                                    <span class="help-block">
-                                                        <strong><?php echo e($errors->first('date_debut3')); ?></strong>
-                                                     </span>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group<?php echo e($errors->has('date_fin3') ? ' has-error' : ''); ?>">
-                                            <label for="date_fin3" class="col-md-4 control-label">Date de fin</label>
-
-                                            <div class="col-md-6">
-                                                <input id="date_fin3" type="datetime-local" class="form-control"
-                                                       name="date_fin3"
-                                                       required>
-
-                                                <?php if($errors->has('date_fin3')): ?>
-                                                    <span class="help-block">
-                                                        <strong><?php echo e($errors->first('date_fin3')); ?></strong>
-                                                    </span>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="col-md-8 col-md-offset-4">
-                                                <button type="submit" class="btn btn-primary">
-                                                    Envoyer
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
-            </div>
         </div>
+        <br><br>
+
     <?php endif; ?>
 <?php $__env->stopSection(); ?>
 
