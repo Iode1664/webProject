@@ -234,6 +234,10 @@
                     </div>
                 </div>
             </div>
+
+            <a href="{{route('activity.suggestions')}}" class="btn btn-primary pull-right supp" role="button">Liste des suggestions</a>
+
+
         </div>
     </div>  <br><br>
 
