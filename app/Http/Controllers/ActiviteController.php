@@ -223,6 +223,20 @@ class ActiviteController extends Controller
         return $this->index();
     }
 
+    public function dl(Request $request)
+    {
+        $dls = $request['checkbox[]'];
+
+       foreach ($dls as $dl){
+           $photo = Photo::find($dl);
+
+           readfile("{{$photo->pathPhoto}}");
+
+    }
+
+        return redirect()->route('activity.gallery');
+    }
+
     public function unvote($id)
     {
 //        Vote::select('id')->where('id_activite', "=", $id)->get())->where('id_user', '=', auth::user()->id)

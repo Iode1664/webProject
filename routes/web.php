@@ -61,9 +61,12 @@ Route::get('/unparticiper/{id}', [
     'uses'=>'ActiviteController@unparticiper',
     'as'=>'activity.unparticiper'
 ]);
+
 $router->group(['middleware' => 'csrf'], function($router)
 {
     Route::post('/activites/vote', ['as' => 'activites.vote', 'uses' => 'ActiviteController@vote']);
+
+    Route::post('/gallery/dl', ['as' => 'activites.dl', 'uses' => 'ActiviteController@dl']);
 });
 
 Route::get('/unvote/{id}', [
@@ -79,6 +82,7 @@ Route::get('/gallery/{id}', [
 
 
 
+
 Route::get('/commentaire/{id}', ['uses' => 'CommentaireController@index', 'as' => 'commentaire.index']);
 
 Route::post('/commentaire/{id}', [ 'uses' => 'CommentaireController@store', 'as' => 'commentaire.store']);
@@ -88,6 +92,8 @@ Route::post('/commentaire/{id}', [ 'uses' => 'CommentaireController@store', 'as'
 
 
 Route::post('/gallery/{id}', ['uses' => 'PhotoController@store', 'as' =>'photo.store']);
+
+
 
 
 
