@@ -13,8 +13,11 @@
 
     @if(auth::User()->promo === 'Exia')
         <link rel="stylesheet" href="/../webProject/public/css/style-Exia.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/../webProject/public/images/logo-exia-onglet.ico" />
     @else
         <link rel="stylesheet" href="/../webProject/public/css/style-Ei.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/../webProject/public/images/logo-ei-onglet.ico" />
+
     @endif
     @yield('custom_css')
 

@@ -7,12 +7,11 @@ use App\Repositories\ActiviteRepository;
 use App\Activite;
 use App\Photo;
 use auth;
+use App\User_activite;
 use App\Vote;
 use App\Horaire;
 use App\Http\Requests\activiteRequest;
-
-
-
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -32,6 +31,7 @@ class ActiviteController extends Controller
     {
         $activitys = Activite::where('id_statut', '!=', 3)->get();
         $votes = Activite::where('id_statut', '=', 3)->get();
+
         return view('activites', ['activitys' => $activitys], ['votes' => $votes]);
     }
 
@@ -155,10 +155,28 @@ class ActiviteController extends Controller
         $Firstphoto = Photo::where('id_activite', '=', $id)->first();
 
         return view('activite', ['activity' => $activity], ['horaires' => $horaires])->with('photos' , $photos) -> with('Firstphoto' , $Firstphoto);
-
-
     }
 
+    public function getParticipants($id)
+    {
+        $subs = DB::table('user_activites')
+            ->join('users', 'user_activites.id_user', '=','users.id')
+            ->join('activites', 'user_activites.id_activite', '=','activites.id')
+            ->select('users.nom','users.prenom', 'users.promo', 'users.email')->where('id_activite', '=', $id)->get();
+        $activity = Activite::find($id);
+        return view('activite_participant', ['subs' => $subs], ['activity' => $activity]);
+    }
+
+    public function getSuggestions(){
+
+
+        $suggs = DB::table('activites')
+            ->join('horaires', 'activites.id', '=','horaires.id_activite')
+            ->select('activites.nom','activites.description', 'activites.lieu', 'activites.photo','horaires.Debut','horaires.Fin', 'activites.id_statut')->where('id_statut', '=',2 )->get();
+
+        return view('activite_suggestion', ['suggs' => $suggs]);
+
+    }
 
     public function getGallery($id)
     {
@@ -212,4 +230,7 @@ class ActiviteController extends Controller
 //        Vote::where('id_activite', '=', $id)->where('id_user', '=', auth::user()->id)->delete();
         return $this->index();
     }
+
+
+
 }

@@ -7,8 +7,11 @@
 
     @if(auth::User()->promo === 'Exia')
         <link rel="stylesheet" href="/../webProject/public/css/style-Exia.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/../webProject/public/images/logo-exia-onglet.ico" />
     @else
         <link rel="stylesheet" href="/../webProject/public/css/style-Ei.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/../webProject/public/images/logo-ei-onglet.ico" />
+
     @endif
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">

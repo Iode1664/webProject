@@ -161,12 +161,18 @@
                 <div id="inscription" class="col-md-offset-2 col-md-4">
 
                     @if(App\User_activite::where('id_activite', '=', $activity->id)->where('id_user', '=', auth::user()->id)->exists())
-                        <a href="{{route('activity.unparticiper',['id'=>$activity->id])}}" class="btn btn-primary pull-right" role="button">SE DÉSINSCRIRE</a>
+                        <a href="{{route('activity.unparticiper',['id'=>$activity->id])}}"
+                           class="btn btn-primary pull-right" role="button">SE DÉSINSCRIRE</a>
                     @else
-                        <a href="{{route('activity.participer',['id'=>$activity->id])}}" class="btn btn-primary pull-right" role="button">S'INSCRIRE</a>
+                        <a href="{{route('activity.participer',['id'=>$activity->id])}}"
+                           class="btn btn-primary pull-right" role="button">S'INSCRIRE</a>
                     @endif
 
                 </div>
+                <div class="col-md-offset-1 col-md-3">
+                    @if(auth::User()->id_statut === 2 || auth::User()->id_statut === 3)
+                        <a href="{{route('activity.participants',['id'=>$activity->id])}}" class="btn btn-primary pull-right" role="button">VOIR PARTICIPANTS</a>
+                    @endif</div>
             </div>
         </div>
     </div>
