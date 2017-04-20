@@ -27,7 +27,10 @@ Route::post('/activites/suggestion', ['as' => 'activites.stores', 'uses' => 'Act
 
 
 
-Route::get('/activites', 'ActiviteController@index');
+Route::get('/activites', [
+    'as' => 'activites.show',
+    'uses' => 'ActiviteController@index'
+]);
 
 Route::get('/activite/{id}', [
     'uses' => 'ActiviteController@getActivity',
@@ -48,6 +51,15 @@ Route::get('/unparticiper/{id}', [
     'uses'=>'ActiviteController@unparticiper',
     'as'=>'activity.unparticiper'
 ]);
+$router->group(['middleware' => 'csrf'], function($router)
+{
+    Route::post('/activites/vote', ['as' => 'activites.vote', 'uses' => 'ActiviteController@vote']);
+});
+
+Route::get('/unvote/{id}', [
+    'uses'=>'ActiviteController@unvote',
+    'as'=>'activites.unvote'
+]);
 
 
 Route::get('/gallery/{id}', [
@@ -55,8 +67,13 @@ Route::get('/gallery/{id}', [
     'as'=>'activity.gallery'
 ]);
 
+<<<<<<< HEAD
 
 Route::get('/commentaire/{id}', ['uses' => 'CommentaireController@index', 'as' => 'commentaire.index']);
+=======
+Route::get('/commentaire/{idp}', ['uses' => 'CommentaireController@index', 'as' => 'commentaire.index']);
+Route::post('/commentaire/{idp}', [ 'uses' => 'CommentaireController@store', 'as' => 'commentaire.store']);
+>>>>>>> b326c2e038af9c0749a5eb4193cd21721413c488
 
 Route::post('/commentaire/{id}', [ 'uses' => 'CommentaireController@store', 'as' => 'commentaire.store']);
 

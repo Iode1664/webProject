@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b326c2e038af9c0749a5eb4193cd21721413c488
 use App\Http\Requests\photoRequest;
 use App\Photo;
 
@@ -49,6 +53,7 @@ class PhotoController extends Controller
     public function show($id)
     {
 
+<<<<<<< HEAD
     }
 
 
@@ -65,3 +70,9 @@ class PhotoController extends Controller
 }
 
 ?>
+=======
+  public function update($id)
+  {
+    
+  }
+>>>>>>> b326c2e038af9c0749a5eb4193cd21721413c488

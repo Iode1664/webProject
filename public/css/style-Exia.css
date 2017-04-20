@@ -96,11 +96,10 @@ body {
 
 .titre {
     margin-top: 10px;
-    display: inline-block;
+
     background-color: white;
     color: #cc0000;
-    height : 3rem;
-    width: 25rem;
+
 }
 
 .titre p {
@@ -108,7 +107,7 @@ body {
     font-size: 1.6rem;
 }
 
-#cart .titre {
+#cart titre {
     height : 3rem;
     width: 10rem;
 }

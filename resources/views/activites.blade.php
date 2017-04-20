@@ -56,28 +56,49 @@
         </div>
         <div class="row">
             <div class="col-md-4 col-md-offset-5" id="activity_title">
-                <h2>ACTIVITÉS</h2>
+                <h2>VOTES</h2>
             </div>
         </div>
-        @foreach($activitys->chunk(2) as $activitysChunk)
+        @foreach($votes->chunk(2) as $voteschunk)
             <br><br>
             <div class="row">
                 <div class="line">
                     {{--<div class="col-md-1"></div>--}}
-                    @foreach($activitysChunk as $activity)
+                    @foreach($voteschunk as $vote)
                         <div class="col-sm-6 col-md-6">
                             <div class="thumbnail">
                                 <div class="wrapper">
-                                    <img class="slide" src="{{$activity->photo}}">
+                                    <img class="slide" src="{{$vote->photo}}">
                                     <div class="caption">
 
-                                        <h3>&nbsp; {{$activity->nom}}</h3>
+                                        <h3>&nbsp; {{$vote->nom}}</h3>
                                         <br>
-                                        <p class="desc">{{$activity->description}}</p>
+                                        <p class="desc">{{$vote->description}}</p>
                                         <br>
                                     </div>
-                                    <a href="{{route('activity.show',['id'=>$activity->id])}}"
-                                       class="btn btn-primary pull-right" role="button">Voir plus</a>
+
+
+                                    @if(App\Vote::whereIn('id_horaire', App\Horaire::select('id')->where('id_activite', "=", $vote->id)->get())->where('id_user', '=', auth::user()->id)->exists())
+                                        <a href="{{route('activites.unvote', ['id'=>$vote->id])}}"
+                                           class="btn btn-primary pull-left" role="button">ANNULER VOTE</a>
+                                    @else
+
+                                        <form action="{{route('activites.vote')}}" method="POST">
+                                            <div class="form-group">
+                                                <label for="sel1">Selectionnez une plage horaire :</label>
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <select name="plage_horaire" class="form-control" id="sel1">
+                                                    @foreach(App\Horaire::where('id_activite', "=", $vote->id)->get() as $hor)
+                                                        <option value="{{$hor->id}}">{{date("d/m/y H:i", strtotime($hor->Debut))}}
+                                                            &nbsp; -
+                                                            &nbsp; {{date("d/m/y H:i", strtotime($hor->Fin))}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <input type="submit" class="btn btn-primary" value="VOTER" id="vote"/>
+                                        </form>
+                                        @endif
+                                        </form>
                                 </div>
                             </div>
                         </div>

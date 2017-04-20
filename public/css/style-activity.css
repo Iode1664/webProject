@@ -11,11 +11,19 @@
     height: 40rem;
 }
 
-#map_photo p{
-    margin-top: 10rem
-}
-
 #inscription {
     padding-left: 12rem;
+    height: 10rem;
 }
 
+#horaire {
+    text-align: center;
+
+}
+
+#map {
+    padding-top: 40rem;
+}
+#ourCarousel {
+    margin-left: 5rem;
+}

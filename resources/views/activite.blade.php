@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 @endsection
 
 @section('contenu')
@@ -40,18 +40,19 @@
         <div class="row">
             <div id="lieu_date" class="line">
                 <div class="col-md-offset-1 col-md-4">
-                    <p>LIEU</p>
+                    <h3>LIEU</h3>
+                    <h4>{{$activity->lieu}}</h4>
                 </div>
-                <div class="col-md-5">
-                    <p>HORAIRES</p>
-                    <p>{{date("d/m/y H:i", strtotime($horaires->Debut))}} &nbsp; -
-                        &nbsp; {{date("d/m/y H:i", strtotime($horaires->Fin))}}</p>
+                <div id="horaire" class="col-md-5">
+                    <h3>HORAIRES</h3>
+                    <h4>{{date("d/m/y H:i", strtotime($horaires->Debut))}} &nbsp; -
+                        &nbsp; {{date("d/m/y H:i", strtotime($horaires->Fin))}}</h4>
                 </div>
             </div>
         </div>
         <div class="row">
             <div id="map_photo" class="line">
-                <div class="col-md-offset-1 col-md-4">
+                <div id="map" class="col-md-offset-1 col-md-4">
 
                     {{$place = $activity->lieu}};
                     <?php
@@ -102,7 +103,7 @@
 
                 </div>
 
-                <div class="col-md-5 ">
+                <div class="col-md-5">
 
                     <a href="{{route('activity.gallery',['id'=>$activity->id])}}">
                         <div id="ourCarousel" class="carousel slide" data-ride="carousel">
@@ -121,18 +122,18 @@
                                 @endforeach
                             </ol>
                             <!--Carousel items-->
-                            <div class="carousel-inner">
+                            <div class="carousel-inner" style=" width:100%; height: 40rem;">
 
                                 <?php $y = 0 ?>
                                 <div class="item active">
-                                    <img src="{{$Firstphoto->pathPhoto}}" width="100%"/>
+                                    <img src="{{$Firstphoto->pathPhoto}}" width="100%">
                                 </div>
                                 @foreach($photos as $photo)
                                     @if($y == 0)
 
                                     @else
                                         <div class="item">
-                                            <img src="{{$photo->pathPhoto}}" width="100%"/>
+                                            <img src="{{$photo->pathPhoto}}" width="100%">
                                         </div>
                                     @endif
                                     <?php $y++ ?>
@@ -156,13 +157,18 @@
         </div>
         <br><br><br>
         <div class="row">
-            <div id="map_photo" class="line">
-                <div id="inscription" class="col-md-offset-5 col-md-4">
+            <div class="line">
+                <div id="inscription" class="col-md-offset-2 col-md-4">
+
                     @if(App\User_activite::where('id_activite', '=', $activity->id)->where('id_user', '=', auth::user()->id)->exists())
                         <a href="{{route('activity.unparticiper',['id'=>$activity->id])}}" class="btn btn-primary pull-right" role="button">SE DÉSINSCRIRE</a>
                     @else
                         <a href="{{route('activity.participer',['id'=>$activity->id])}}" class="btn btn-primary pull-right" role="button">S'INSCRIRE</a>
                     @endif
+<<<<<<< HEAD
+=======
+
+>>>>>>> b326c2e038af9c0749a5eb4193cd21721413c488
                 </div>
             </div>
         </div>
