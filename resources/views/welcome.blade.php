@@ -1,7 +1,7 @@
 @extends('Identification-template')
 
 @section('title')
-    Bde cesi acceuil
+    Bde-Cesi-Acceuil
     @endsection
 
 @section('custom_css')
@@ -28,9 +28,4 @@
         <br>
         <br>
         <br>
-
-
-
-
-                                                                                
 @endsection

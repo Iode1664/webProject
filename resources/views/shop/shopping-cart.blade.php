@@ -1,7 +1,7 @@
 @extends('Boutique-template')
 
 @section('title')
-    Boutique
+    Boutique-Panier
 @endsection
 
 @section('contenu')

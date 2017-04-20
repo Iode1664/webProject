@@ -33,8 +33,6 @@ body {
 
 #logoExia img{
     height: 12rem;
-
-
 }
 
 #logoEi img {
@@ -45,7 +43,6 @@ body {
 
 #logoCesi img{
     height: 10rem;
-
 }
 
 #cart {
@@ -56,6 +53,11 @@ body {
     margin-top: 2.5rem;
 }
 
+.mention{
+    font-size: 1.5rem;
+    font-family: "Arial Black", sans-serif;
+    color: white;
+}
 
 #bouton{
     margin-top: 1rem;

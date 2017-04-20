@@ -12,6 +12,8 @@
 
 @section('contenu')
     <div class="container">
+        <br>
+        <br>
         <h2>Participants à l'activité {{$activity->nom}}</h2>
         <table class="table table-striped">
             <thead>
@@ -33,6 +35,8 @@
             @endforeach
             </tbody>
         </table>
+        <br>
+        <br>
     </div>
 
 @endsection

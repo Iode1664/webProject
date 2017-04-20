@@ -1,5 +1,5 @@
 <?php $__env->startSection('title'); ?>
-    bde cesi
+    Liste des Activitées
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('custom_css'); ?>
@@ -234,6 +234,10 @@
                     </div>
                 </div>
             </div>
+
+            <a href="<?php echo e(route('activity.suggestions')); ?>" class="btn btn-primary pull-right supp" role="button">Liste des suggestions</a>
+
+
         </div>
     </div>  <br><br>
 

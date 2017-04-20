@@ -18,6 +18,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="/../webProject/public/css/style-boutique.css">
+    <link rel="stylesheet" href="/../webProject/public/css/style-mention.css">
 
 
     @yield('custom_css')
@@ -169,7 +170,7 @@
             </div>
 
             <div id="mention" class="col-md-2">
-                <p><a href="">/Mention légales</a></p>
+                <p><a class="mention" href="{{url('/mentionLegales')}}">/Mention légales</a></p>
             </div>
         </div>
     </div>
