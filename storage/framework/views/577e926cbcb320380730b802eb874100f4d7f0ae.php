@@ -97,7 +97,7 @@
                                             <input type="submit" class="btn btn-primary pull-right" value="VOTER" id="vote"/>
                                         </form>
                                         <?php endif; ?>
-                                        </form>
+
                                 </div>
                             </div>
                         </div>

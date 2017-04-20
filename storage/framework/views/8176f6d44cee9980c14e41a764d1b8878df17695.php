@@ -27,19 +27,12 @@
         <div id="top" class="row">
             <div id="caret" class="col-md-offset-10">
                 <li class="dropdown">
-                    <?php if(auth::User()->promo === 'Exia'): ?>
                         <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             <img src="<?php echo e(Auth::user()->avatar); ?>" height="50">
                             <?php echo e(Auth::user()->prenom); ?> <span class="caret"></span>
                         </button>
-                    <?php else: ?>
-                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <img src="<?php echo e(Auth::user()->avatar); ?>" height="50">
-                            <?php echo e(Auth::user()->prenom); ?> <span class="caret"></span>
-                        </button>
-                    <?php endif; ?>
+
                     <ul class="dropdown-menu" role="menu">
                         <li>
                             <a href="<?php echo e(route('logout')); ?>"

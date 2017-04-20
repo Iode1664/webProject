@@ -54,6 +54,9 @@ Route::get('/unparticiper/{id}', [
 $router->group(['middleware' => 'csrf'], function($router)
 {
     Route::post('/activites/vote', ['as' => 'activites.vote', 'uses' => 'ActiviteController@vote']);
+    Route::get('/commentaire/like/{id}', ['uses' => 'JaimeController@store', 'as' => 'jaime.store']);
+    Route::get('/commentaire/dislike/{id}', ['uses' => 'JaimeController@unstore', 'as' => 'jaime.unstore']);
+
 });
 
 Route::get('/unvote/{id}', [
@@ -70,15 +73,9 @@ Route::get('/gallery/{id}', [
 
 
 Route::get('/commentaire/{id}', ['uses' => 'CommentaireController@index', 'as' => 'commentaire.index']);
-
 Route::post('/commentaire/{id}', [ 'uses' => 'CommentaireController@store', 'as' => 'commentaire.store']);
-
-
-Route::post('/commentaire/{id}', [ 'uses' => 'CommentaireController@store', 'as' => 'commentaire.store']);
-
 
 Route::post('/gallery/{id}', ['uses' => 'PhotoController@store', 'as' =>'photo.store']);
-
 
 
 Route::resource('user', 'UserController');
@@ -90,7 +87,7 @@ Route::resource('statut_activite', 'Statut_activiteController');
 Route::resource('vote', 'VoteController');
 Route::resource('user_activite', 'User_activiteController');
 Route::resource('horaire', 'HoraireController');
-Route::resource('jaime', 'JaimeController');
+
 Route::resource('product', 'ProductController');
 
 
