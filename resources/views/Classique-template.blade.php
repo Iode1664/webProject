@@ -118,6 +118,8 @@
 {{--Contenu du site--}}
 <div id="contenu">
     @yield('contenu')
+
+    @yield('javascript')
 </div>
 {{--Footer--}}
 <footer>
@@ -150,8 +152,5 @@
     </div>
 
 </footer>
-
-@yield('javascript')
-
 </body>
 </html>
