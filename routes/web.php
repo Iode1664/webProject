@@ -52,10 +52,11 @@ Route::get('/participer/{id}', [
     'as'=>'activity.participer'
 ]);
 
-Route::get('/participer/{id}', [
-    'uses'=>'ActiviteController@delete',
+Route::get('/deleteActivite/{id}', [
+    'uses'=>'ActiviteController@deleteActivity',
     'as'=>'activity.delete'
 ]);
+
 
 Route::get('/suggestions', [
     'uses'=>'ActiviteController@getSuggestions',

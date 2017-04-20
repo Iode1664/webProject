@@ -32,7 +32,7 @@
                 <li class="dropdown">
                     <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <img src="{{ Auth::user()->avatar }}" height="50">
+                        <img id="avatar" src="{{ Auth::user()->avatar }}">
                         {{ Auth::user()->prenom }} <span class="caret"></span>
                     </button>
 
@@ -150,10 +150,7 @@
         </div>
     </div>
 </footer>
-<<<<<<< Updated upstream
-=======
 @yield('javascript')
 </wrapper>
->>>>>>> Stashed changes
 </body>
 </html>

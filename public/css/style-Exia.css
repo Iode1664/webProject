@@ -90,9 +90,14 @@ body {
 
 #caret{
     display: block;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     padding-left: 8rem;
     font-size: 1px;
+    height: 5rem;
+}
+
+#caret img {
+    height: 2.5rem;
 }
 
 #cart img {

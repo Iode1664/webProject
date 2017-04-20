@@ -82,7 +82,6 @@
                                         <a href="{{route('activites.unvote', ['id'=>$vote->id])}}"
                                            class="btn btn-primary pull-right" role="button">ANNULER VOTE</a>
                                     @else
-
                                         <form action="{{route('activites.vote')}}" method="POST">
                                             <div class="form-group">
                                                 <label for="sel1">Selectionnez une plage horaire :</label>
@@ -95,10 +94,14 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <input type="submit" class="btn btn-primary pull-right" value="VOTER" id="vote"/>
+                                            <input type="submit" class="btn btn-primary pull-right" value="VOTER"
+                                                   id="vote"/>
                                         </form>
-                                        @endif
-
+                                    @endif
+                                    @if(auth::User()->id_statut === 2 || auth::User()->id_statut === 3)
+                                        <a id="supp" href="{{route('activity.delete',['id'=>$vote->id])}}"
+                                           class="btn btn-danger pull-left" role="button">SUPPRIMER VOTE</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
