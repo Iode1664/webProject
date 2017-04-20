@@ -19,6 +19,7 @@
         <br>
         <div class="row">
             <div class="col-md-offset-1">
+
             @if(App\Jaime::where('id_photo', '=', $photo->id)->where('id_user', '=', auth::User()->id)->exists())
                 <a href="{{route('jaime.unstore', ['id'=>$photo->id])}}"  role="button"><img src="/../webProject/public/images/coeur-rose.png">
                 </a>
@@ -52,6 +53,12 @@
                             </div><!-- /panel-body -->
                         </div><!-- /panel panel-default -->
                     </div><!-- /col-sm-5 -->
+
+                    <div class="col-md-11">
+                        @if(Auth::User()->id_statut == 3)
+                            <a href="{{route('commentaire.supprimer',['id'=>$comment->id])}}" class="btn btn-danger pull-right supp" role="button">Supprimer commentaire</a>
+                        @endif
+                    </div>
 
                 </div>
             </div>

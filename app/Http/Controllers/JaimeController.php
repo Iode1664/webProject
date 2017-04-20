@@ -41,20 +41,14 @@ class JaimeController extends Controller {
           $jaime->id_photo = $id;
           $jaime->save();
 
-      $photo = Photo::find($id);
-      $comments = DB::table('commentaires')->join('users', 'commentaires.id_user', '=','users.id')->select('commentaires.texte', 'commentaires.id_photo','users.nom','users.prenom', 'users.avatar')->where('id_photo', '=', $id)->get();
-
-      return view('commentaires', ['photo' => $photo])->with('comments',$comments);
+      return redirect()->route('commentaire.index', ['id'=>$id]);
   }
 
     public function unstore($id)
     {
         Jaime::where('id_photo', '=', $id)->where('id_user', '=', auth::User()->id)->delete();
 
-        $photo = Photo::find($id);
-        $comments = DB::table('commentaires')->join('users', 'commentaires.id_user', '=','users.id')->select('commentaires.texte', 'commentaires.id_photo','users.nom','users.prenom', 'users.avatar')->where('id_photo', '=', $id)->get();
-
-        return view('commentaires', ['photo' => $photo])->with('comments',$comments);
+        return redirect()->route('commentaire.index', ['id'=>$id]);
     }
 
 
