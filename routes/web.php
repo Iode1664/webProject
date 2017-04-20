@@ -32,6 +32,11 @@ Route::get('/activites', [
     'uses' => 'ActiviteController@index'
 ]);
 
+Route::get('/activite/{id}/participants', [
+    'uses' => 'ActiviteController@getParticipants',
+    'as' => 'activity.participants'
+]);
+
 Route::get('/activite/{id}', [
     'uses' => 'ActiviteController@getActivity',
     'as' => 'activity.show'
@@ -45,6 +50,11 @@ Route::post('/activite/{id}', [
 Route::get('/participer/{id}', [
     'uses'=>'ActiviteController@participer',
     'as'=>'activity.participer'
+]);
+
+Route::get('/suggestions', [
+    'uses'=>'ActiviteController@getSuggestions',
+    'as'=>'activity.suggestions'
 ]);
 
 Route::get('/unparticiper/{id}', [

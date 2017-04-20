@@ -1,8 +1,11 @@
+
 .photo img {
-    height: 35rem;
+    height:  28rem;
 }
 
-
+.photo {
+    text-align: center;
+}
 
 
 .line {
