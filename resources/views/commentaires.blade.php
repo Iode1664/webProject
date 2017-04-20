@@ -23,13 +23,16 @@
             @if(App\Jaime::where('id_photo', '=', $photo->id)->where('id_user', '=', auth::User()->id)->exists())
                 <a href="{{route('jaime.unstore', ['id'=>$photo->id])}}"  role="button"><img src="/../webProject/public/images/coeur-rose.png">
                 </a>
+                    <span class="badge ">{{$compte = App\Jaime::select('id')->where('id_photo', '=', $photo->id)->count()}}</span>
             @else
                 <a href="{{route('jaime.store', ['id'=>$photo->id])}}"  role="button"><img src="/../webProject/public/images/coeur-noir.png">
                 </a>
+                    <span class="badge ">{{$compte = App\Jaime::select('id')->where('id_photo', '=', $photo->id)->count()}}</span>
             @endif
+
             </div>
         </div>
-        <br>
+        <br><br>
 
 
     @foreach($comments as $comment)
@@ -64,7 +67,7 @@
             </div>
             <br><br>
         @endforeach
-
+        <br><br>
         <div class="row">
             <div class="col-md-12 ">
                 <div class="panel panel-default">
