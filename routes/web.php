@@ -72,6 +72,11 @@ Route::get('/supprimmerArticle/{id}', [
     'as'=>'activity.supprimerArticle'
 ]);
 
+Route::get('/supprimmerCommentaire/{id}', [
+    'uses'=>'CommentaireController@destroy',
+    'as'=>'commentaire.supprimer'
+]);
+
 $router->group(['middleware' => 'csrf'], function($router)
 {
     Route::post('/activites/vote', ['as' => 'activites.vote', 'uses' => 'ActiviteController@vote']);

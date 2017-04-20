@@ -19,16 +19,20 @@
         <br>
         <div class="row">
             <div class="col-md-offset-1">
+
             @if(App\Jaime::where('id_photo', '=', $photo->id)->where('id_user', '=', auth::User()->id)->exists())
                 <a href="{{route('jaime.unstore', ['id'=>$photo->id])}}"  role="button"><img src="/../webProject/public/images/coeur-rose.png">
                 </a>
+                    <span class="badge ">{{$compte = App\Jaime::select('id')->where('id_photo', '=', $photo->id)->count()}}</span>
             @else
                 <a href="{{route('jaime.store', ['id'=>$photo->id])}}"  role="button"><img src="/../webProject/public/images/coeur-noir.png">
                 </a>
+                    <span class="badge ">{{$compte = App\Jaime::select('id')->where('id_photo', '=', $photo->id)->count()}}</span>
             @endif
+
             </div>
         </div>
-        <br>
+        <br><br>
 
 
     @foreach($comments as $comment)
@@ -53,11 +57,17 @@
                         </div><!-- /panel panel-default -->
                     </div><!-- /col-sm-5 -->
 
+                    <div class="col-md-11">
+                        @if(Auth::User()->id_statut == 3)
+                            <a href="{{route('commentaire.supprimer',['id'=>$comment->id])}}" class="btn btn-danger pull-right supp" role="button">Supprimer commentaire</a>
+                        @endif
+                    </div>
+
                 </div>
             </div>
             <br><br>
         @endforeach
-
+        <br><br>
         <div class="row">
             <div class="col-md-12 ">
                 <div class="panel panel-default">

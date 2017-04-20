@@ -22,7 +22,7 @@ class CommentaireController extends Controller {
   public function index($id)
   {
       $photo = Photo::find($id);
-      $comments = DB::table('commentaires')->join('users', 'commentaires.id_user', '=','users.id')->select('commentaires.texte', 'commentaires.id_photo','users.nom','users.prenom', 'users.avatar')->where('id_photo', '=', $id)->get();
+      $comments = DB::table('commentaires')->join('users', 'commentaires.id_user', '=','users.id')->select('commentaires.id','commentaires.texte', 'commentaires.id_photo','users.nom','users.prenom', 'users.avatar')->where('id_photo', '=', $id)->get();
       return view('commentaires', ['photo' => $photo])->with('comments',$comments);
   }
 
@@ -35,50 +35,18 @@ class CommentaireController extends Controller {
         $commentaire->id_photo = $id;
         $commentaire->save();
 
-      $photo = Photo::find($id);
-      $comments = DB::table('commentaires')->join('users', 'commentaires.id_user', '=','users.id')->select('commentaires.texte', 'commentaires.id_photo','users.nom','users.prenom', 'users.avatar')->where('id_photo', '=', $id)->get();
-      return view('commentaires', ['photo' => $photo])->with('comments',$comments);
-      return redirect()->route('commentaires.index');
+
+      return redirect()->route('commentaire.index', ['id' => $id]);
   }
 
 
 
-  public function show($id)
-  {
-    
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function edit($id)
-  {
-    
-  }
-
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function update($id)
-  {
-    
-  }
-
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
   public function destroy($id)
   {
-    
+      $photo = Commentaire::find($id);
+      Commentaire::where('id', '=', $id)->delete();
+      $idf = $photo->id_photo;
+      return redirect()->route('commentaire.index', ['id'=>$idf]);
   }
   
 }
