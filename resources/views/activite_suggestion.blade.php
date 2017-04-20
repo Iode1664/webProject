@@ -1,7 +1,7 @@
 @extends('Classique-template')
 
 @section('title')
-    Liste des participants
+    Liste des suggestions
 @endsection
 
 @section('custom_css')

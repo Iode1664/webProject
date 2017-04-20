@@ -82,7 +82,7 @@
                 </div>
 
                 <div id="mention" class="col-md-2">
-                    <p><a href="">/Mention légales</a></p>
+                    <p><a  class="mention" href="<?php echo e(url('/mentionLegales')); ?>">/Mention légales</a></p>
                 </div>
             </div>
         </div>

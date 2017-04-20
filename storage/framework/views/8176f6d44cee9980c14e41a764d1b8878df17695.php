@@ -9,6 +9,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/../webProject/public/css/style-mention.css">
 
 
     <?php if(auth::User()->promo === 'Exia'): ?>
@@ -17,6 +18,7 @@
     <?php else: ?>
         <link rel="stylesheet" href="/../webProject/public/css/style-Ei.css">
         <link rel="shortcut icon" type="image/x-icon" href="/../webProject/public/images/logo-ei-onglet.ico"/>
+
 
     <?php endif; ?>
     <?php echo $__env->yieldContent('custom_css'); ?>
@@ -146,7 +148,7 @@
             </div>
 
             <div id="mention" class="col-md-2">
-                <p><strong><a href="">/Mention légales</a></strong></p>
+                <p><a class="mention" href="<?php echo e(url('/mentionLegales')); ?>">/Mention légales</a></p>
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 @extends('Classique-template')
 
 @section('title')
-    bde cesi
+    Photo-Commentaire
 @endsection
 
 @section('custom_css')

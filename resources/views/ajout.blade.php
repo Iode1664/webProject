@@ -1,7 +1,7 @@
 @extends('Classique-template')
 
 @section('title')
-    bde cesi
+    Ajout
 @endsection
 
 

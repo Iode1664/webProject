@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/mentionLegales', 'MentionController@index');
+
 Route::get('/ajout', 'MembreController@index');
 Route::post('/ajout/membre', ['as' => 'ajout-membre', 'uses' => 'MembreController@create']);
 
