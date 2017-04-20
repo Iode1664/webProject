@@ -67,13 +67,12 @@ Route::get('/gallery/{id}', [
     'as'=>'activity.gallery'
 ]);
 
-<<<<<<< HEAD
+
 
 Route::get('/commentaire/{id}', ['uses' => 'CommentaireController@index', 'as' => 'commentaire.index']);
-=======
-Route::get('/commentaire/{idp}', ['uses' => 'CommentaireController@index', 'as' => 'commentaire.index']);
-Route::post('/commentaire/{idp}', [ 'uses' => 'CommentaireController@store', 'as' => 'commentaire.store']);
->>>>>>> b326c2e038af9c0749a5eb4193cd21721413c488
+
+Route::post('/commentaire/{id}', [ 'uses' => 'CommentaireController@store', 'as' => 'commentaire.store']);
+
 
 Route::post('/commentaire/{id}', [ 'uses' => 'CommentaireController@store', 'as' => 'commentaire.store']);
 

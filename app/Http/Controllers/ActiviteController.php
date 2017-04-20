@@ -10,12 +10,10 @@ use auth;
 use App\Vote;
 use App\Horaire;
 use App\Http\Requests\activiteRequest;
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-=======
->>>>>>> b326c2e038af9c0749a5eb4193cd21721413c488
+
+
+
+
 
 
 class ActiviteController extends Controller

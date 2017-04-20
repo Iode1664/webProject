@@ -54,28 +54,50 @@
         </div>
         <div class="row">
             <div class="col-md-4 col-md-offset-5" id="activity_title">
-                <h2>ACTIVITÉS</h2>
+                <h2>VOTES</h2>
             </div>
         </div>
-        <?php $__currentLoopData = $activitys->chunk(2); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $activitysChunk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php $__currentLoopData = $votes->chunk(2); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $voteschunk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <br><br>
             <div class="row">
                 <div class="line">
                     
-                    <?php $__currentLoopData = $activitysChunk; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $activity): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php $__currentLoopData = $voteschunk; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vote): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="col-sm-6 col-md-6">
                             <div class="thumbnail">
                                 <div class="wrapper">
-                                    <img class="slide" src="<?php echo e($activity->photo); ?>">
+                                    <img class="slide" src="<?php echo e($vote->photo); ?>">
                                     <div class="caption">
 
-                                        <h3>&nbsp; <?php echo e($activity->nom); ?></h3>
+                                        <h3>&nbsp; <?php echo e($vote->nom); ?></h3>
                                         <br>
-                                        <p class="desc"><?php echo e($activity->description); ?></p>
+                                        <p class="desc"><?php echo e($vote->description); ?></p>
                                         <br>
                                     </div>
-                                    <a href="<?php echo e(route('activity.show',['id'=>$activity->id])); ?>"
-                                       class="btn btn-primary pull-right" role="button">Voir plus</a>
+
+
+                                    <?php if(App\Vote::whereIn('id_horaire', App\Horaire::select('id')->where('id_activite', "=", $vote->id)->get())->where('id_user', '=', auth::user()->id)->exists()): ?>
+                                        <a href="<?php echo e(route('activites.unvote', ['id'=>$vote->id])); ?>"
+                                           class="btn btn-primary pull-left" role="button">ANNULER VOTE</a>
+                                    <?php else: ?>
+
+                                        <form action="<?php echo e(route('activites.vote')); ?>" method="POST">
+                                            <div class="form-group">
+                                                <label for="sel1">Selectionnez une plage horaire :</label>
+                                                <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+                                                <select name="plage_horaire" class="form-control" id="sel1">
+                                                    <?php $__currentLoopData = App\Horaire::where('id_activite', "=", $vote->id)->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $hor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <option value="<?php echo e($hor->id); ?>"><?php echo e(date("d/m/y H:i", strtotime($hor->Debut))); ?>
+
+                                                            &nbsp; -
+                                                            &nbsp; <?php echo e(date("d/m/y H:i", strtotime($hor->Fin))); ?></option>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                </select>
+                                            </div>
+                                            <input type="submit" class="btn btn-primary" value="VOTER" id="vote"/>
+                                        </form>
+                                        <?php endif; ?>
+                                        </form>
                                 </div>
                             </div>
                         </div>
