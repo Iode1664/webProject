@@ -38,3 +38,16 @@
     transition: 1s;
     left: -100%;
 }
+
+#nav {
+    margin-top: 5rem;
+}
+
+#nav ul {
+    background-color: #cc0000;
+}
+
+#nav a {
+    background-color: #cc0000;
+    color: whitesmoke;
+}

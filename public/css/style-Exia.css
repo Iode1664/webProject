@@ -90,9 +90,14 @@ body {
 
 #caret{
     display: block;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     padding-left: 8rem;
     font-size: 1px;
+    height: 5rem;
+}
+
+#caret img {
+    height: 2.5rem;
 }
 
 #cart img {
@@ -119,7 +124,7 @@ body {
 #foot{
     color: white;
     background-color: #cc0000;
-    height: 15rem;
+    height: 17rem;
 
 }
 
@@ -149,4 +154,9 @@ body {
 
 #contenu{
     background-color: #F2F2F2 ;
+}
+footer {
+    position:relative;
+    bottom:0rem;
+    width: 100%;
 }

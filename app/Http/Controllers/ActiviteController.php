@@ -211,6 +211,19 @@ class ActiviteController extends Controller
         return redirect()->route('activity.show', ['id'=>$id]);
     }
 
+    public function deleteActivity($id)
+    {
+        $horaires = Horaire::where('id_activite', '=', $id)->get();
+        if ($horaires != null){
+            foreach ($horaires as $horaire){
+                Vote::where('id_horaire', '=', $horaire->id)->delete();
+                $horaire->delete();
+            }
+        }
+        Activite::find($id)->delete();
+        return $this->index();
+    }
+
     public function vote(Request $request)
     {
         $participation = new Vote();
