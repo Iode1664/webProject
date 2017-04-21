@@ -74,6 +74,11 @@ Route::get('/supprimmerCommentaire/{id}', [
     'as'=>'commentaire.supprimer'
 ]);
 
+Route::get('/supprimmerPhoto/{id}', [
+    'uses'=>'PhotoController@destroy',
+    'as'=>'photo.supprimer'
+]);
+
 $router->group(['middleware' => 'csrf'], function($router)
 {
     Route::post('/activites/vote', ['as' => 'activites.vote', 'uses' => 'ActiviteController@vote']);

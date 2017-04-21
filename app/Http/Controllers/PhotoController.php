@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Commentaire;
 use App\Http\Requests\photoRequest;
+use App\Jaime;
 use App\Photo;
 
 class PhotoController extends Controller
@@ -42,27 +44,24 @@ class PhotoController extends Controller
             }
         }
         $photo->save();
-        return redirect('home');
+        $idd = $photo->id_activite;
+        return redirect()->route('activity.gallery', ['id'=>$idd]);
     }
 
 
-    public function show($id)
+    public function destroy($id)
     {
+        $activite = Photo::find($id);
+        Commentaire::where('id_photo', '=', $id)->delete();
+        Jaime::where('id_photo', '=', $id)->delete();
+        Photo::where('id', '=', $id)->delete();
+        $idaa = $activite->id_activite;
 
-
+        return redirect()->route('activity.gallery', ['id'=>$idaa]);
     }
 
 
-    public function edit($id)
-    {
 
-    }
-
-
-    public function update($id)
-    {
-
-    }
 }
 
 ?>

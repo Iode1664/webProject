@@ -1,5 +1,5 @@
 <?php $__env->startSection('title'); ?>
-    Bde cesi acceuil
+    Bde-Cesi-Acceuil
     <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('custom_css'); ?>
@@ -26,10 +26,5 @@
         <br>
         <br>
         <br>
-
-
-
-
-                                                                                
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('Identification-template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

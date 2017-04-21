@@ -316,7 +316,7 @@
             <?php endif; ?>
         </div>
 
-<br><br><br>
+        <br><br><br>
         <div class="container">
             <?php if(auth::User()->id_statut == 3): ?>
                 <div class="row">
@@ -506,21 +506,38 @@
                                         <label for="avatar" class="col-md-4 control-label">Choisi ton avatar</label>
 
                                         <div class="col-md-6">
-                                            <input id="photo1" type="radio" class="form-checkinput" name="avatar"
-                                                   value="../../webProject/public/avatar/alonso.jpg" required><label
-                                                    for="photo1"><img
-                                                        src="../../webProject/public/avatar/alonso.jpg"></label><br/>
-                                            <input id="photo2" type="radio" class="form-checkinput" name="avatar"
-                                                   value="../../webProject/public/avatar/mercos.jpg" required><label
-                                                    for="photo2"><img
-                                                        src="../../webProject/public/avatar/mercos.jpg"></label><br/>
+                                            <div class="col-md-5 ">
+                                                <input id="photo1" type="radio" class="form-checkinput" name="avatar"
+                                                       value="/../webProject/public/avatar/alonso.jpg" required><label
+                                                        for="photo1"><img
+                                                            src="/../webProject/public/avatar/alonso.jpg"></label>
+                                            </div>
+                                            <div class="col-md-5 col-md-offset-2">
+                                                <input id="photo4" type="radio" class="form-checkinput" name="avatar"
+                                                       value="/../webProject/public/avatar/deadpool.png" required><label
+                                                        for="photo4"><img
+                                                            src="/../webProject/public/avatar/deadpool.png"></label>
+                                            </div>
+                                            <div class="col-md-5 ">
+                                                <input id="photo2" type="radio" class="form-checkinput" name="avatar"
+                                                       value="/../webProject/public/avatar/lion.png" required><label
+                                                        for="photo2"><img
+                                                            src="/../webProject/public/avatar/lion.png"></label>
+                                            </div>
+                                            <div class="col-md-5 col-md-offset-2">
+                                                <input id="photo3" type="radio" class="form-checkinput" name="avatar"
+                                                       value="/../webProject/public/avatar/batman.png" required><label
+                                                        for="photo3"><img
+                                                            src="/../webProject/public/avatar/batman.png"></label>
+                                            </div>
+                                        </div>
 
                                             <?php if($errors->has('promo')): ?>
                                                 <span class="help-block">
                                         <strong><?php echo e($errors->first('promo')); ?></strong>
                                     </span>
                                             <?php endif; ?>
-                                        </div>
+
                                     </div>
 
                                     <div class="form-group">

@@ -17,15 +17,18 @@
             <div class="row">
                 <div class="line">
                     @foreach($photoChunck as $photo)
-
                         <div class="col-sm-6 col-md-4 photo">
                             <a href="{{route('commentaire.index',['id'=>$photo->id])}}">
                                 <img src="{{$photo->pathPhoto}}">
                             </a>
-                            <div>
-                                <a href="{{$photo->pathPhoto}}" download="{{$photo->pathPhoto}}" style="margin-top: 1rem;"><input type="button" value="Télécharger"></a>
-
+                            @if(Auth::User()->id_statut == 3)
+                            <div class="col-md-4 col-md-offset-2 "><br>
+                                <a href="{{$photo->pathPhoto}}" download="{{$photo->pathPhoto}}" style="margin-top: 1rem;"><input type="button" class="btn btn-success" value="Télécharger"></a>
                             </div>
+                            <div class="col-md-4 "><br>
+                                <a href="{{route('photo.supprimer',['id'=>$photo->id])}}" class="btn btn-danger " role="button">Supprimer</a>
+                            </div>
+                            @endif
                         </div>
                     @endforeach
                 </div>

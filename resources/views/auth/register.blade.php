@@ -5,6 +5,7 @@
 @section('contenu')
 <div class="container">
     <div class="row">
+        <br><br><br>
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Enregistrement</div>
@@ -97,24 +98,42 @@
                             <label for="avatar" class="col-md-4 control-label">Choisi ton avatar</label>
 
                             <div class="col-md-6">
-                                <input id="photo1" type="radio" class="form-checkinput" name="avatar" value="/../webProject/public/avatar/alonso.jpg" required><label for="photo1"><img src="../../webProject/public/avatar/alonso.jpg"></label><br />
-                                <input id="photo2" type="radio" class="form-checkinput" name="avatar" value="/../webProject/public/avatar/batman.png" required><label for="photo2"><img src="../../webProject/public/avatar/batman.png"></label><br />
-                                <input id="photo3" type="radio" class="form-checkinput" name="avatar" value="/../webProject/public/avatar/deadpool.png" required><label for="photo3"><img src="../../webProject/public/avatar/deadpool.png"></label><br />
-
+                                <div class="col-md-6">
+                                    <input id="photo1" type="radio" class="form-checkinput" name="avatar"
+                                           value="/../webProject/public/avatar/alonso.jpg" required><label
+                                            for="photo1"><img
+                                                src="/../webProject/public/avatar/alonso.jpg" class="alonso"></label>
+                                </div>
+                                <div class="col-md-3 ">
+                                    <input id="photo4" type="radio" class="form-checkinput" name="avatar"
+                                           value="/../webProject/public/avatar/deadpool.png" required><label
+                                            for="photo4"><img
+                                                src="/../webProject/public/avatar/deadpool.png"></label>
+                                </div>
+                                <div class="col-md-4 ">
+                                    <input id="photo2" type="radio" class="form-checkinput" name="avatar"
+                                           value="/../webProject/public/avatar/lion.png" required><label
+                                            for="photo2"><img
+                                                src="/../webProject/public/avatar/lion.png"></label>
+                                </div>
+                                <div class="col-md-5 col-md-offset-2">
+                                    <input id="photo3" type="radio" class="form-checkinput" name="avatar"
+                                           value="/../webProject/public/avatar/batman.png" required><label
+                                            for="photo3"><img
+                                                src="/../webProject/public/avatar/batman.png"></label>
+                                </div>
+                            </div>
                                 @if ($errors->has('promo'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('promo') }}</strong>
                                     </span>
-                                @endif
-                            </div>
+                            @endif
+
                         </div>
-
-
-
-
+                            <br>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary pull-right">
                                     Enregistrement
                                 </button>
                             </div>
@@ -123,6 +142,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div><br><br><br>
 </div>
 @endsection
